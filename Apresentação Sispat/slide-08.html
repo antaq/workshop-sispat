@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login no SisPAT</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 30px 80px 40px 80px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* URL Highlight Box */
+        .url-box {
+            background-color: #F0F9FF;
+            border: 3px solid #0066CC;
+            border-radius: 16px;
+            padding: 40px 60px;
+            text-align: center;
+            width: 90%;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 25px -5px rgba(0, 102, 204, 0.1), 0 10px 10px -5px rgba(0, 102, 204, 0.04);
+            position: relative;
+            z-index: 20;
+        }
+        
+        .url-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .url-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #003366;
+            margin-bottom: 20px;
+            word-break: break-all;
+            padding: 10px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 1px dashed #CBD5E1;
+        }
+        
+        .url-tip {
+            display: inline-flex;
+            align-items: center;
+            background-color: #FFFBEB;
+            color: #92400E;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #FDE68A;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .info-card {
+            background-color: #FFFFFF;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 6px solid #CBD5E1;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-current {
+            border-left-color: #0066CC;
+        }
+        
+        .card-future {
+            border-left-color: #003366;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .icon-current {
+            background-color: #E0F2FE;
+            color: #0066CC;
+        }
+        
+        .icon-future {
+            background-color: #E0E7FF;
+            color: #003366;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 8px;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* Background Graphics */
+        .bg-lock {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            font-size: 400px;
+            color: #F1F5F9;
+            z-index: 0;
+            opacity: 0.4;
+            transform: rotate(-15deg);
+        }
+        
+        .bg-key {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            font-size: 250px;
+            color: #F8FAFC;
+            z-index: 0;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login no SisPAT</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Endereço eletrônico para acesso ao sistema</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-sign-in-alt text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ACESSO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- URL Highlight -->
+<div class="url-box">
+<p class="url-label"><i class="fas fa-link mr-2"></i>Link de Acesso Principal</p>
+<p class="url-text">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</p>
+<div class="url-tip">
+<i class="fas fa-star mr-2 text-yellow-500"></i>
+<span>Dica: Adicione este endereço aos favoritos do seu navegador (Ctrl + D)</span>
+</div>
+</div>
+<!-- Info Cards -->
+<div class="info-grid">
+<!-- Current Access -->
+<div class="info-card card-current">
+<div class="card-icon icon-current">
+<i class="fas fa-user-lock"></i>
+</div>
+<div>
+<p class="card-title">Acesso Atual</p>
+<p class="card-desc">
+                            O login é realizado mediante credenciais (usuário e senha) previamente autorizadas e cadastradas pela equipe administrativa do SisPAT.
+                        </p>
+</div>
+</div>
+<!-- Future Access -->
+<div class="info-card card-future">
+<div class="card-icon icon-future">
+<i class="fas fa-id-badge"></i>
+</div>
+<div>
+<p class="card-title">Futuramente</p>
+<p class="card-desc">
+                            Estão previstas integrações ampliadas de autenticação (SSO/Gov.br) e perfis de acesso mais granulares para diferentes níveis de usuários.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Acesso ao Sistema - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">8 / 21</p>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-lock bg-lock"></i>
+<i class="fas fa-key bg-key"></i>
+</div>
+</body>
+</html>

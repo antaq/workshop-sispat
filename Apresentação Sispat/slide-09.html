@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro de Bem - Visão Geral</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 20px 80px 40px 80px;
+            flex-direction: column;
+        }
+
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .step-card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 5px solid #CBD5E1;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #FFFFFF;
+        }
+
+        /* Number Circle */
+        .step-number-container {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            margin-right: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: #0066CC;
+            z-index: 2;
+        }
+
+        .step-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #E0F2FE;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .step-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        /* Specific styles for active/hover states via classes or nth-child */
+        .step-card:nth-child(1) { border-bottom-color: #94A3B8; }
+        .step-card:nth-child(2) { border-bottom-color: #60A5FA; }
+        .step-card:nth-child(3) { border-bottom-color: #3B82F6; }
+        .step-card:nth-child(4) { border-bottom-color: #2563EB; }
+        .step-card:nth-child(5) { border-bottom-color: #1D4ED8; }
+        .step-card:nth-child(6) { border-bottom-color: #003366; }
+
+        .step-card:hover .step-title {
+            color: #003366;
+        }
+        
+        /* Flow Arrows */
+        .arrow-connector {
+            position: absolute;
+            font-size: 24px;
+            color: #CBD5E1;
+            z-index: 10;
+        }
+        
+        .arrow-1 { top: 38%; left: 32%; }
+        .arrow-2 { top: 38%; left: 65%; }
+        .arrow-3 { top: 50%; right: 0%; transform: rotate(90deg); display: none; } /* Visual logic break */
+        .arrow-4 { bottom: 38%; left: 32%; transform: rotate(180deg); }
+        .arrow-5 { bottom: 38%; left: 65%; transform: rotate(180deg); }
+
+        /* Icon in background of card */
+        .card-bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            color: #003366;
+            transform: rotate(-15deg);
+        }
+        
+        /* Path line */
+        .path-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Cadastro de Bem - Visão Geral</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Fluxo sequencial de registro no sistema</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-list-ol text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PROCESSO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative">
+<div class="steps-grid z-10">
+<!-- Step 1 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">1</span>
+</div>
+<div class="step-content">
+<p class="step-title">Descrição</p>
+<p class="step-desc">Identificação detalhada do bem com características físicas e nomeclatura.</p>
+</div>
+<i class="fas fa-pen-alt card-bg-icon"></i>
+</div>
+<!-- Step 2 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">2</span>
+</div>
+<div class="step-content">
+<p class="step-title">Categorização</p>
+<p class="step-desc">Enquadramento em grupos patrimoniais e contas contábeis adequadas.</p>
+</div>
+<i class="fas fa-tags card-bg-icon"></i>
+</div>
+<!-- Step 3 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">3</span>
+</div>
+<div class="step-content">
+<p class="step-title">Mensuração</p>
+<p class="step-desc">Registro de valores monetários, custos de aquisição e depreciação.</p>
+</div>
+<i class="fas fa-calculator card-bg-icon"></i>
+</div>
+<!-- Step 4 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">4</span>
+</div>
+<div class="step-content">
+<p class="step-title">Classificação</p>
+<p class="step-desc">Definição da natureza, situação de uso e responsabilidade pelo bem.</p>
+</div>
+<i class="fas fa-sitemap card-bg-icon"></i>
+</div>
+<!-- Step 5 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">5</span>
+</div>
+<div class="step-content">
+<p class="step-title">Localização</p>
+<p class="step-desc">Indicação geográfica e administrativa de onde o bem se encontra.</p>
+</div>
+<i class="fas fa-map-marker-alt card-bg-icon"></i>
+</div>
+<!-- Step 6 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">6</span>
+</div>
+<div class="step-content">
+<p class="step-title">Anexos</p>
+<p class="step-desc">Upload de documentos fiscais, fotos e termos de responsabilidade.</p>
+</div>
+<i class="fas fa-paperclip card-bg-icon"></i>
+</div>
+</div>
+<!-- Visual Guidance -->
+<div class="mt-6 flex items-center justify-center text-sm text-gray-500 bg-blue-50 py-3 rounded-lg border border-blue-100">
+<i class="fas fa-info-circle text-blue-500 mr-2"></i>
+<p>É recomendável seguir a ordem numérica para garantir a consistência das informações e evitar erros de validação.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Fluxo de Cadastro - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">9 / 21</p>
+</div>
+</div>
+</body>
+</html>

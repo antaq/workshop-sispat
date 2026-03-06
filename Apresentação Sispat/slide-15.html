@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bens Cadastrados</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            gap: 24px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            height: 110px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #CBD5E1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card-blue { border-left-color: #0066CC; }
+        .stat-card-green { border-left-color: #10B981; }
+        .stat-card-orange { border-left-color: #F59E0B; }
+
+        .stat-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .icon-blue { background-color: #E0F2FE; color: #0066CC; }
+        .icon-green { background-color: #D1FAE5; color: #10B981; }
+        .icon-orange { background-color: #FEF3C7; color: #F59E0B; }
+
+        .stat-content {
+            z-index: 10;
+        }
+
+        .stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 1;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748B;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-sub {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-top: 2px;
+        }
+
+        .stat-bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            flex: 1;
+            gap: 30px;
+            min-height: 0; /* Important for nested flex scroll */
+        }
+
+        /* Left: List Mockup */
+        .list-panel {
+            flex: 0.45;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 16px;
+            border-bottom: 1px solid #E2E8F0;
+            background-color: #F8FAFC;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-mockup {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            padding: 6px 12px;
+            width: 70%;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        .list-content {
+            flex: 1;
+            padding: 0;
+            overflow-y: hidden; /* Static slide */
+            background-color: #FFFFFF;
+        }
+
+        .mock-table-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .mock-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .mock-table-header {
+            background-color: #F1F5F9;
+            font-weight: 700;
+            color: #475569;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .col-1 { width: 40%; }
+        .col-2 { width: 25%; }
+        .col-3 { width: 20%; }
+        .col-4 { width: 15%; text-align: right; }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .status-active { background-color: #DCFCE7; color: #166534; }
+        .status-pending { background-color: #FEF9C3; color: #854D0E; }
+        .status-maintenance { background-color: #DBEAFE; color: #1E40AF; }
+
+        /* Right: Media Placeholder */
+        .media-panel {
+            flex: 0.55;
+            background-color: #1E293B;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #334155;
+        }
+
+        .media-placeholder-content {
+            text-align: center;
+            color: #94A3B8;
+        }
+
+        .play-icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .media-panel:hover .play-icon-circle {
+            background-color: rgba(0, 102, 204, 0.8);
+            border-color: #0066CC;
+            transform: scale(1.1);
+        }
+
+        .media-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #F8FAFC;
+        }
+        
+        .media-sublabel {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .screen-glare {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-8 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Bens Cadastrados</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Gestão e visualização do inventário patrimonial</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-boxes text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INVENTÁRIO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Stats Row -->
+<div class="stats-row">
+<!-- Card 1 -->
+<div class="stat-card stat-card-blue">
+<div class="stat-icon-wrapper icon-blue">
+<i class="fas fa-cubes"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value">1.245</p>
+<p class="stat-label">Total de Bens</p>
+<p class="stat-sub">Itens registrados no sistema</p>
+</div>
+<i class="fas fa-cubes stat-bg-icon text-blue-900"></i>
+</div>
+<!-- Card 2 -->
+<div class="stat-card stat-card-green">
+<div class="stat-icon-wrapper icon-green">
+<i class="fas fa-chart-pie"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value text-green-600">85%</p>
+<p class="stat-label">Inventariado</p>
+<p class="stat-sub">Progresso global da unidade</p>
+</div>
+<i class="fas fa-check-circle stat-bg-icon text-green-900"></i>
+</div>
+<!-- Card 3 -->
+<div class="stat-card stat-card-orange">
+<div class="stat-icon-wrapper icon-orange">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value text-yellow-600">187</p>
+<p class="stat-label">Pendências</p>
+<p class="stat-sub">Aguardando validação/foto</p>
+</div>
+<i class="fas fa-clipboard-list stat-bg-icon text-yellow-900"></i>
+</div>
+</div>
+<!-- Split Section -->
+<div class="split-section">
+<!-- Left: List Mockup -->
+<div class="list-panel">
+<div class="panel-header">
+<p class="font-bold text-gray-700 text-sm"><i class="fas fa-list mr-2 text-brand-secondary"></i>Lista de Bens</p>
+<div class="flex gap-2">
+<i class="fas fa-filter text-gray-400 hover:text-blue-500 cursor-pointer"></i>
+<i class="fas fa-download text-gray-400 hover:text-blue-500 cursor-pointer"></i>
+</div>
+</div>
+<!-- Search Bar Mockup -->
+<div class="p-3 border-b border-gray-100 bg-gray-50">
+<div class="search-mockup">
+<i class="fas fa-search mr-2"></i>
+<span>Buscar por descrição, código ou local...</span>
+</div>
+</div>
+<!-- Table Header -->
+<div class="mock-table-row mock-table-header">
+<div class="col-1">Descrição</div>
+<div class="col-2">Patrimônio</div>
+<div class="col-3">Local</div>
+<div class="col-4">Status</div>
+</div>
+<!-- List Items -->
+<div class="list-content">
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Empilhadeira Hyster 3T</p>
+<p class="text-xs text-gray-500">Equipamento de movimentação</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004592-BQ</div>
+<div class="col-3 text-sm text-gray-600">Armazém 3</div>
+<div class="col-4"><span class="status-badge status-active">ATIVO</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Guindaste Móvel Liebherr</p>
+<p class="text-xs text-gray-500">Equipamento pesado</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004593-BQ</div>
+<div class="col-3 text-sm text-gray-600">Pátio B</div>
+<div class="col-4"><span class="status-badge status-maintenance">MANUT.</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Veículo Utilitário Amarok</p>
+<p class="text-xs text-gray-500">Frota operacional</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004594-BQ</div>
+<div class="col-3 text-sm text-gray-600">Garagem</div>
+<div class="col-4"><span class="status-badge status-pending">PENDENTE</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Conjunto de Estantes Aço</p>
+<p class="text-xs text-gray-500">Mobiliário</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004595-BQ</div>
+<div class="col-3 text-sm text-gray-600">Arquivo</div>
+<div class="col-4"><span class="status-badge status-active">ATIVO</span></div>
+</div>
+</div>
+<!-- Pagination Mockup -->
+<div class="p-2 border-t border-gray-200 bg-gray-50 flex justify-center text-xs text-gray-500 mt-auto">
+<span>Visualizando 1-4 de 1.245</span>
+</div>
+</div>
+<!-- Right: Media Panel -->
+<div class="media-panel">
+<div class="media-placeholder-content">
+<div class="play-icon-circle">
+<i class="fas fa-play text-white text-3xl ml-1"></i>
+</div>
+<p class="media-label">Demonstração do Sistema</p>
+<p class="media-sublabel">Clique para assistir ao vídeo de navegação na lista de bens</p>
+</div>
+<!-- Screen Glare Effect -->
+<div class="screen-glare"></div>
+<!-- Optional: Overlay button if user wants to insert image -->
+<div class="absolute bottom-4 right-4 bg-gray-800 bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+<i class="fas fa-camera mr-1"></i> Screenshot / Vídeo
+            </div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Painel de Bens - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">15 / 21</p>
+</div>
+</div>
+</body>
+</html>

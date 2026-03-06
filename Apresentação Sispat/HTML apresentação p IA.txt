@@ -1,0 +1,5975 @@
+﻿<!-- Slide 1 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SisPAT - Capa Institucional</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        .bg-brand-primary {
+            background-color: #003366; /* Azul Escuro Institucional */
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC; /* Azul Vibrante */
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-opensans {
+            font-family: 'Open Sans', sans-serif;
+        }
+        /* Decorative Shape */
+        .shape-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background-color: #F8FAFC;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="shape-bg"></div>
+<!-- Left Accent Borders -->
+<div class="absolute left-0 top-0 h-full w-3 bg-brand-primary z-20"></div>
+<div class="absolute left-3 top-0 h-full w-1 bg-brand-secondary z-20"></div>
+<!-- Main Content Area -->
+<div class="relative z-10 flex flex-col justify-center h-full w-full pl-24 pr-16 font-montserrat">
+<!-- Top Header / Organization -->
+<div class="absolute top-16 left-24 flex items-center gap-4">
+<div class="text-brand-primary text-3xl">
+<i class="fas fa-anchor"></i>
+</div>
+<div>
+<p class="text-gray-500 text-sm font-bold tracking-widest uppercase">AgÃªncia Nacional de Transportes AquaviÃ¡rios</p>
+<p class="text-gray-400 text-xs font-semibold tracking-wider uppercase">ANTAQ</p>
+</div>
+</div>
+<!-- Title Block -->
+<div class="mt-8">
+<p class="text-9xl font-black text-brand-primary tracking-tighter mb-2 leading-none">SisPAT</p>
+<div class="w-24 h-2 bg-brand-secondary mb-10 mt-2"></div>
+<p class="text-4xl font-bold text-gray-800 mb-3 leading-tight max-w-4xl">
+                    Sistema de Controle Patrimonial<br/>dos Portos Organizados
+                </p>
+<div class="mt-8 pl-6 border-l-4 border-gray-300">
+<p class="text-2xl text-gray-600 font-light leading-relaxed">
+                        Treinamento Simplificado da Funcionalidade de<br/>
+<strong class="text-brand-secondary font-bold">Cadastro de Bens e InventÃ¡rio</strong>
+</p>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-12 left-24 right-16 flex justify-between items-end border-t border-gray-200 pt-6">
+<div>
+<p class="text-gray-500 text-sm font-bold uppercase tracking-wider mb-1">MÃ³dulo de CapacitaÃ§Ã£o</p>
+<p class="text-gray-400 text-xs">Atualizado em MarÃ§o de 2026</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-brand-primary font-bold text-lg">GestÃ£o Eficiente</p>
+<p class="text-brand-secondary text-xs font-semibold uppercase tracking-wide">Tecnologia &amp; InovaÃ§Ã£o</p>
+</div>
+<div class="h-10 w-10 bg-brand-primary rounded-full flex items-center justify-center text-white">
+<i class="fas fa-check"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Large Decorative Icon (Watermark style) -->
+<div class="absolute bottom-0 right-0 text-brand-primary opacity-5 z-0" style="font-size: 500px; line-height: 0; transform: translate(20%, 20%);">
+<i class="fas fa-boxes-stacked"></i>
+</div>
+</div>
+</body>
+</html>
+
+*/ Slide 2 */
+
+
+
+<!-- Slide 2 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SisPAT - ColaboraÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        /* Top Bar Accent */
+        .top-accent {
+            height: 8px;
+            background-color: #003366;
+            width: 100%;
+        }
+        .top-accent-secondary {
+            height: 4px;
+            background-color: #0066CC;
+            width: 100%;
+        }
+        /* Video Placeholder */
+        .video-frame {
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .video-icon {
+            color: #94a3b8;
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+        /* Decorative Background */
+        .bg-pattern {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            opacity: 0.03;
+            z-index: 0;
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="top-accent"></div>
+<div class="top-accent-secondary"></div>
+<!-- Header -->
+<div class="flex items-center justify-between px-16 pt-12 pb-6 z-10">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-1 h-8 bg-brand-secondary"></div>
+<p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">ColaboraÃ§Ã£o no SisPAT</p>
+</div>
+<p class="text-gray-500 font-medium ml-4 text-lg">IntegraÃ§Ã£o entre Ã¡reas e portos para uma gestÃ£o eficiente</p>
+</div>
+<div class="flex items-center gap-2 opacity-80">
+<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
+</div>
+</div>
+<!-- Main Content (Video Area) -->
+<div class="flex-1 flex flex-col items-center justify-center px-16 pb-12 z-10">
+<!-- Video Container with 16:9 Aspect Ratio -->
+<div class="w-full max-w-5xl relative">
+<!-- Video Frame Placeholder -->
+<div class="video-frame w-full aspect-w-16 aspect-h-9 h-96 bg-gray-50 flex flex-col items-center justify-center">
+<div class="text-center p-8">
+<div class="w-20 h-20 bg-brand-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-105 transition-transform duration-300">
+<i class="fas fa-play text-white text-3xl ml-1"></i>
+</div>
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-2">VÃ­deo de ApresentaÃ§Ã£o</p>
+<p class="text-gray-500 max-w-md mx-auto">Este espaÃ§o estÃ¡ reservado para o vÃ­deo demonstrativo sobre colaboraÃ§Ã£o e fluxo de trabalho no sistema.</p>
+</div>
+</div>
+<!-- Video Context / Caption -->
+<div class="mt-6 flex justify-between items-start border-t border-gray-200 pt-4">
+<div class="w-2/3 pr-8">
+<p class="text-brand-primary font-bold mb-1 flex items-center gap-2">
+<i class="fas fa-info-circle text-brand-secondary"></i>
+                            Destaques do VÃ­deo
+                        </p>
+<p class="text-gray-600 text-sm leading-relaxed">
+                            O vÃ­deo demonstra como diferentes perfis de usuÃ¡rio interagem na plataforma, garantindo transparÃªncia e agilidade nos processos de inventÃ¡rio.
+                        </p>
+</div>
+<div class="w-1/3 pl-8 border-l border-gray-200">
+<p class="text-gray-400 text-xs font-bold uppercase mb-2 tracking-wide">TÃ³picos Abordados</p>
+<div class="flex flex-wrap gap-2">
+<div class="bg-blue-50 text-brand-primary text-xs font-semibold px-2 py-1 rounded">Fluxo de Trabalho</div>
+<div class="bg-blue-50 text-brand-primary text-xs font-semibold px-2 py-1 rounded">Perfis de Acesso</div>
+<div class="bg-blue-50 text-brand-primary text-xs font-semibold px-2 py-1 rounded">ValidaÃ§Ãµes</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-16 pb-8 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs">Sistema de Controle Patrimonial - MÃ³dulo de Treinamento</p>
+<p class="text-gray-300 text-xs font-mono">2 / 21</p>
+</div>
+<!-- Decorative Background Pattern -->
+<div class="bg-pattern">
+<i class="fas fa-users text-9xl"></i>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 3 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EvoluÃ§Ã£o do Controle de InventÃ¡rio</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Layout especÃ­fico para comparaÃ§Ã£o */
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .side-panel {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .side-left {
+            background-color: #F8FAFC;
+            border-right: 1px dashed #CBD5E1;
+        }
+        
+        .side-right {
+            background-color: #F0F9FF;
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle-left {
+            background-color: #FFE4E6;
+            color: #BE123C;
+        }
+        
+        .icon-circle-right {
+            background-color: #DBEAFE;
+            color: #0066CC;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .list-icon {
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 18px;
+        }
+        
+        /* Central VS Badge */
+        .vs-badge {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            z-index: 20;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .arrow-connector {
+            position: absolute;
+            left: 50%;
+            top: 22%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #CBD5E1;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">EvoluÃ§Ã£o do Controle</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">TransformaÃ§Ã£o digital na gestÃ£o patrimonial dos portos</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Comparison -->
+<div class="comparison-container">
+<!-- Center VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Left Side - ANTES -->
+<div class="side-panel side-left">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-left">
+<i class="fas fa-file-excel text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">ANTES</h2>
+<p class="text-gray-500 font-medium mt-1">Planilha Descentralizada</p>
+</div>
+<div class="flex-1">
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Dados Dispersos</p>
+<p class="text-sm text-gray-500 mt-1">InformaÃ§Ãµes espalhadas em mÃºltiplos arquivos e versÃµes diferentes.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Risco de InconsistÃªncia</p>
+<p class="text-sm text-gray-500 mt-1">Erros manuais frequentes e dificuldade de padronizaÃ§Ã£o.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Baixa Rastreabilidade</p>
+<p class="text-sm text-gray-500 mt-1">ImpossÃ­vel auditar quem alterou o que e quando.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">ConsolidaÃ§Ã£o Manual</p>
+<p class="text-sm text-gray-500 mt-1">Horas gastas apenas para juntar informaÃ§Ãµes de diferentes fontes.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side - DEPOIS -->
+<div class="side-panel side-right">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-right">
+<i class="fas fa-network-wired text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">DEPOIS</h2>
+<p class="text-brand-primary font-medium mt-1">Sistema Centralizado e Integrado</p>
+</div>
+<div class="flex-1">
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Base Ãšnica e ConfiÃ¡vel</p>
+<p class="text-sm text-gray-600 mt-1">Dados centralizados acessÃ­veis em tempo real por todos os autorizados.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Integridade dos Dados</p>
+<p class="text-sm text-gray-600 mt-1">ValidaÃ§Ãµes automÃ¡ticas e padronizaÃ§Ã£o forÃ§ada pelo sistema.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Auditoria Completa</p>
+<p class="text-sm text-gray-600 mt-1">HistÃ³rico detalhado de todas as alteraÃ§Ãµes e responsÃ¡veis.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">GestÃ£o em Tempo Real</p>
+<p class="text-sm text-gray-600 mt-1">Dashboards e relatÃ³rios gerenciais instantÃ¢neos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento SisPAT - MÃ³dulo de GestÃ£o</p>
+<p class="text-gray-300 text-xs font-mono">3 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 4 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Por que Oracle APEX?</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        /* Special layout for the last card to span or center if odd number */
+        .card:last-child {
+            grid-column: 2 / 3; /* Center in the bottom row if 5 items */
+        }
+
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Por que Oracle APEX?</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">BenefÃ­cios estratÃ©gicos da plataforma escolhida</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-database text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-sitemap"></i>
+</div>
+<p class="card-title">Arquitetura e Modelo</p>
+<p class="card-desc">
+                    Estrutura robusta baseada em dados relacionais, garantindo integridade referencial, normalizaÃ§Ã£o e consistÃªncia em toda a aplicaÃ§Ã£o. Modelo centrado no banco de dados.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<p class="card-title">Performance</p>
+<p class="card-desc">
+                    Alta velocidade de processamento com execuÃ§Ã£o direta no banco de dados. Escalabilidade para suportar grande volume de acessos e dados patrimoniais complexos.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<p class="card-title">SeguranÃ§a</p>
+<p class="card-desc">
+                    Recursos nativos de proteÃ§Ã£o contra ameaÃ§as web, autenticaÃ§Ã£o integrada, controle de acesso granular e criptografia de dados sensÃ­veis em repouso e trÃ¢nsito.
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-laptop-code"></i>
+</div>
+<p class="card-title">Interface Moderna</p>
+<p class="card-desc">
+                    Desenvolvimento Low-Code que permite entrega rÃ¡pida de interfaces responsivas, acessÃ­veis e amigÃ¡veis ao usuÃ¡rio, adaptÃ¡veis a qualquer dispositivo.
+                </p>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-sync-alt"></i>
+</div>
+<p class="card-title">Ciclo de Vida</p>
+<p class="card-desc">
+                    Ferramentas integradas para versionamento, deploy simplificado entre ambientes (Dev/Test/Prod) e facilidade de manutenÃ§Ã£o evolutiva do sistema.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Tecnologia e InovaÃ§Ã£o - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">4 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 5 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MVP - Produto MÃ­nimo ViÃ¡vel</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            gap: 50px;
+        }
+        
+        /* Left Column - Concept Callout */
+        .concept-column {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .concept-box {
+            background-color: #003366;
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .concept-box::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            border-width: 20px 0 20px 20px;
+            border-color: transparent transparent transparent #003366;
+        }
+        
+        .concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .concept-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Right Column - Objectives */
+        .objectives-column {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .objective-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            background-color: #F8FAFC;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 6px solid #0066CC;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .objective-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .objective-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0066CC;
+            font-size: 24px;
+            margin-right: 24px;
+            flex-shrink: 0;
+        }
+        
+        .objective-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 20px;
+            margin: 0 0 6px 0;
+        }
+        
+        .objective-content p {
+            color: #64748B;
+            font-size: 15px;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Background Graphic */
+        .bg-circle {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 40px solid #F1F5F9;
+            opacity: 0.6;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">EstratÃ©gia de Desenvolvimento</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Metodologia Ãgil aplicada ao SisPAT</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-rocket text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">MVP</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Side: Concept Definition -->
+<div class="concept-column">
+<div class="concept-box">
+<div class="absolute -top-6 -left-6 bg-brand-secondary text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
+<i class="fas fa-quote-left"></i>
+</div>
+<h2 class="concept-title">MVP</h2>
+<p class="concept-desc font-light mb-4 text-blue-200 uppercase tracking-widest text-sm font-bold">Produto MÃ­nimo ViÃ¡vel</p>
+<p class="concept-desc">
+                        Ã‰ a versÃ£o mais simples de um produto que pode ser lanÃ§ada com uma quantidade mÃ­nima de esforÃ§o e desenvolvimento.
+                    </p>
+<div class="mt-6 pt-6 border-t border-blue-800 flex items-center">
+<div class="w-2 h-2 rounded-full bg-blue-400 mr-2"></div>
+<p class="text-sm text-blue-200">Foco na entrega de valor imediato</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Objectives List -->
+<div class="objectives-column">
+<div class="objective-item">
+<div class="objective-icon">
+<i class="fas fa-bolt"></i>
+</div>
+<div class="objective-content">
+<h3>Entregar RÃ¡pido</h3>
+<p>Disponibilizar as funcionalidades essenciais para uso imediato, sem esperar o sistema "perfeito".</p>
+</div>
+</div>
+<div class="objective-item">
+<div class="objective-icon">
+<i class="fas fa-users-cog"></i>
+</div>
+<div class="objective-content">
+<h3>Aprender com Uso Real</h3>
+<p>Coletar feedback dos usuÃ¡rios finais desde o inÃ­cio para validar hipÃ³teses e ajustar o rumo.</p>
+</div>
+</div>
+<div class="objective-item">
+<div class="objective-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="objective-content">
+<h3>Reduzir Riscos</h3>
+<p>Evitar o desperdÃ­cio de tempo e recursos em funcionalidades que nÃ£o geram valor real para a operaÃ§Ã£o.</p>
+</div>
+</div>
+<div class="objective-item">
+<div class="objective-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="objective-content">
+<h3>EvoluÃ§Ã£o ContÃ­nua</h3>
+<p>Guiar o desenvolvimento das prÃ³ximas etapas com base em dados concretos de utilizaÃ§Ã£o.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Metodologia de Projeto - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">5 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-circle"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 6 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EvoluÃ§Ã£o do MVP - Linha do Tempo</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+
+        /* Timeline Container */
+        .timeline-wrapper {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        /* Connecting Line */
+        .timeline-line {
+            position: absolute;
+            top: 45%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background-color: #E2E8F0;
+            z-index: 1;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            top: 45%;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: #CBD5E1; /* Fallback */
+            background-image: linear-gradient(to right, #94A3B8, #0066CC); /* Note: Gradient usage is discouraged by guidelines but simple linear gradient for progress bar is often acceptable, if not, use solid color */
+            background-color: #0066CC; /* Solid color alternative */
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Timeline Cards */
+        .stages-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .stage-card {
+            width: 30%;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border-top: 6px solid transparent;
+            transition: transform 0.3s ease;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Specific Card Styles */
+        .stage-1 {
+            border-top-color: #94A3B8; /* Gray */
+        }
+        .stage-2 {
+            border-top-color: #3B82F6; /* Blue */
+        }
+        .stage-3 {
+            border-top-color: #003366; /* Dark Blue */
+        }
+
+        /* Stage Number Circle */
+        .stage-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: absolute;
+            top: -20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .number-1 { background-color: #94A3B8; }
+        .number-2 { background-color: #3B82F6; }
+        .number-3 { background-color: #003366; }
+
+        /* Icon Container */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+
+        .icon-1 { background-color: #F1F5F9; color: #64748B; }
+        .icon-2 { background-color: #DBEAFE; color: #2563EB; }
+        .icon-3 { background-color: #E0E7FF; color: #003366; }
+
+        .stage-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1E293B;
+        }
+
+        .stage-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            text-align: left;
+            width: 100%;
+            background-color: #F8FAFC;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: auto;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-item i {
+            font-size: 10px;
+            margin-right: 8px;
+        }
+        
+        .arrow-next {
+            position: absolute;
+            top: 45%;
+            right: -25px;
+            font-size: 24px;
+            color: #CBD5E1;
+        }
+
+        /* Background Pattern */
+        .bg-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 200px;
+            height: 100px;
+            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">EvoluÃ§Ã£o do MVP</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">TrajetÃ³ria de amadurecimento do SisPAT</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-layer-group text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ROADMAP</p>
+</div>
+</div>
+</div>
+<!-- Main Content: Timeline -->
+<div class="timeline-wrapper">
+<!-- Connecting Line Background -->
+<div class="timeline-line"></div>
+<div class="stages-container">
+<!-- Stage 1 -->
+<div class="stage-card stage-1">
+<div class="stage-number number-1">1</div>
+<div class="icon-box icon-1">
+<i class="fas fa-file-excel"></i>
+</div>
+<h2 class="stage-title">Planilha BÃ¡sica</h2>
+<p class="stage-desc">O ponto de partida para estruturaÃ§Ã£o dos dados e entendimento das necessidades.</p>
+<div class="feature-list">
+<div class="feature-item">
+<i class="fas fa-check text-gray-400"></i>
+<span>Registro inicial de bens</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-gray-400"></i>
+<span>Controle parcial e manual</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-gray-400"></i>
+<span>IdentificaÃ§Ã£o de lacunas</span>
+</div>
+</div>
+<div class="arrow-next">
+<i class="fas fa-chevron-right"></i>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="stage-card stage-2">
+<div class="stage-number number-2">2</div>
+<div class="icon-box icon-2">
+<i class="fas fa-laptop-code"></i>
+</div>
+<h2 class="stage-title" style="color: #0066CC;">ProtÃ³tipo APEX</h2>
+<p class="stage-desc">Primeira versÃ£o funcional do sistema para validaÃ§Ã£o de conceitos e usabilidade.</p>
+<div class="feature-list" style="background-color: #EFF6FF;">
+<div class="feature-item">
+<i class="fas fa-check text-blue-500"></i>
+<span>Telas principais operacionais</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-blue-500"></i>
+<span>ValidaÃ§Ãµes de entrada</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-blue-500"></i>
+<span>Testes pilotos com usuÃ¡rios</span>
+</div>
+</div>
+<div class="arrow-next">
+<i class="fas fa-chevron-right"></i>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="stage-card stage-3">
+<div class="stage-number number-3">3</div>
+<div class="icon-box icon-3">
+<i class="fas fa-server"></i>
+</div>
+<h2 class="stage-title" style="color: #003366;">Sistema Integrado</h2>
+<p class="stage-desc">VersÃ£o completa e robusta, integrada ao ecossistema corporativo dos portos.</p>
+<div class="feature-list" style="background-color: #E0E7FF;">
+<div class="feature-item">
+<i class="fas fa-check text-indigo-800"></i>
+<span>MÃ³dulos consolidados</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-indigo-800"></i>
+<span>RelatÃ³rios avanÃ§ados e APIs</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-check text-indigo-800"></i>
+<span>GovernanÃ§a e seguranÃ§a total</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">EvoluÃ§Ã£o do Produto - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">6 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-dots"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 7 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solicite seu Acesso Externo</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 40px 80px;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        /* Left Column - Contact Info */
+        .contact-column {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .email-card {
+            background-color: #F0F9FF;
+            border: 2px solid #BAE6FD;
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.15);
+            margin-top: 20px;
+        }
+        
+        .email-icon {
+            font-size: 48px;
+            color: #0066CC;
+            margin-bottom: 20px;
+        }
+        
+        .email-address {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+        
+        .email-label {
+            font-size: 14px;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Right Column - Requirements List */
+        .requirements-column {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+            background-color: #F8FAFC;
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            border-left: 8px solid #003366;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .requirements-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .req-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        .req-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            transition: transform 0.2s ease;
+        }
+        
+        .req-item:hover {
+            transform: translateX(5px);
+            border-color: #0066CC;
+        }
+        
+        .req-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+        
+        .req-text {
+            font-weight: 600;
+            color: #334155;
+            font-size: 16px;
+        }
+        
+        .req-asterisk {
+            color: #EF4444;
+            margin-left: 4px;
+        }
+
+        /* Decorative Background */
+        .bg-decoration {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 300px;
+            color: #F1F5F9;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .info-box {
+            margin-top: 24px;
+            padding: 16px;
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            border-radius: 4px;
+            display: flex;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Solicite seu Acesso Externo</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Procedimento para cadastro de novos usuÃ¡rios no SisPAT</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-user-plus text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">CADASTRO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Column: Contact & Action -->
+<div class="contact-column">
+<p class="text-gray-600 text-lg mb-4 leading-relaxed">
+                    Para obter acesso ao sistema, Ã© necessÃ¡rio enviar uma solicitaÃ§Ã£o formal via e-mail para a equipe de administraÃ§Ã£o do SisPAT.
+                </p>
+<div class="email-card">
+<div class="email-icon">
+<i class="fas fa-envelope-open-text"></i>
+</div>
+<p class="email-label">Envie sua solicitaÃ§Ã£o para:</p>
+<p class="email-address">inventario@antaq.gov.br</p>
+<p class="text-sm text-gray-500 mt-2">Assunto sugerido: "SolicitaÃ§Ã£o de Acesso - SisPAT"</p>
+</div>
+<div class="info-box">
+<i class="fas fa-exclamation-triangle text-yellow-600 mt-1"></i>
+<div>
+<p class="text-sm font-bold text-gray-800">AtenÃ§Ã£o</p>
+<p class="text-xs text-gray-600 mt-1">Seus dados serÃ£o validados pela equipe tÃ©cnica antes da liberaÃ§Ã£o do acesso. O prazo mÃ©dio de resposta Ã© de 24 horas Ãºteis.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Required Information Checklist -->
+<div class="requirements-column">
+<div class="requirements-title">
+<i class="fas fa-clipboard-check text-brand-secondary"></i>
+<span>InformaÃ§Ãµes ObrigatÃ³rias</span>
+</div>
+<div class="req-list">
+<div class="req-item">
+<div class="req-icon">
+<i class="fas fa-user"></i>
+</div>
+<p class="req-text">Nome Completo <span class="req-asterisk">*</span></p>
+</div>
+<div class="req-item">
+<div class="req-icon">
+<i class="fas fa-id-card"></i>
+</div>
+<p class="req-text">CPF <span class="req-asterisk">*</span></p>
+</div>
+<div class="req-item">
+<div class="req-icon">
+<i class="fas fa-at"></i>
+</div>
+<p class="req-text">E-mail Institucional <span class="req-asterisk">*</span></p>
+</div>
+<div class="req-item">
+<div class="req-icon">
+<i class="fas fa-building"></i>
+</div>
+<p class="req-text">CNPJ (Porto/OrganizaÃ§Ã£o) <span class="req-asterisk">*</span></p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-gray-200">
+<p class="text-sm text-gray-500 italic">
+<i class="fas fa-info-circle mr-1"></i> Certifique-se de enviar todos os dados corretamente para evitar atrasos na liberaÃ§Ã£o do seu usuÃ¡rio.
+                    </p>
+</div>
+<!-- Background Icon -->
+<i class="fas fa-file-contract bg-decoration"></i>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">SolicitaÃ§Ã£o de Acesso - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">7 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 8 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login no SisPAT</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 30px 80px 40px 80px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* URL Highlight Box */
+        .url-box {
+            background-color: #F0F9FF;
+            border: 3px solid #0066CC;
+            border-radius: 16px;
+            padding: 40px 60px;
+            text-align: center;
+            width: 90%;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 25px -5px rgba(0, 102, 204, 0.1), 0 10px 10px -5px rgba(0, 102, 204, 0.04);
+            position: relative;
+            z-index: 20;
+        }
+        
+        .url-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .url-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #003366;
+            margin-bottom: 20px;
+            word-break: break-all;
+            padding: 10px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: 1px dashed #CBD5E1;
+        }
+        
+        .url-tip {
+            display: inline-flex;
+            align-items: center;
+            background-color: #FFFBEB;
+            color: #92400E;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #FDE68A;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .info-card {
+            background-color: #FFFFFF;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 6px solid #CBD5E1;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-current {
+            border-left-color: #0066CC;
+        }
+        
+        .card-future {
+            border-left-color: #003366;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .icon-current {
+            background-color: #E0F2FE;
+            color: #0066CC;
+        }
+        
+        .icon-future {
+            background-color: #E0E7FF;
+            color: #003366;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 8px;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* Background Graphics */
+        .bg-lock {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            font-size: 400px;
+            color: #F1F5F9;
+            z-index: 0;
+            opacity: 0.4;
+            transform: rotate(-15deg);
+        }
+        
+        .bg-key {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            font-size: 250px;
+            color: #F8FAFC;
+            z-index: 0;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login no SisPAT</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">EndereÃ§o eletrÃ´nico para acesso ao sistema</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-sign-in-alt text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ACESSO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- URL Highlight -->
+<div class="url-box">
+<p class="url-label"><i class="fas fa-link mr-2"></i>Link de Acesso Principal</p>
+<p class="url-text">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</p>
+<div class="url-tip">
+<i class="fas fa-star mr-2 text-yellow-500"></i>
+<span>Dica: Adicione este endereÃ§o aos favoritos do seu navegador (Ctrl + D)</span>
+</div>
+</div>
+<!-- Info Cards -->
+<div class="info-grid">
+<!-- Current Access -->
+<div class="info-card card-current">
+<div class="card-icon icon-current">
+<i class="fas fa-user-lock"></i>
+</div>
+<div>
+<p class="card-title">Acesso Atual</p>
+<p class="card-desc">
+                            O login Ã© realizado mediante credenciais (usuÃ¡rio e senha) previamente autorizadas e cadastradas pela equipe administrativa do SisPAT.
+                        </p>
+</div>
+</div>
+<!-- Future Access -->
+<div class="info-card card-future">
+<div class="card-icon icon-future">
+<i class="fas fa-id-badge"></i>
+</div>
+<div>
+<p class="card-title">Futuramente</p>
+<p class="card-desc">
+                            EstÃ£o previstas integraÃ§Ãµes ampliadas de autenticaÃ§Ã£o (SSO/Gov.br) e perfis de acesso mais granulares para diferentes nÃ­veis de usuÃ¡rios.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Acesso ao Sistema - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">8 / 21</p>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-lock bg-lock"></i>
+<i class="fas fa-key bg-key"></i>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 9 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro de Bem - VisÃ£o Geral</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 20px 80px 40px 80px;
+            flex-direction: column;
+        }
+
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .step-card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 5px solid #CBD5E1;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #FFFFFF;
+        }
+
+        /* Number Circle */
+        .step-number-container {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            margin-right: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: #0066CC;
+            z-index: 2;
+        }
+
+        .step-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #E0F2FE;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .step-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        /* Specific styles for active/hover states via classes or nth-child */
+        .step-card:nth-child(1) { border-bottom-color: #94A3B8; }
+        .step-card:nth-child(2) { border-bottom-color: #60A5FA; }
+        .step-card:nth-child(3) { border-bottom-color: #3B82F6; }
+        .step-card:nth-child(4) { border-bottom-color: #2563EB; }
+        .step-card:nth-child(5) { border-bottom-color: #1D4ED8; }
+        .step-card:nth-child(6) { border-bottom-color: #003366; }
+
+        .step-card:hover .step-title {
+            color: #003366;
+        }
+        
+        /* Flow Arrows */
+        .arrow-connector {
+            position: absolute;
+            font-size: 24px;
+            color: #CBD5E1;
+            z-index: 10;
+        }
+        
+        .arrow-1 { top: 38%; left: 32%; }
+        .arrow-2 { top: 38%; left: 65%; }
+        .arrow-3 { top: 50%; right: 0%; transform: rotate(90deg); display: none; } /* Visual logic break */
+        .arrow-4 { bottom: 38%; left: 32%; transform: rotate(180deg); }
+        .arrow-5 { bottom: 38%; left: 65%; transform: rotate(180deg); }
+
+        /* Icon in background of card */
+        .card-bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            color: #003366;
+            transform: rotate(-15deg);
+        }
+        
+        /* Path line */
+        .path-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Cadastro de Bem - VisÃ£o Geral</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Fluxo sequencial de registro no sistema</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-list-ol text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">PROCESSO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative">
+<div class="steps-grid z-10">
+<!-- Step 1 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">1</span>
+</div>
+<div class="step-content">
+<p class="step-title">DescriÃ§Ã£o</p>
+<p class="step-desc">IdentificaÃ§Ã£o detalhada do bem com caracterÃ­sticas fÃ­sicas e nomeclatura.</p>
+</div>
+<i class="fas fa-pen-alt card-bg-icon"></i>
+</div>
+<!-- Step 2 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">2</span>
+</div>
+<div class="step-content">
+<p class="step-title">CategorizaÃ§Ã£o</p>
+<p class="step-desc">Enquadramento em grupos patrimoniais e contas contÃ¡beis adequadas.</p>
+</div>
+<i class="fas fa-tags card-bg-icon"></i>
+</div>
+<!-- Step 3 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">3</span>
+</div>
+<div class="step-content">
+<p class="step-title">MensuraÃ§Ã£o</p>
+<p class="step-desc">Registro de valores monetÃ¡rios, custos de aquisiÃ§Ã£o e depreciaÃ§Ã£o.</p>
+</div>
+<i class="fas fa-calculator card-bg-icon"></i>
+</div>
+<!-- Step 4 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">4</span>
+</div>
+<div class="step-content">
+<p class="step-title">ClassificaÃ§Ã£o</p>
+<p class="step-desc">DefiniÃ§Ã£o da natureza, situaÃ§Ã£o de uso e responsabilidade pelo bem.</p>
+</div>
+<i class="fas fa-sitemap card-bg-icon"></i>
+</div>
+<!-- Step 5 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">5</span>
+</div>
+<div class="step-content">
+<p class="step-title">LocalizaÃ§Ã£o</p>
+<p class="step-desc">IndicaÃ§Ã£o geogrÃ¡fica e administrativa de onde o bem se encontra.</p>
+</div>
+<i class="fas fa-map-marker-alt card-bg-icon"></i>
+</div>
+<!-- Step 6 -->
+<div class="step-card">
+<div class="step-number-container">
+<div class="step-circle"></div>
+<span class="step-number">6</span>
+</div>
+<div class="step-content">
+<p class="step-title">Anexos</p>
+<p class="step-desc">Upload de documentos fiscais, fotos e termos de responsabilidade.</p>
+</div>
+<i class="fas fa-paperclip card-bg-icon"></i>
+</div>
+</div>
+<!-- Visual Guidance -->
+<div class="mt-6 flex items-center justify-center text-sm text-gray-500 bg-blue-50 py-3 rounded-lg border border-blue-100">
+<i class="fas fa-info-circle text-blue-500 mr-2"></i>
+<p>Ã‰ recomendÃ¡vel seguir a ordem numÃ©rica para garantir a consistÃªncia das informaÃ§Ãµes e evitar erros de validaÃ§Ã£o.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Fluxo de Cadastro - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">9 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 10 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 1: DescriÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        /* Special layout for the last card to span or center if odd number */
+        .card:last-child {
+            grid-column: 2 / 3; /* Center in the bottom row if 5 items */
+        }
+        
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .required-badge {
+            font-size: 10px;
+            background-color: #EF4444;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 1: DescriÃ§Ã£o</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Campos obrigatÃ³rios e dados fundamentais do bem</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-pen-to-square text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-signature"></i>
+</div>
+<p class="card-title">
+                    DescriÃ§Ã£o Detalhada <span class="required-badge">OBRIGATÃ“RIO</span>
+</p>
+<div class="card-desc">
+<p>Nome completo e detalhamento minucioso das caracterÃ­sticas fÃ­sicas do bem (cor, material, dimensÃµes, potÃªncia), garantindo sua correta individualizaÃ§Ã£o.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-barcode"></i>
+</div>
+<p class="card-title">
+                    Identificador / Plaqueta <span class="required-badge">OBRIGATÃ“RIO</span>
+</p>
+<div class="card-desc">
+<p>NÃºmero de registro patrimonial (plaqueta) afixado no bem. Caso nÃ£o possua, deve ser gerado um cÃ³digo provisÃ³rio de controle interno.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-calendar-alt"></i>
+</div>
+<p class="card-title">
+                    Data de AquisiÃ§Ã£o <span class="required-badge">OBRIGATÃ“RIO</span>
+</p>
+<div class="card-desc">
+<p>Data contÃ¡bil de entrada do bem no patrimÃ´nio. Essencial para cÃ¡lculos de depreciaÃ§Ã£o e histÃ³rico de vida Ãºtil do ativo.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-tag"></i>
+</div>
+<p class="card-title">
+                    Marca e Modelo
+                </p>
+<div class="card-desc">
+<p>IdentificaÃ§Ã£o do fabricante e modelo especÃ­fico. InformaÃ§Ã£o crucial para avaliaÃ§Ãµes de mercado, manutenÃ§Ã£o e reposiÃ§Ã£o de peÃ§as.</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-clipboard-check"></i>
+</div>
+<p class="card-title">
+                    Estado de ConservaÃ§Ã£o
+                </p>
+<div class="card-desc">
+<p>Registro das condiÃ§Ãµes fÃ­sicas atuais do bem (Novo, Bom, Regular, Ruim, InservÃ­vel) no momento do inventÃ¡rio.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento SisPAT - Cadastro de Bens</p>
+<p class="text-gray-300 text-xs font-mono">10 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 11 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 2: CategorizaÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        /* Special layout for the last card to span or center if odd number */
+        .card:last-child {
+            grid-column: 2 / 3; /* Center in the bottom row if 5 items */
+        }
+
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 2: CategorizaÃ§Ã£o</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">ClassificaÃ§Ã£o estruturada dos bens patrimoniais</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-tags text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-shapes"></i>
+</div>
+<p class="card-title">Tipo de Bem</p>
+<p class="card-desc">
+                    DefiniÃ§Ã£o primÃ¡ria da natureza fÃ­sica do item (MÃ³vel, ImÃ³vel ou IntangÃ­vel), fundamental para determinar as regras de controle aplicÃ¡veis.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-layer-group"></i>
+</div>
+<p class="card-title">Grupo Patrimonial</p>
+<p class="card-desc">
+                    Agrupamento lÃ³gico dos bens em famÃ­lias (ex: VeÃ­culos, MobiliÃ¡rio, Equipamentos de InformÃ¡tica) para facilitar a gestÃ£o e inventÃ¡rio.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-invoice-dollar"></i>
+</div>
+<p class="card-title">Conta ContÃ¡bil</p>
+<p class="card-desc">
+                    AssociaÃ§Ã£o correta ao Plano de Contas da instituiÃ§Ã£o. Essencial para garantir a consistÃªncia nos balanÃ§os e relatÃ³rios financeiros.
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-hourglass-half"></i>
+</div>
+<p class="card-title">Vida Ãštil Estimada</p>
+<p class="card-desc">
+                    Registro da expectativa de tempo de uso do bem, permitindo o cÃ¡lculo automatizado e preciso das taxas de depreciaÃ§Ã£o mensal.
+                </p>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-book"></i>
+</div>
+<p class="card-title">PadronizaÃ§Ã£o Oficial</p>
+<p class="card-desc">
+                    Uso obrigatÃ³rio da taxonomia e nomenclatura oficial do Ã³rgÃ£o (ANTAQ/Portos) para manter a uniformidade dos dados em todo o sistema.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento de Cadastro - SisPAT</p>
+<p class="text-gray-300 text-xs font-mono">11 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 12 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 3 - MensuraÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .required-badge {
+            font-size: 10px;
+            background-color: #fee2e2;
+            color: #b91c1c;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 8px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 3 - MensuraÃ§Ã£o</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Campos ObrigatÃ³rios e CritÃ©rios de Valor</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-calculator text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-invoice-dollar"></i>
+</div>
+<div class="flex items-center mb-2">
+<p class="card-title mb-0">Valor de AquisiÃ§Ã£o</p>
+<span class="required-badge">ObrigatÃ³rio*</span>
+</div>
+<p class="card-desc">
+                    Valor original de compra, produÃ§Ã£o ou construÃ§Ã£o do bem. Deve incluir todos os custos necessÃ¡rios para colocar o ativo em condiÃ§Ãµes de funcionamento.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-hourglass-half"></i>
+</div>
+<div class="flex items-center mb-2">
+<p class="card-title mb-0">Vida Ãštil</p>
+<span class="required-badge">ObrigatÃ³rio*</span>
+</div>
+<p class="card-desc">
+                    PerÃ­odo de tempo (em anos ou meses) durante o qual a entidade espera utilizar o ativo, base para o cÃ¡lculo das quotas de depreciaÃ§Ã£o.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="flex items-center mb-2">
+<p class="card-title mb-0">MÃ©todo DepreciaÃ§Ã£o</p>
+<span class="required-badge">ObrigatÃ³rio*</span>
+</div>
+<p class="card-desc">
+                    CritÃ©rio utilizado para alocar o valor depreciÃ¡vel ao longo da vida Ãºtil. O padrÃ£o geralmente Ã© o mÃ©todo das quotas constantes (linear).
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-coins"></i>
+</div>
+<p class="card-title">Valor Residual</p>
+<p class="card-desc">
+                    Montante estimado que a entidade obteria com a alienaÃ§Ã£o do ativo no final de sua vida Ãºtil, deduzidas as despesas estimadas de venda.
+                </p>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-calendar-check"></i>
+</div>
+<p class="card-title">InÃ­cio DepreciaÃ§Ã£o</p>
+<p class="card-desc">
+                    Data a partir da qual o bem estÃ¡ disponÃ­vel para uso no local e nas condiÃ§Ãµes necessÃ¡rias, marcando o inÃ­cio da contabilizaÃ§Ã£o da depreciaÃ§Ã£o.
+                </p>
+</div>
+<!-- Card 6 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<p class="card-title">Valor LÃ­quido</p>
+<p class="card-desc">
+                    Resultado da subtraÃ§Ã£o da depreciaÃ§Ã£o acumulada e perdas por reduÃ§Ã£o ao valor recuperÃ¡vel do valor de custo inicial (Gross Book Value).
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento Cadastro de Bens - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">12 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 13 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 4: ClassificaÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px 60px;
+            flex: 1;
+            align-content: center;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .highlight-badge {
+            display: inline-block;
+            background-color: #FEF3C7;
+            color: #D97706;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 4: ClassificaÃ§Ã£o</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">DefiniÃ§Ã£o da situaÃ§Ã£o e natureza dos bens</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-tags text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-traffic-light"></i>
+</div>
+<p class="card-title">SituaÃ§Ã£o do Bem <span class="highlight-badge">OBRIGATÃ“RIO*</span></p>
+<p class="card-desc">
+                    DefiniÃ§Ã£o do estado atual do bem no patrimÃ´nio. Exemplos: Ativo (em uso), Ocioso (sem uso momentÃ¢neo), Em ManutenÃ§Ã£o, Baixado (descartado/alienado) ou Em TransferÃªncia.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-box-open"></i>
+</div>
+<p class="card-title">Natureza <span class="highlight-badge">OBRIGATÃ“RIO*</span></p>
+<p class="card-desc">
+                    ClassificaÃ§Ã£o quanto Ã  durabilidade e finalidade. Exemplos: Permanente (durÃ¡vel), Consumo (uso imediato), IntangÃ­vel (software/licenÃ§as) ou Bens de Terceiros.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+<p class="card-title">ResponsÃ¡vel / GuardiÃ£o</p>
+<p class="card-desc">
+                    IndicaÃ§Ã£o do servidor ou colaborador responsÃ¡vel pela guarda e zelo do bem. Fundamental para termos de responsabilidade e auditorias de inventÃ¡rio.
+                </p>
+</div>
+</div>
+<!-- Additional Info Bar -->
+<div class="mx-12 mb-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r flex items-start">
+<i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
+<div>
+<p class="text-sm text-blue-800 font-semibold mb-1">Dica de Preenchimento</p>
+<p class="text-xs text-blue-700">Mantenha as categorias de classificaÃ§Ã£o alinhadas Ã s normas contÃ¡beis vigentes (MCASP) e manuais internos da ANTAQ para garantir consistÃªncia nos relatÃ³rios gerenciais.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento Cadastro de Bens - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">13 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 14 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapas 5 e 6 - LocalizaÃ§Ã£o e Anexos</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            gap: 40px;
+        }
+        
+        /* Columns */
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Left Column (Location) */
+        .location-col {
+            background-color: #F0F9FF; /* Light blue */
+            border: 2px solid #BAE6FD;
+        }
+        
+        /* Right Column (Attachments) */
+        .attachments-col {
+            background-color: #F8FAFC; /* Slate/Grey */
+            border: 2px solid #CBD5E1;
+        }
+        
+        .col-header {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+        
+        .location-header {
+            background-color: #E0F2FE;
+        }
+        
+        .attachments-header {
+            background-color: #E2E8F0;
+        }
+        
+        .col-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 28px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .location-icon {
+            background-color: #0066CC;
+            color: white;
+        }
+        
+        .attachments-icon {
+            background-color: #475569;
+            color: white;
+        }
+        
+        .col-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+        
+        .col-subtitle {
+            font-size: 14px;
+            color: #64748B;
+            font-weight: 500;
+        }
+        
+        .col-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .item-icon {
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+        
+        .location-item-icon {
+            background-color: #DBEAFE;
+            color: #0066CC;
+        }
+        
+        .attachments-item-icon {
+            background-color: #E2E8F0;
+            color: #475569;
+        }
+        
+        .item-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #334155;
+            margin-bottom: 4px;
+        }
+        
+        .item-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+        
+        .tip-box {
+            margin-top: auto;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .location-tip {
+            background-color: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            color: #1E40AF;
+        }
+        
+        .attachments-tip {
+            background-color: #F1F5F9;
+            border-left: 4px solid #64748B;
+            color: #334155;
+        }
+
+        /* Central Divider with Step Numbers */
+        .divider-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+            z-index: 10;
+        }
+        
+        .step-badge {
+            width: 50px;
+            height: 50px;
+            background-color: #FFFFFF;
+            border: 4px solid #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: #64748B;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-5 {
+            border-color: #0066CC;
+            color: #0066CC;
+        }
+        
+        .step-6 {
+            border-color: #475569;
+            color: #475569;
+        }
+        
+        .bg-map {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 200px;
+            color: #0066CC;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .bg-clip {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            font-size: 180px;
+            color: #475569;
+            opacity: 0.03;
+            z-index: 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapas 5 e 6 - Detalhamento</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">FinalizaÃ§Ã£o do cadastro com dados de localizaÃ§Ã£o e documentos</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-check-circle text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">FINALIZAÃ‡ÃƒO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative z-10">
+<!-- Left Column: Location (Step 5) -->
+<div class="column location-col">
+<div class="col-header location-header">
+<div class="col-icon-box location-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<span class="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">Etapa 5</span>
+<h2 class="col-title">LocalizaÃ§Ã£o</h2>
+</div>
+<p class="col-subtitle">Rastreabilidade fÃ­sica do bem</p>
+</div>
+</div>
+<div class="col-content">
+<div class="info-list">
+<div class="info-item">
+<div class="item-icon location-item-icon">
+<i class="fas fa-building"></i>
+</div>
+<div class="item-content">
+<h4>Unidade / Porto</h4>
+<p>IdentificaÃ§Ã£o da unidade administrativa principal onde o bem estÃ¡ alocado.</p>
+</div>
+</div>
+<div class="info-item">
+<div class="item-icon location-item-icon">
+<i class="fas fa-layer-group"></i>
+</div>
+<div class="item-content">
+<h4>Setor / Ãrea</h4>
+<p>Departamento ou Ã¡rea especÃ­fica dentro da unidade (ex: Financeiro, OperaÃ§Ãµes).</p>
+</div>
+</div>
+<div class="info-item">
+<div class="item-icon location-item-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+<div class="item-content">
+<h4>ResponsÃ¡vel Local</h4>
+<p>Servidor ou colaborador responsÃ¡vel pela guarda fÃ­sica do bem naquele local.</p>
+</div>
+</div>
+</div>
+<div class="tip-box location-tip">
+<i class="fas fa-lightbulb mt-1"></i>
+<p>A precisÃ£o na localizaÃ§Ã£o facilita auditorias futuras e processos de inventÃ¡rio rotativos.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Attachments (Step 6) -->
+<div class="column attachments-col">
+<div class="col-header attachments-header">
+<div class="col-icon-box attachments-icon">
+<i class="fas fa-paperclip"></i>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<span class="bg-gray-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">Etapa 6</span>
+<h2 class="col-title">Anexos</h2>
+</div>
+<p class="col-subtitle">DocumentaÃ§Ã£o comprobatÃ³ria</p>
+</div>
+</div>
+<div class="col-content">
+<div class="info-list">
+<div class="info-item">
+<div class="item-icon attachments-item-icon">
+<i class="fas fa-file-invoice-dollar"></i>
+</div>
+<div class="item-content">
+<h4>Documentos Fiscais</h4>
+<p>Notas fiscais, faturas ou documentos de doaÃ§Ã£o digitalizados.</p>
+</div>
+</div>
+<div class="info-item">
+<div class="item-icon attachments-item-icon">
+<i class="fas fa-camera"></i>
+</div>
+<div class="item-content">
+<h4>Registro FotogrÃ¡fico</h4>
+<p>Fotos do bem (frente, verso, detalhes) e da plaqueta de identificaÃ§Ã£o legÃ­vel.</p>
+</div>
+</div>
+<div class="info-item">
+<div class="item-icon attachments-item-icon">
+<i class="fas fa-file-contract"></i>
+</div>
+<div class="item-content">
+<h4>Termos</h4>
+<p>Termo de responsabilidade assinado ou outros documentos pertinentes.</p>
+</div>
+</div>
+</div>
+<div class="tip-box attachments-tip">
+<i class="fas fa-info-circle mt-1"></i>
+<p>Formatos aceitos: PDF, JPG, PNG. Tamanho mÃ¡ximo por arquivo: 5MB. Utilize nomes padronizados.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-map-marked-alt bg-map"></i>
+<i class="fas fa-paperclip bg-clip"></i>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Detalhes do Cadastro - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">14 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 15 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bens Cadastrados</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            gap: 24px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            height: 110px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #CBD5E1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card-blue { border-left-color: #0066CC; }
+        .stat-card-green { border-left-color: #10B981; }
+        .stat-card-orange { border-left-color: #F59E0B; }
+
+        .stat-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .icon-blue { background-color: #E0F2FE; color: #0066CC; }
+        .icon-green { background-color: #D1FAE5; color: #10B981; }
+        .icon-orange { background-color: #FEF3C7; color: #F59E0B; }
+
+        .stat-content {
+            z-index: 10;
+        }
+
+        .stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 1;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748B;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-sub {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-top: 2px;
+        }
+
+        .stat-bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            flex: 1;
+            gap: 30px;
+            min-height: 0; /* Important for nested flex scroll */
+        }
+
+        /* Left: List Mockup */
+        .list-panel {
+            flex: 0.45;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 16px;
+            border-bottom: 1px solid #E2E8F0;
+            background-color: #F8FAFC;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-mockup {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            padding: 6px 12px;
+            width: 70%;
+            font-size: 13px;
+            color: #94A3B8;
+        }
+
+        .list-content {
+            flex: 1;
+            padding: 0;
+            overflow-y: hidden; /* Static slide */
+            background-color: #FFFFFF;
+        }
+
+        .mock-table-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .mock-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .mock-table-header {
+            background-color: #F1F5F9;
+            font-weight: 700;
+            color: #475569;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .col-1 { width: 40%; }
+        .col-2 { width: 25%; }
+        .col-3 { width: 20%; }
+        .col-4 { width: 15%; text-align: right; }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .status-active { background-color: #DCFCE7; color: #166534; }
+        .status-pending { background-color: #FEF9C3; color: #854D0E; }
+        .status-maintenance { background-color: #DBEAFE; color: #1E40AF; }
+
+        /* Right: Media Placeholder */
+        .media-panel {
+            flex: 0.55;
+            background-color: #1E293B;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #334155;
+        }
+
+        .media-placeholder-content {
+            text-align: center;
+            color: #94A3B8;
+        }
+
+        .play-icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .media-panel:hover .play-icon-circle {
+            background-color: rgba(0, 102, 204, 0.8);
+            border-color: #0066CC;
+            transform: scale(1.1);
+        }
+
+        .media-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #F8FAFC;
+        }
+        
+        .media-sublabel {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .screen-glare {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-8 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Bens Cadastrados</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">GestÃ£o e visualizaÃ§Ã£o do inventÃ¡rio patrimonial</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-boxes text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INVENTÃRIO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Stats Row -->
+<div class="stats-row">
+<!-- Card 1 -->
+<div class="stat-card stat-card-blue">
+<div class="stat-icon-wrapper icon-blue">
+<i class="fas fa-cubes"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value">1.245</p>
+<p class="stat-label">Total de Bens</p>
+<p class="stat-sub">Itens registrados no sistema</p>
+</div>
+<i class="fas fa-cubes stat-bg-icon text-blue-900"></i>
+</div>
+<!-- Card 2 -->
+<div class="stat-card stat-card-green">
+<div class="stat-icon-wrapper icon-green">
+<i class="fas fa-chart-pie"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value text-green-600">85%</p>
+<p class="stat-label">Inventariado</p>
+<p class="stat-sub">Progresso global da unidade</p>
+</div>
+<i class="fas fa-check-circle stat-bg-icon text-green-900"></i>
+</div>
+<!-- Card 3 -->
+<div class="stat-card stat-card-orange">
+<div class="stat-icon-wrapper icon-orange">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="stat-content">
+<p class="stat-value text-yellow-600">187</p>
+<p class="stat-label">PendÃªncias</p>
+<p class="stat-sub">Aguardando validaÃ§Ã£o/foto</p>
+</div>
+<i class="fas fa-clipboard-list stat-bg-icon text-yellow-900"></i>
+</div>
+</div>
+<!-- Split Section -->
+<div class="split-section">
+<!-- Left: List Mockup -->
+<div class="list-panel">
+<div class="panel-header">
+<p class="font-bold text-gray-700 text-sm"><i class="fas fa-list mr-2 text-brand-secondary"></i>Lista de Bens</p>
+<div class="flex gap-2">
+<i class="fas fa-filter text-gray-400 hover:text-blue-500 cursor-pointer"></i>
+<i class="fas fa-download text-gray-400 hover:text-blue-500 cursor-pointer"></i>
+</div>
+</div>
+<!-- Search Bar Mockup -->
+<div class="p-3 border-b border-gray-100 bg-gray-50">
+<div class="search-mockup">
+<i class="fas fa-search mr-2"></i>
+<span>Buscar por descriÃ§Ã£o, cÃ³digo ou local...</span>
+</div>
+</div>
+<!-- Table Header -->
+<div class="mock-table-row mock-table-header">
+<div class="col-1">DescriÃ§Ã£o</div>
+<div class="col-2">PatrimÃ´nio</div>
+<div class="col-3">Local</div>
+<div class="col-4">Status</div>
+</div>
+<!-- List Items -->
+<div class="list-content">
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Empilhadeira Hyster 3T</p>
+<p class="text-xs text-gray-500">Equipamento de movimentaÃ§Ã£o</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004592-BQ</div>
+<div class="col-3 text-sm text-gray-600">ArmazÃ©m 3</div>
+<div class="col-4"><span class="status-badge status-active">ATIVO</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Guindaste MÃ³vel Liebherr</p>
+<p class="text-xs text-gray-500">Equipamento pesado</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004593-BQ</div>
+<div class="col-3 text-sm text-gray-600">PÃ¡tio B</div>
+<div class="col-4"><span class="status-badge status-maintenance">MANUT.</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">VeÃ­culo UtilitÃ¡rio Amarok</p>
+<p class="text-xs text-gray-500">Frota operacional</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004594-BQ</div>
+<div class="col-3 text-sm text-gray-600">Garagem</div>
+<div class="col-4"><span class="status-badge status-pending">PENDENTE</span></div>
+</div>
+<div class="mock-table-row hover:bg-blue-50 transition-colors">
+<div class="col-1">
+<p class="font-bold text-gray-700 text-sm">Conjunto de Estantes AÃ§o</p>
+<p class="text-xs text-gray-500">MobiliÃ¡rio</p>
+</div>
+<div class="col-2 text-sm text-gray-600">004595-BQ</div>
+<div class="col-3 text-sm text-gray-600">Arquivo</div>
+<div class="col-4"><span class="status-badge status-active">ATIVO</span></div>
+</div>
+</div>
+<!-- Pagination Mockup -->
+<div class="p-2 border-t border-gray-200 bg-gray-50 flex justify-center text-xs text-gray-500 mt-auto">
+<span>Visualizando 1-4 de 1.245</span>
+</div>
+</div>
+<!-- Right: Media Panel -->
+<div class="media-panel">
+<div class="media-placeholder-content">
+<div class="play-icon-circle">
+<i class="fas fa-play text-white text-3xl ml-1"></i>
+</div>
+<p class="media-label">DemonstraÃ§Ã£o do Sistema</p>
+<p class="media-sublabel">Clique para assistir ao vÃ­deo de navegaÃ§Ã£o na lista de bens</p>
+</div>
+<!-- Screen Glare Effect -->
+<div class="screen-glare"></div>
+<!-- Optional: Overlay button if user wants to insert image -->
+<div class="absolute bottom-4 right-4 bg-gray-800 bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+<i class="fas fa-camera mr-1"></i> Screenshot / VÃ­deo
+            </div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Painel de Bens - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">15 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 16 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fluxo de Cadastro via API</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 30px 80px 40px 80px;
+            justify-content: center;
+        }
+
+        /* Flow Steps Container */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+
+        /* Connecting Line */
+        .flow-line {
+            position: absolute;
+            top: 60px; /* Aligned with icon center */
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background-color: #CBD5E1;
+            z-index: 0;
+        }
+
+        .flow-line-progress {
+            position: absolute;
+            top: 60px;
+            left: 50px;
+            width: 60%; /* Simulate progress */
+            height: 4px;
+            background: linear-gradient(to right, #0066CC, #3B82F6);
+            z-index: 0;
+        }
+
+        /* Step Card */
+        .step-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 0 0 24px 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #BFDBFE;
+        }
+
+        .step-header {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Step Icon Circle */
+        .step-icon-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            border: 8px solid #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background-color: #F8FAFC;
+            color: #64748B;
+        }
+
+        /* Step 1 Colors */
+        .step-1 .step-icon-circle {
+            background-color: #E0F2FE;
+            color: #0066CC;
+        }
+        
+        /* Step 2 Colors */
+        .step-2 .step-icon-circle {
+            background-color: #DBEAFE;
+            color: #2563EB;
+        }
+
+        /* Step 3 Colors */
+        .step-3 .step-icon-circle {
+            background-color: #EFF6FF;
+            color: #1E40AF;
+            border-color: #FFFFFF;
+        }
+
+        /* Step Number Badge */
+        .step-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #1E293B;
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            border: 3px solid #FFFFFF;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #1E293B;
+            margin-bottom: 12px;
+            padding: 0 20px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+            padding: 0 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Code/File Preview */
+        .preview-box {
+            background-color: #1E293B;
+            border-radius: 8px;
+            padding: 12px;
+            width: 85%;
+            text-align: left;
+            margin-top: auto;
+            border: 1px solid #334155;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 6px;
+        }
+
+        .file-tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .tag-csv { background-color: #10B981; color: #064E3B; }
+        .tag-json { background-color: #F59E0B; color: #78350F; }
+        .tag-api { background-color: #3B82F6; color: #1E3A8A; }
+
+        .preview-code {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #E2E8F0;
+            line-height: 1.4;
+            white-space: pre;
+            overflow: hidden;
+        }
+
+        /* Arrows between cards */
+        .arrow-connector {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 32px;
+            color: #94A3B8;
+            z-index: 5;
+        }
+
+        .arrow-1-2 { left: 31%; }
+        .arrow-2-3 { left: 65%; }
+
+        /* API Highlight Box */
+        .api-highlight {
+            background-color: #F0F9FF;
+            border: 2px dashed #0066CC;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .api-url {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #0066CC;
+            background-color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #BAE6FD;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .api-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fluxo de Cadastro via API</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Processo de integraÃ§Ã£o massiva de dados</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-network-wired text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTEGRAÃ‡ÃƒO</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- API Endpoint Highlight -->
+<div class="api-highlight mb-8">
+<p class="api-label"><i class="fas fa-link mr-2"></i>Endpoint de Destino</p>
+<p class="api-url">https://prd-apex.antaq.gov.br/ords/sfc/bens/</p>
+</div>
+<!-- Flow Container -->
+<div class="flow-container">
+<!-- Connecting Line Background -->
+<div class="flow-line"></div>
+<div class="flow-line-progress"></div>
+<!-- Arrow Connectors -->
+<i class="fas fa-chevron-right arrow-connector arrow-1-2"></i>
+<i class="fas fa-chevron-right arrow-connector arrow-2-3"></i>
+<!-- Step 1 -->
+<div class="step-card step-1">
+<div class="step-header">
+<div class="step-icon-circle">
+<i class="fas fa-file-csv"></i>
+<div class="step-badge">1</div>
+</div>
+</div>
+<p class="step-title">PreparaÃ§Ã£o</p>
+<p class="step-desc">Organize as informaÃ§Ãµes dos bens em planilha e exporte como CSV.</p>
+<div class="preview-box">
+<div class="preview-header">
+<span class="file-tag tag-csv">dados.csv</span>
+<i class="fas fa-table text-gray-500 text-xs"></i>
+</div>
+<p class="preview-code">desc;patrimonio;valor
+Cadeira;00123;150.00
+Mesa;00124;450.00
+PC Dell;00125;3200.00</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="step-card step-2">
+<div class="step-header">
+<div class="step-icon-circle">
+<i class="fas fa-file-code"></i>
+<div class="step-badge">2</div>
+</div>
+</div>
+<p class="step-title">ConversÃ£o</p>
+<p class="step-desc">Formate o arquivo para a estrutura JSON correta exigida pela API.</p>
+<div class="preview-box">
+<div class="preview-header">
+<span class="file-tag tag-json">payload.json</span>
+<i class="fas fa-code text-gray-500 text-xs"></i>
+</div>
+<p class="preview-code">[
+  {
+    "desc": "Cadeira",
+    "pat": "00123",
+    "val": 150.00
+  },
+  ...
+]</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="step-card step-3">
+<div class="step-header">
+<div class="step-icon-circle">
+<i class="fas fa-cloud-upload-alt"></i>
+<div class="step-badge">3</div>
+</div>
+</div>
+<p class="step-title">InserÃ§Ã£o</p>
+<p class="step-desc">Envie os dados JSON para o endpoint e valide o retorno.</p>
+<div class="preview-box">
+<div class="preview-header">
+<span class="file-tag tag-api">POST Request</span>
+<i class="fas fa-paper-plane text-gray-500 text-xs"></i>
+</div>
+<p class="preview-code">Status: 201 Created
+{
+  "success": true,
+  "count": 3,
+  "id": "batch_8829"
+}</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">API de IntegraÃ§Ã£o - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">16 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 17 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gerar Chave de API (API KEY)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 20px 80px 30px 80px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Left Side: Steps */
+        .steps-container {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #CBD5E1;
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-1 { border-left-color: #0066CC; }
+        .step-2 { border-left-color: #2563EB; }
+        .step-3 { border-left-color: #1D4ED8; }
+        .step-4 { border-left-color: #1E40AF; }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #F1F5F9;
+            color: #64748B;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-1 .step-number { background-color: #E0F2FE; color: #0066CC; }
+        .step-2 .step-number { background-color: #DBEAFE; color: #2563EB; }
+        .step-3 .step-number { background-color: #EFF6FF; color: #1D4ED8; }
+        .step-4 .step-number { background-color: #F8FAFC; color: #1E40AF; border: 2px solid #E2E8F0; }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        .step-icon-bg {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            color: #F1F5F9;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Right Side: Visual & Alert */
+        .visual-container {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .key-card {
+            background-color: #1E293B;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
+        }
+
+        .key-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .key-title {
+            color: #F8FAFC;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .key-display {
+            background-color: #0F172A;
+            border: 1px dashed #475569;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            color: #38BDF8;
+            font-size: 14px;
+            word-break: break-all;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .key-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-size: 12px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+        }
+
+        .alert-box {
+            background-color: #FFFBEB;
+            border-left: 6px solid #F59E0B;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #B45309;
+        }
+
+        .alert-content p {
+            font-size: 14px;
+            color: #92400E;
+            line-height: 1.5;
+        }
+
+        .bg-key-icon {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 180px;
+            color: #F1F5F9;
+            opacity: 0.5;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Gerar Chave de API (API KEY)</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Procedimento para obtenÃ§Ã£o de credenciais de acesso</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-key text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SEGURANÃ‡A</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative z-10">
+<!-- Left: Steps -->
+<div class="steps-container">
+<!-- Step 1 -->
+<div class="step-item step-1">
+<div class="step-number">1</div>
+<div class="step-content">
+<h3>Solicite HabilitaÃ§Ã£o</h3>
+<p>Entre em contato com a equipe de TI ou administrador do sistema para habilitar o acesso via API para seu usuÃ¡rio.</p>
+</div>
+<i class="fas fa-user-check step-icon-bg"></i>
+</div>
+<!-- Step 2 -->
+<div class="step-item step-2">
+<div class="step-number">2</div>
+<div class="step-content">
+<h3>Gere sua Chave</h3>
+<p>Acesse o painel de desenvolvedor no portal SisPAT e clique em "Gerar Nova Chave de API".</p>
+</div>
+<i class="fas fa-magic step-icon-bg"></i>
+</div>
+<!-- Step 3 -->
+<div class="step-item step-3">
+<div class="step-number">3</div>
+<div class="step-content">
+<h3>Armazene com SeguranÃ§a</h3>
+<p>Copie a chave imediatamente. Por seguranÃ§a, ela nÃ£o serÃ¡ exibida novamente apÃ³s fechar a janela.</p>
+</div>
+<i class="fas fa-shield-alt step-icon-bg"></i>
+</div>
+<!-- Step 4 -->
+<div class="step-item step-4">
+<div class="step-number">4</div>
+<div class="step-content">
+<h3>RotaÃ§Ã£o de Chaves</h3>
+<p>Revoque e gere novas chaves periodicamente ou imediatamente se houver suspeita de comprometimento.</p>
+</div>
+<i class="fas fa-sync-alt step-icon-bg"></i>
+</div>
+</div>
+<!-- Right: Visual & Alert -->
+<div class="visual-container">
+<!-- Key Card Visualization -->
+<div class="key-card">
+<div class="key-header">
+<span class="key-title"><i class="fas fa-terminal mr-2 text-blue-400"></i>API Credential</span>
+<span class="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">Active</span>
+</div>
+<div class="key-display">
+<p>sispat_live_8f92a3...</p>
+<div class="key-blur">
+<i class="fas fa-eye-slash mr-2"></i> Clique para revelar
+                    </div>
+</div>
+<div class="flex justify-between text-xs text-gray-400">
+<p>Criado em: 04/03/2026</p>
+<p>Expira em: 90 dias</p>
+</div>
+</div>
+<!-- Alert Box -->
+<div class="alert-box">
+<div class="alert-header">
+<i class="fas fa-exclamation-triangle mr-2 text-xl"></i>
+<h4 class="font-bold text-lg">AtenÃ§Ã£o Importante</h4>
+</div>
+<div class="alert-content">
+<p>Utilize chaves distintas para ambientes de <strong>Teste</strong> e <strong>ProduÃ§Ã£o</strong>. Nunca utilize dados reais com chaves de teste ou vice-versa para garantir a integridade das informaÃ§Ãµes.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-fingerprint bg-key-icon"></i>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">SeguranÃ§a e Acesso - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">17 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 18 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guia de IntegraÃ§Ã£o RÃ¡pida</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- QR Code Generator -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 30px 80px 40px 80px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left Side: QR Code Panel */
+        .qr-panel {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E2E8F0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .qr-wrapper {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #003366;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        #qrcode {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .scan-me {
+            display: flex;
+            align-items: center;
+            background-color: #0066CC;
+            color: #FFFFFF;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: -10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.3);
+            z-index: 20;
+        }
+
+        /* Right Side: Content */
+        .info-panel {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .url-box {
+            background-color: #F1F5F9;
+            border-left: 6px solid #0066CC;
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .url-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #64748B;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-url {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #003366;
+            word-break: break-all;
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: #94A3B8;
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .feature-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        /* Background Decor */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background-color: #F8FAFC;
+            top: -100px;
+            right: -100px;
+            border: 40px solid #F1F5F9;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background-color: #EFF6FF;
+            bottom: 50px;
+            left: 50px;
+            opacity: 0.5;
+        }
+
+        .dots-pattern {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+            background-size: 20px 20px;
+            bottom: 40px;
+            right: 40px;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Guia de IntegraÃ§Ã£o RÃ¡pida</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Recursos e documentaÃ§Ã£o para desenvolvedores</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-book text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">DOCS</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative">
+<!-- Left: QR Code Panel -->
+<div class="qr-panel">
+<div class="qr-wrapper">
+<div id="qrcode"></div>
+</div>
+<div class="scan-me">
+<i class="fas fa-camera mr-2"></i> Escaneie para acessar
+                </div>
+<p class="text-gray-400 text-xs mt-6 text-center max-w-xs">
+                    Aponte a cÃ¢mera do seu celular ou tablet para acessar a documentaÃ§Ã£o completa instantaneamente.
+                </p>
+</div>
+<!-- Right: Info Panel -->
+<div class="info-panel">
+<!-- URL Box -->
+<div class="url-box">
+<p class="url-label"><i class="fas fa-globe mr-2"></i>Portal do Desenvolvedor</p>
+<p class="main-url">https://antaq.github.io/sispat-api/</p>
+<i class="fas fa-external-link-alt copy-hint"></i>
+</div>
+<!-- Features Grid -->
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-code-branch"></i>
+</div>
+<div class="feature-content">
+<h3>Endpoints</h3>
+<p>Lista completa de rotas disponÃ­veis, parÃ¢metros e mÃ©todos suportados.</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<div class="feature-content">
+<h3>Exemplos de Payload</h3>
+<p>Modelos JSON de requisiÃ§Ã£o e resposta para todos os cenÃ¡rios.</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="feature-content">
+<h3>AutenticaÃ§Ã£o</h3>
+<p>Guia detalhado sobre como utilizar as chaves de API e tokens de acesso.</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-bug"></i>
+</div>
+<div class="feature-content">
+<h3>Tratamento de Erros</h3>
+<p>CÃ³digos de status HTTP e mensagens de erro padronizadas.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Elements -->
+<div class="bg-circle circle-1"></div>
+<div class="bg-circle circle-2"></div>
+<div class="dots-pattern"></div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">DocumentaÃ§Ã£o TÃ©cnica - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">18 / 21</p>
+</div>
+</div>
+<!-- Script to generate QR Code -->
+<script>
+        // Generate QR Code
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://antaq.github.io/sispat-api/",
+            width: 200,
+            height: 200,
+            colorDark : "#003366",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- Slide 19 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ambientes de IntegraÃ§Ã£o</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Layout especÃ­fico para comparaÃ§Ã£o */
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .side-panel {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .side-left {
+            background-color: #F8FAFC;
+            border-right: 1px dashed #CBD5E1;
+        }
+        
+        .side-right {
+            background-color: #F0F9FF;
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle-left {
+            background-color: #FEF3C7; /* Amber-100 for Test */
+            color: #D97706; /* Amber-600 */
+        }
+        
+        .icon-circle-right {
+            background-color: #DBEAFE; /* Blue-100 for Prod */
+            color: #0066CC;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .list-icon {
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 18px;
+        }
+        
+        /* Central VS Badge */
+        .vs-badge {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            z-index: 20;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .code-pill {
+            font-family: 'Courier New', monospace;
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #334155;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Ambientes de IntegraÃ§Ã£o</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">SegregaÃ§Ã£o segura para desenvolvimento e operaÃ§Ã£o</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Comparison -->
+<div class="comparison-container">
+<!-- Center VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Left Side - TESTE -->
+<div class="side-panel side-left">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-left">
+<i class="fas fa-flask text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">TESTE</h2>
+<p class="text-gray-500 font-medium mt-1">Sandbox / HomologaÃ§Ã£o</p>
+</div>
+<div class="flex-1">
+<div class="list-item">
+<i class="fas fa-key text-yellow-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Prefixo da Chave</p>
+<p class="text-sm text-gray-500 mt-1"><span class="code-pill">sispat_test_...</span></p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-vial text-yellow-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Finalidade</p>
+<p class="text-sm text-gray-500 mt-1">Exclusivo para desenvolvimento, validaÃ§Ãµes de API e testes de carga.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-user-shield text-yellow-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Dados Seguros</p>
+<p class="text-sm text-gray-500 mt-1">Nunca utilize dados reais. Use apenas dados fictÃ­cios para simulaÃ§Ã£o.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-redo-alt text-yellow-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Reset PeriÃ³dico</p>
+<p class="text-sm text-gray-500 mt-1">O ambiente pode ser limpo periodicamente sem aviso prÃ©vio.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side - PRODUÃ‡ÃƒO -->
+<div class="side-panel side-right">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-right">
+<i class="fas fa-rocket text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">PRODUÃ‡ÃƒO</h2>
+<p class="text-brand-primary font-medium mt-1">Ambiente Real / Live</p>
+</div>
+<div class="flex-1">
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-key text-brand-secondary list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Prefixo da Chave</p>
+<p class="text-sm text-gray-600 mt-1"><span class="code-pill">sispat_live_...</span></p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Finalidade</p>
+<p class="text-sm text-gray-600 mt-1">Uso exclusivo para operaÃ§Ãµes reais e oficiais do sistema.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-file-contract text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Auditoria Legal</p>
+<p class="text-sm text-gray-600 mt-1">Todas as aÃ§Ãµes sÃ£o registradas e possuem valor legal/administrativo.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-lock text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Alta Criticidade</p>
+<p class="text-sm text-gray-600 mt-1">Requer aprovaÃ§Ã£o formal para acesso. AlteraÃ§Ãµes sÃ£o definitivas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Guia de IntegraÃ§Ã£o SisPAT</p>
+<p class="text-gray-300 text-xs font-mono">19 / 21</p>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 20 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IntegraÃ§Ã£o - Detalhes PrÃ¡ticos</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .code-snippet {
+            font-family: 'Courier New', monospace;
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">IntegraÃ§Ã£o - Detalhes PrÃ¡ticos</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Requisitos tÃ©cnicos e boas prÃ¡ticas para desenvolvedores</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-cogs text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-key"></i>
+</div>
+<p class="card-title">AutenticaÃ§Ã£o</p>
+<p class="card-desc">
+                    O acesso aos endpoints Ã© protegido e requer o envio da API Key no header da requisiÃ§Ã£o. Utilize o padrÃ£o Bearer Token para autorizaÃ§Ã£o segura.<br/><br/>
+<span class="font-semibold">Exemplo:</span> <span class="code-snippet">Authorization: Bearer {API_KEY}</span>
+</p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-code"></i>
+</div>
+<p class="card-title">Content-Type</p>
+<p class="card-desc">
+                    Todas as requisiÃ§Ãµes de envio de dados (POST/PUT) devem especificar o tipo de conteÃºdo como JSON. Isso garante que o servidor interprete corretamente o payload enviado.<br/><br/>
+<span class="font-semibold">Header:</span> <span class="code-snippet">Content-Type: application/json</span>
+</p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<p class="card-title">Respostas HTTP</p>
+<p class="card-desc">
+                    O sistema utiliza cÃ³digos de status padrÃ£o para indicar o resultado das operaÃ§Ãµes:<br/>
+<span class="font-bold text-green-600">201 Created:</span> Recurso criado com sucesso.<br/>
+<span class="font-bold text-red-600">400 Bad Request:</span> Erro na estrutura ou validaÃ§Ã£o.<br/>
+<span class="font-bold text-yellow-600">401 Unauthorized:</span> Falha na autenticaÃ§Ã£o (chave invÃ¡lida).
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<p class="card-title">Boas PrÃ¡ticas</p>
+<p class="card-desc">
+                    â€¢ <span class="font-semibold">ValidaÃ§Ã£o:</span> Verifique o schema JSON antes do envio para evitar erros 400.<br/>
+                    â€¢ <span class="font-semibold">PaginaÃ§Ã£o:</span> Ao enviar grandes volumes, divida em lotes menores para evitar timeouts.<br/>
+                    â€¢ <span class="font-semibold">IdempotÃªncia:</span> Trate reenvios em caso de falha de rede sem duplicar registros.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Tecnologia e InovaÃ§Ã£o - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">20 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
+
+
+
+<!-- Slide 21 -->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colaboradores</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px 80px 40px 80px;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            width: 100%;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #E2E8F0;
+            height: 420px;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #BFDBFE;
+        }
+
+        /* Card Header / Banner */
+        .card-banner {
+            height: 100px;
+            background-color: #003366;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 10px 10px;
+            opacity: 0.1;
+        }
+
+        .card-banner-accent {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background-color: #0066CC;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        /* Avatar */
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #F1F5F9;
+            border: 5px solid #FFFFFF;
+            margin: -60px auto 20px auto;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: #64748B;
+            font-size: 48px;
+            overflow: hidden;
+        }
+
+        .avatar-initials {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        /* Content */
+        .card-content {
+            flex: 1;
+            padding: 0 24px 24px 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .name-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #1E293B;
+            margin-bottom: 6px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .card-divider {
+            width: 40px;
+            height: 3px;
+            background-color: #E2E8F0;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        .bio-placeholder {
+            font-size: 13px;
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        /* Social/Contact Icons Footer */
+        .card-footer {
+            padding: 16px;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            background-color: #FAFAFA;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            transition: all 0.2s ease;
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+        }
+
+        .social-icon:hover {
+            color: #0066CC;
+            border-color: #0066CC;
+            background-color: #F0F9FF;
+        }
+
+        /* Background Decor */
+        .bg-network {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .bg-shape-1 {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #E2E8F0;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .bg-shape-2 {
+            position: absolute;
+            top: 100px;
+            right: 40px;
+            width: 100px;
+            height: 100px;
+            background-color: #F8FAFC;
+            border-radius: 20px;
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Colaboradores</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Equipe tÃ©cnica do projeto SisPAT</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-users text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">EQUIPE</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Background Decor -->
+<div class="bg-network"></div>
+<div class="bg-shape-1"></div>
+<div class="bg-shape-2"></div>
+<!-- Team Grid -->
+<div class="team-grid z-10">
+<!-- Member 1: Pedro Soares -->
+<div class="profile-card">
+<div class="card-banner">
+<div class="banner-pattern"></div>
+<div class="card-banner-accent"></div>
+</div>
+<div class="avatar-container">
+<span class="avatar-initials">PS</span>
+</div>
+<div class="card-content">
+<h3 class="name-text">Pedro Soares</h3>
+<span class="role-badge">Equipe TÃ©cnica</span>
+<div class="card-divider"></div>
+<p class="bio-placeholder">
+                        AtuaÃ§Ã£o no desenvolvimento e arquitetura da soluÃ§Ã£o SisPAT, garantindo a integraÃ§Ã£o dos mÃ³dulos.
+                    </p>
+</div>
+<div class="card-footer">
+<div class="social-icon"><i class="fab fa-github"></i></div>
+<div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+<div class="social-icon"><i class="fas fa-envelope"></i></div>
+</div>
+</div>
+<!-- Member 2: Artur Carvalho -->
+<div class="profile-card">
+<div class="card-banner">
+<div class="banner-pattern"></div>
+<div class="card-banner-accent" style="left: -20px; right: auto; background-color: #10B981;"></div>
+</div>
+<div class="avatar-container">
+<span class="avatar-initials">AC</span>
+</div>
+<div class="card-content">
+<h3 class="name-text">Artur Carvalho</h3>
+<span class="role-badge">Equipe TÃ©cnica</span>
+<div class="card-divider"></div>
+<p class="bio-placeholder">
+                        Especialista em banco de dados e implementaÃ§Ã£o de regras de negÃ³cio no Oracle APEX.
+                    </p>
+</div>
+<div class="card-footer">
+<div class="social-icon"><i class="fab fa-github"></i></div>
+<div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+<div class="social-icon"><i class="fas fa-envelope"></i></div>
+</div>
+</div>
+<!-- Member 3: Victor Rocha -->
+<div class="profile-card">
+<div class="card-banner">
+<div class="banner-pattern"></div>
+<div class="card-banner-accent" style="background-color: #F59E0B;"></div>
+</div>
+<div class="avatar-container">
+<span class="avatar-initials">VR</span>
+</div>
+<div class="card-content">
+<h3 class="name-text">Victor Rocha</h3>
+<span class="role-badge">Equipe TÃ©cnica</span>
+<div class="card-divider"></div>
+<p class="bio-placeholder">
+                        Foco na interface do usuÃ¡rio (UI/UX) e acessibilidade das funcionalidades do sistema.
+                    </p>
+</div>
+<div class="card-footer">
+<div class="social-icon"><i class="fab fa-github"></i></div>
+<div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+<div class="social-icon"><i class="fas fa-envelope"></i></div>
+</div>
+</div>
+<!-- Member 4: Vitor Medeiros -->
+<div class="profile-card">
+<div class="card-banner">
+<div class="banner-pattern"></div>
+<div class="card-banner-accent" style="left: -20px; right: auto; background-color: #8B5CF6;"></div>
+</div>
+<div class="avatar-container">
+<span class="avatar-initials">VM</span>
+</div>
+<div class="card-content">
+<h3 class="name-text">Vitor Medeiros</h3>
+<span class="role-badge">Equipe TÃ©cnica</span>
+<div class="card-divider"></div>
+<p class="bio-placeholder">
+                        Desenvolvimento de APIs de integraÃ§Ã£o e seguranÃ§a de dados no ambiente cloud.
+                    </p>
+</div>
+<div class="card-footer">
+<div class="social-icon"><i class="fab fa-github"></i></div>
+<div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+<div class="social-icon"><i class="fas fa-envelope"></i></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">SisPAT - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">21 / 21</p>
+</div>
+</div>
+</body>
+</html>
+

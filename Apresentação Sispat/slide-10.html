@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 1: Descrição</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        /* Special layout for the last card to span or center if odd number */
+        .card:last-child {
+            grid-column: 2 / 3; /* Center in the bottom row if 5 items */
+        }
+        
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .required-badge {
+            font-size: 10px;
+            background-color: #EF4444;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 1: Descrição</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Campos obrigatórios e dados fundamentais do bem</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-pen-to-square text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-signature"></i>
+</div>
+<p class="card-title">
+                    Descrição Detalhada <span class=”required-badge”>OBRIGATÓRIO</span>
+</p>
+<div class="card-desc">
+<p>Nome completo e detalhamento minucioso das características físicas do bem (cor, material, dimensões, potência), garantindo sua correta individualização.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-barcode"></i>
+</div>
+<p class="card-title">
+                    Identificador / Plaqueta <span class=”required-badge”>OBRIGATÓRIO</span>
+</p>
+<div class="card-desc">
+<p>Número de registro patrimonial (plaqueta) afixado no bem. Caso não possua, deve ser gerado um código provisório de controle interno.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-calendar-alt"></i>
+</div>
+<p class="card-title">
+                    Data de Aquisição <span class=”required-badge”>OBRIGATÓRIO</span>
+</p>
+<div class="card-desc">
+<p>Data contábil de entrada do bem no patrimônio. Essencial para cálculos de depreciação e histórico de vida útil do ativo.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-tag"></i>
+</div>
+<p class="card-title">
+                    Marca e Modelo
+                </p>
+<div class="card-desc">
+<p>Identificação do fabricante e modelo específico. Informação crucial para avaliações de mercado, manutenção e reposição de peças.</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-clipboard-check"></i>
+</div>
+<p class="card-title">
+                    Estado de Conservação
+                </p>
+<div class="card-desc">
+<p>Registro das condições físicas atuais do bem (Novo, Bom, Regular, Ruim, Inservível) no momento do inventário.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento SisPAT - Cadastro de Bens</p>
+<p class="text-gray-300 text-xs font-mono">10 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>

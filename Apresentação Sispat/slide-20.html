@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integração - Detalhes Práticos</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            padding: 20px 60px 40px 60px;
+            flex: 1;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .code-snippet {
+            font-family: 'Courier New', monospace;
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Integração - Detalhes Práticos</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Requisitos técnicos e boas práticas para desenvolvedores</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-cogs text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-key"></i>
+</div>
+<p class="card-title">Autenticação</p>
+<p class="card-desc">
+                    O acesso aos endpoints é protegido e requer o envio da API Key no header da requisição. Utilize o padrão Bearer Token para autorização segura.<br/><br/>
+<span class="font-semibold">Exemplo:</span> <span class="code-snippet">Authorization: Bearer {API_KEY}</span>
+</p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-file-code"></i>
+</div>
+<p class="card-title">Content-Type</p>
+<p class="card-desc">
+                    Todas as requisições de envio de dados (POST/PUT) devem especificar o tipo de conteúdo como JSON. Isso garante que o servidor interprete corretamente o payload enviado.<br/><br/>
+<span class="font-semibold">Header:</span> <span class="code-snippet">Content-Type: application/json</span>
+</p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<p class="card-title">Respostas HTTP</p>
+<p class="card-desc">
+                    O sistema utiliza códigos de status padrão para indicar o resultado das operações:<br/>
+<span class="font-bold text-green-600">201 Created:</span> Recurso criado com sucesso.<br/>
+<span class="font-bold text-red-600">400 Bad Request:</span> Erro na estrutura ou validação.<br/>
+<span class="font-bold text-yellow-600">401 Unauthorized:</span> Falha na autenticação (chave inválida).
+                </p>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<p class="card-title">Boas Práticas</p>
+<p class="card-desc">
+                    • <span class="font-semibold">Validação:</span> Verifique o schema JSON antes do envio para evitar erros 400.<br/>
+                    • <span class="font-semibold">Paginação:</span> Ao enviar grandes volumes, divida em lotes menores para evitar timeouts.<br/>
+                    • <span class="font-semibold">Idempotência:</span> Trate reenvios em caso de falha de rede sem duplicar registros.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Tecnologia e Inovação - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">20 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>

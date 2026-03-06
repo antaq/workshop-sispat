@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evolução do Controle de Inventário</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Layout específico para comparação */
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .side-panel {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .side-left {
+            background-color: #F8FAFC;
+            border-right: 1px dashed #CBD5E1;
+        }
+        
+        .side-right {
+            background-color: #F0F9FF;
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle-left {
+            background-color: #FFE4E6;
+            color: #BE123C;
+        }
+        
+        .icon-circle-right {
+            background-color: #DBEAFE;
+            color: #0066CC;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .list-icon {
+            margin-right: 16px;
+            margin-top: 4px;
+            font-size: 18px;
+        }
+        
+        /* Central VS Badge */
+        .vs-badge {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            z-index: 20;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .arrow-connector {
+            position: absolute;
+            left: 50%;
+            top: 22%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #CBD5E1;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Evolução do Controle</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Transformação digital na gestão patrimonial dos portos</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Comparison -->
+<div class="comparison-container">
+<!-- Center VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Left Side - ANTES -->
+<div class="side-panel side-left">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-left">
+<i class="fas fa-file-excel text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">ANTES</h2>
+<p class="text-gray-500 font-medium mt-1">Planilha Descentralizada</p>
+</div>
+<div class="flex-1">
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Dados Dispersos</p>
+<p class="text-sm text-gray-500 mt-1">Informações espalhadas em múltiplos arquivos e versões diferentes.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Risco de Inconsistência</p>
+<p class="text-sm text-gray-500 mt-1">Erros manuais frequentes e dificuldade de padronização.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Baixa Rastreabilidade</p>
+<p class="text-sm text-gray-500 mt-1">Impossível auditar quem alterou o que e quando.</p>
+</div>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<div>
+<p class="font-bold text-gray-700">Consolidação Manual</p>
+<p class="text-sm text-gray-500 mt-1">Horas gastas apenas para juntar informações de diferentes fontes.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side - DEPOIS -->
+<div class="side-panel side-right">
+<div class="flex flex-col items-center mb-8">
+<div class="icon-circle icon-circle-right">
+<i class="fas fa-network-wired text-4xl"></i>
+</div>
+<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">DEPOIS</h2>
+<p class="text-brand-primary font-medium mt-1">Sistema Centralizado e Integrado</p>
+</div>
+<div class="flex-1">
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Base Única e Confiável</p>
+<p class="text-sm text-gray-600 mt-1">Dados centralizados acessíveis em tempo real por todos os autorizados.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Integridade dos Dados</p>
+<p class="text-sm text-gray-600 mt-1">Validações automáticas e padronização forçada pelo sistema.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Auditoria Completa</p>
+<p class="text-sm text-gray-600 mt-1">Histórico detalhado de todas as alterações e responsáveis.</p>
+</div>
+</div>
+<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
+<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<div>
+<p class="font-bold text-brand-primary">Gestão em Tempo Real</p>
+<p class="text-sm text-gray-600 mt-1">Dashboards e relatórios gerenciais instantâneos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento SisPAT - Módulo de Gestão</p>
+<p class="text-gray-300 text-xs font-mono">3 / 21</p>
+</div>
+</div>
+</body>
+</html>

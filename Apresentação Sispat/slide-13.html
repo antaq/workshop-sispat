@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Etapa 4: Classificação</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Grid Layout for Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px 60px;
+            flex: 1;
+            align-content: center;
+        }
+        
+        .card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .card-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* Decorative Background */
+        .bg-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #F1F5F9;
+            z-index: -1;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .highlight-badge {
+            display: inline-block;
+            background-color: #FEF3C7;
+            color: #D97706;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<!-- Header -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 4: Classificação</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Definição da situação e natureza dos bens</p>
+</div>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-tags text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+</div>
+</div>
+</div>
+<!-- Main Content - Cards Grid -->
+<div class="cards-container">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-traffic-light"></i>
+</div>
+<p class="card-title">Situação do Bem <span class=”highlight-badge”>OBRIGATÓRIO*</span></p>
+<p class="card-desc">
+                    Definição do estado atual do bem no patrimônio. Exemplos: Ativo (em uso), Ocioso (sem uso momentâneo), Em Manutenção, Baixado (descartado/alienado) ou Em Transferência.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-box-open"></i>
+</div>
+<p class="card-title">Natureza <span class=”highlight-badge”>OBRIGATÓRIO*</span></p>
+<p class="card-desc">
+                    Classificação quanto à durabilidade e finalidade. Exemplos: Permanente (durável), Consumo (uso imediato), Intangível (software/licenças) ou Bens de Terceiros.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+<p class="card-title">Responsável / Guardião</p>
+<p class="card-desc">
+                    Indicação do servidor ou colaborador responsável pela guarda e zelo do bem. Fundamental para termos de responsabilidade e auditorias de inventário.
+                </p>
+</div>
+</div>
+<!-- Additional Info Bar -->
+<div class="mx-12 mb-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r flex items-start">
+<i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
+<div>
+<p class="text-sm text-blue-800 font-semibold mb-1">Dica de Preenchimento</p>
+<p class="text-xs text-blue-700">Mantenha as categorias de classificação alinhadas às normas contábeis vigentes (MCASP) e manuais internos da ANTAQ para garantir consistência nos relatórios gerenciais.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Treinamento Cadastro de Bens - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">13 / 21</p>
+</div>
+<!-- Background Decor -->
+<div class="bg-shape"></div>
+</div>
+</body>
+</html>
