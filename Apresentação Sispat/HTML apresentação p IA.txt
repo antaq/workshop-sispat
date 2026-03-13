@@ -70,7 +70,7 @@
 <!-- Top Header / Organization -->
 <div class="absolute top-16 left-24 flex items-center gap-4">
 <div class="text-brand-primary text-3xl">
-<i class="fas fa-anchor"></i>
+<img src="Imagens/Logo ANTAQ.jpg" alt="ANTAQ" class="h-8">
 </div>
 <div>
 <p class="text-gray-500 text-sm font-bold tracking-widest uppercase">AgÃªncia Nacional de Transportes AquaviÃ¡rios</p>
@@ -220,7 +220,7 @@
 <p class="text-gray-500 font-medium ml-4 text-lg">IntegraÃ§Ã£o entre Ã¡reas e portos para uma gestÃ£o eficiente</p>
 </div>
 <div class="flex items-center gap-2 opacity-80">
-<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<img src="Imagens/Logo ANTAQ.jpg" alt="ANTAQ" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
 </div>
 </div>
@@ -441,7 +441,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">TransformaÃ§Ã£o digital na gestÃ£o patrimonial dos portos</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<img src="Imagens/Logo ANTAQ.jpg" alt="ANTAQ" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
 </div>
 </div>
@@ -686,7 +686,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">BenefÃ­cios estratÃ©gicos da plataforma escolhida</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-database text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>
@@ -2393,7 +2393,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">Campos obrigatÃ³rios e dados fundamentais do bem</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-pen-to-square text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>
@@ -2618,7 +2618,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">ClassificaÃ§Ã£o estruturada dos bens patrimoniais</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-tags text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>
@@ -2841,7 +2841,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">Campos ObrigatÃ³rios e CritÃ©rios de Valor</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-calculator text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>
@@ -3083,7 +3083,7 @@
 <p class="text-gray-500 font-medium text-lg mt-1">DefiniÃ§Ã£o da situaÃ§Ã£o e natureza dos bens</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-tags text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>
@@ -5263,7 +5263,7 @@ PC Dell;00125;3200.00</p>
 <p class="text-gray-500 font-medium text-lg mt-1">SegregaÃ§Ã£o segura para desenvolvimento e operaÃ§Ã£o</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-anchor text-brand-secondary text-xl"></i>
+<img src="Imagens/Logo ANTAQ.jpg" alt="ANTAQ" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
 </div>
 </div>
@@ -5512,7 +5512,7 @@ PC Dell;00125;3200.00</p>
 <p class="text-gray-500 font-medium text-lg mt-1">Requisitos tÃ©cnicos e boas prÃ¡ticas para desenvolvedores</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-cogs text-brand-secondary text-xl"></i>
+<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
 <p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
 </div>
 </div>

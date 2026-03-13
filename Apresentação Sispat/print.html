@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SisPAT - Exportar PDF</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1f2937;
+      color: #e5e7eb;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(17, 24, 39, 0.95);
+      border-bottom: 1px solid #334155;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .toolbar-title {
+      font-size: 16px;
+      color: #9ca3af;
+    }
+
+    .toolbar button {
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 24px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .toolbar button:hover { background: #0052a3; }
+
+    .toolbar .btn-secondary {
+      background: #1f2937;
+      border: 1px solid #334155;
+      color: #e5e7eb;
+      margin-right: 8px;
+    }
+
+    .toolbar .btn-secondary:hover { border-color: #0066cc; }
+
+    .loading {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .loading-text {
+      font-size: 18px;
+      color: #e5e7eb;
+    }
+
+    .loading-bar {
+      width: 300px;
+      height: 6px;
+      background: #334155;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .loading-bar-fill {
+      height: 100%;
+      background: #0066cc;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    /* Screen preview */
+    .slides-container {
+      padding: 70px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .slide-frame {
+      width: 960px;
+      height: 540px;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      background: #fff;
+    }
+
+    /* Print styles */
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .toolbar, .loading {
+        display: none !important;
+      }
+
+      .slides-container {
+        padding: 0;
+        gap: 0;
+      }
+
+      .slide-frame {
+        display: block;
+        width: 297mm;
+        height: 210mm;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .slide-frame:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span class="toolbar-title">Exportar PDF - SisPAT</span>
+    <div>
+      <button class="btn-secondary" onclick="window.close()">Voltar</button>
+      <button id="printBtn" onclick="window.print()">Imprimir / Salvar PDF</button>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-text" id="loadingText">Carregando slides... 0 / 21</div>
+    <div class="loading-bar">
+      <div class="loading-bar-fill" id="loadingBar"></div>
+    </div>
+  </div>
+
+  <div class="slides-container" id="container"></div>
+
+  <script>
+    const total = 21;
+    const container = document.getElementById('container');
+    const loadingEl = document.getElementById('loading');
+    const loadingText = document.getElementById('loadingText');
+    const loadingBar = document.getElementById('loadingBar');
+    let loaded = 0;
+
+    function onLoad() {
+      loaded++;
+      loadingText.textContent = `Carregando slides... ${loaded} / ${total}`;
+      loadingBar.style.width = `${(loaded / total) * 100}%`;
+      if (loaded === total) {
+        setTimeout(() => { loadingEl.style.display = 'none'; }, 500);
+      }
+    }
+
+    for (let i = 1; i <= total; i++) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `slide-${String(i).padStart(2, '0')}.html`;
+      iframe.className = 'slide-frame';
+      iframe.title = `Slide ${i}`;
+      iframe.addEventListener('load', onLoad);
+      container.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
