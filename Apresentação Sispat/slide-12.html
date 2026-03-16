@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Etapa 3 - Mensuração</title>
+<title>Gerar Chave de API (API KEY)</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -41,97 +41,201 @@
         .text-brand-primary {
             color: #003366;
         }
-        .text-brand-secondary {
-            color: #0066CC;
-        }
         .bg-brand-primary {
             background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
         }
         .bg-brand-secondary {
             background-color: #0066CC;
         }
         
-        /* Grid Layout for Cards */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px 60px 40px 60px;
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
             flex: 1;
+            padding: 20px 80px 30px 80px;
+            gap: 40px;
+            align-items: center;
         }
-        
-        .card {
-            background-color: #F8FAFC;
-            border-radius: 12px;
-            padding: 20px;
+
+        /* Left Side: Steps */
+        .steps-container {
+            flex: 0.6;
             display: flex;
             flex-direction: column;
-            border-left: 5px solid #0066CC;
+            gap: 20px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #CBD5E1;
             transition: transform 0.2s ease;
             position: relative;
             overflow: hidden;
         }
-        
-        .card:hover {
-            transform: translateY(-2px);
+
+        .step-item:hover {
+            transform: translateX(10px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-        
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background-color: #E0F2FE;
-            color: #0066CC;
+
+        .step-1 { border-left-color: #0066CC; }
+        .step-2 { border-left-color: #2563EB; }
+        .step-3 { border-left-color: #1D4ED8; }
+        .step-4 { border-left-color: #1E40AF; }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #F1F5F9;
+            color: #64748B;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: #003366;
-            font-size: 16px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        
-        .card-desc {
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.5;
-            flex: 1;
-        }
-        
-        .required-badge {
-            font-size: 10px;
-            background-color: #fee2e2;
-            color: #b91c1c;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-left: 8px;
-            vertical-align: middle;
-            display: inline-block;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
-        /* Decorative Background */
-        .bg-shape {
+        .step-1 .step-number { background-color: #E0F2FE; color: #0066CC; }
+        .step-2 .step-number { background-color: #DBEAFE; color: #2563EB; }
+        .step-3 .step-number { background-color: #EFF6FF; color: #1D4ED8; }
+        .step-4 .step-number { background-color: #F8FAFC; color: #1E40AF; border: 2px solid #E2E8F0; }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        .step-icon-bg {
             position: absolute;
-            bottom: 0;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            color: #F1F5F9;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Right Side: Visual & Alert */
+        .visual-container {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .key-card {
+            background-color: #1E293B;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
+        }
+
+        .key-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .key-title {
+            color: #F8FAFC;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .key-display {
+            background-color: #0F172A;
+            border: 1px dashed #475569;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            color: #38BDF8;
+            font-size: 14px;
+            word-break: break-all;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .key-blur {
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 150px;
-            background-color: #F1F5F9;
-            z-index: -1;
-            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+            height: 100%;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-size: 12px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
         }
+
+        .alert-box {
+            background-color: #FFFBEB;
+            border-left: 6px solid #F59E0B;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #B45309;
+        }
+
+        .alert-content p {
+            font-size: 14px;
+            color: #92400E;
+            line-height: 1.5;
+        }
+
+        .bg-key-icon {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 180px;
+            color: #F1F5F9;
+            opacity: 0.5;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
     </style>
 </head>
 <body>
@@ -140,98 +244,98 @@
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
 <!-- Header -->
-<div class="px-12 pt-10 pb-4">
+<div class="px-12 pt-10 pb-4 relative z-20">
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Etapa 3 - Mensuração</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Campos Obrigatórios e Critérios de Valor</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Gerar Chave de API (API KEY)</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Procedimento para obtenção de credenciais de acesso</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<img src="Imagens/LogoSisPAT.jpg" alt="SisPAT" class="h-6">
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+<i class="fas fa-key text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SEGURANÇA</p>
 </div>
 </div>
 </div>
-<!-- Main Content - Cards Grid -->
-<div class="cards-container">
-<!-- Card 1 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-file-invoice-dollar"></i>
+<!-- Main Content -->
+<div class="content-wrapper relative z-10">
+<!-- Left: Steps -->
+<div class="steps-container">
+<!-- Step 1 -->
+<div class="step-item step-1">
+<div class="step-number">1</div>
+<div class="step-content">
+<h3>Solicite Habilitação</h3>
+<p>Entre em contato com a equipe de TI ou administrador do sistema para habilitar o acesso via API para seu usuário.</p>
 </div>
-<div class="flex items-center mb-2">
-<p class="card-title mb-0">Valor de Aquisição</p>
-<span class="required-badge">Obrigatório*</span>
+<i class="fas fa-user-check step-icon-bg"></i>
 </div>
-<p class="card-desc">
-                    Valor original de compra, produção ou construção do bem. Deve incluir todos os custos necessários para colocar o ativo em condições de funcionamento.
-                </p>
+<!-- Step 2 -->
+<div class="step-item step-2">
+<div class="step-number">2</div>
+<div class="step-content">
+<h3>Gere sua Chave</h3>
+<p>Acesse o painel de desenvolvedor no portal SisPAT e clique em "Gerar Nova Chave de API".</p>
 </div>
-<!-- Card 2 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-hourglass-half"></i>
+<i class="fas fa-magic step-icon-bg"></i>
 </div>
-<div class="flex items-center mb-2">
-<p class="card-title mb-0">Vida Útil</p>
-<span class="required-badge">Obrigatório*</span>
+<!-- Step 3 -->
+<div class="step-item step-3">
+<div class="step-number">3</div>
+<div class="step-content">
+<h3>Armazene com Segurança</h3>
+<p>Copie a chave imediatamente. Por segurança, ela não será exibida novamente após fechar a janela.</p>
 </div>
-<p class="card-desc">
-                    Período de tempo (em anos ou meses) durante o qual a entidade espera utilizar o ativo, base para o cálculo das quotas de depreciação.
-                </p>
+<i class="fas fa-shield-alt step-icon-bg"></i>
 </div>
-<!-- Card 3 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-chart-line"></i>
+<!-- Step 4 -->
+<div class="step-item step-4">
+<div class="step-number">4</div>
+<div class="step-content">
+<h3>Rotação de Chaves</h3>
+<p>Revoque e gere novas chaves periodicamente ou imediatamente se houver suspeita de comprometimento.</p>
 </div>
-<div class="flex items-center mb-2">
-<p class="card-title mb-0">Método Depreciação</p>
-<span class="required-badge">Obrigatório*</span>
-</div>
-<p class="card-desc">
-                    Critério utilizado para alocar o valor depreciável ao longo da vida útil. O padrão geralmente é o método das quotas constantes (linear).
-                </p>
-</div>
-<!-- Card 4 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-coins"></i>
-</div>
-<p class="card-title">Valor Residual</p>
-<p class="card-desc">
-                    Montante estimado que a entidade obteria com a alienação do ativo no final de sua vida útil, deduzidas as despesas estimadas de venda.
-                </p>
-</div>
-<!-- Card 5 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-calendar-check"></i>
-</div>
-<p class="card-title">Início Depreciação</p>
-<p class="card-desc">
-                    Data a partir da qual o bem está disponível para uso no local e nas condições necessárias, marcando o início da contabilização da depreciação.
-                </p>
-</div>
-<!-- Card 6 -->
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-balance-scale"></i>
-</div>
-<p class="card-title">Valor Líquido</p>
-<p class="card-desc">
-                    Resultado da subtração da depreciação acumulada e perdas por redução ao valor recuperável do valor de custo inicial (Gross Book Value).
-                </p>
+<i class="fas fa-sync-alt step-icon-bg"></i>
 </div>
 </div>
-<!-- Footer -->
-<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs font-montserrat">Treinamento Cadastro de Bens - ANTAQ</p>
-<p class="text-gray-300 text-xs font-mono">12 / 21</p>
+<!-- Right: Visual & Alert -->
+<div class="visual-container">
+<!-- Key Card Visualization -->
+<div class="key-card">
+<div class="key-header">
+<span class="key-title"><i class="fas fa-terminal mr-2 text-blue-400"></i>API Credential</span>
+<span class="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">Active</span>
+</div>
+<div class="key-display">
+<p>sispat_live_8f92a3...</p>
+<div class="key-blur">
+<i class="fas fa-eye-slash mr-2"></i> Clique para revelar
+                    </div>
+</div>
+<div class="flex justify-between text-xs text-gray-400">
+<p>Criado em: 04/03/2026</p>
+<p>Expira em: 90 dias</p>
+</div>
+</div>
+<!-- Alert Box -->
+<div class="alert-box">
+<div class="alert-header">
+<i class="fas fa-exclamation-triangle mr-2 text-xl"></i>
+<h4 class="font-bold text-lg">Atenção Importante</h4>
+</div>
+<div class="alert-content">
+<p>Utilize chaves distintas para ambientes de <strong>Teste</strong> e <strong>Produção</strong>. Nunca utilize dados reais com chaves de teste ou vice-versa para garantir a integridade das informações.</p>
+</div>
+</div>
+</div>
 </div>
 <!-- Background Decor -->
-<div class="bg-shape"></div>
+<i class="fas fa-fingerprint bg-key-icon"></i>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Segurança e Acesso - ANTAQ</p>
+<p class="text-gray-300 text-xs font-mono">12 / 16</p>
+</div>
 </div>
 </body>
 </html>

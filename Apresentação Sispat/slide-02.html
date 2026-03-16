@@ -51,17 +51,22 @@
             background-color: #0066CC;
             width: 100%;
         }
-        /* Video Placeholder */
+        /* Caixa principal de descrição (estilo cartão azul, semelhante ao slide 7) */
         .video-frame {
-            background-color: #f8fafc;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            background-color: #F0F9FF;
+            border: 2px solid #BAE6FD;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.15);
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            min-height: 320px;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            text-align: center;
         }
         .video-icon {
             color: #94a3b8;
@@ -94,7 +99,7 @@
 <p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">O que é o SisPAT?</p>
 </div>
 <p class="text-gray-500 font-medium ml-4 text-lg">
-                Sistema de controle patrimonial para bens reversíveis nos portos e terminais vinculados à ANTAQ
+                Sistema de Controle Patrimonial dos Portos Organizados
             </p>
 </div>
 <div class="flex items-center gap-2 opacity-80">
@@ -107,17 +112,17 @@
 <!-- Container central -->
 <div class="w-full max-w-5xl relative">
 <!-- Bloco principal -->
-<div class="video-frame w-full h-auto bg-gray-50 flex flex-col items-start justify-center p-10">
-<p class="text-brand-primary font-montserrat font-bold text-2xl mb-4 flex items-center gap-3">
+<div class="video-frame w-full h-auto">
+<p class="text-brand-primary font-montserrat font-bold text-2xl mb-4 flex items-center gap-3 justify-center">
 <i class="fas fa-boxes-stacked text-brand-secondary text-3xl"></i>
-                    SisPAT – Sistema de Controle Patrimonial
+                    SisPAT – Sistema de Controle Patrimonial dos Portos Organizados
                 </p>
-<p class="text-gray-700 text-base leading-relaxed mb-4">
+<p class="text-gray-700 text-base leading-relaxed mb-4 max-w-3xl mx-auto">
                     O SisPAT é a plataforma da ANTAQ para <strong>registro, consolidação e acompanhamento</strong> das informações
                     dos <strong>bens reversíveis</strong> sob responsabilidade das autoridades portuárias, terminais e demais
                     entes regulados.
                 </p>
-<p class="text-gray-700 text-base leading-relaxed">
+<p class="text-gray-700 text-base leading-relaxed max-w-3xl mx-auto">
                     Ele organiza, em um único ambiente, os dados patrimoniais enviados pelos regulados, apoiando a
                     <strong>gestão do ciclo de vida dos bens</strong>, a <strong>transparência regulatória</strong> e a
                     <strong>tomada de decisão</strong> pela ANTAQ e pelas próprias instituições usuárias.
@@ -150,8 +155,9 @@
 </div>
 <!-- Footer -->
 <div class="px-16 pb-8 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs">Sistema de Controle Patrimonial - Módulo de Treinamento</p>
-<p class="text-gray-300 text-xs font-mono">2 / 21</p>
+<p class="text-gray-400 text-xs">SisPAT - Treinamento Simplificado da Funcionalidade de
+    Cadastro de Bens e Inventário</p>
+<p class="text-gray-300 text-xs font-mono">2 / 16</p>
 </div>
 <!-- Decorative Background Pattern -->
 <div class="bg-pattern">
