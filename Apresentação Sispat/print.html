@@ -7,10 +7,17 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --slide-width: 13.333in;
+      --slide-height: 7.5in;
+    }
+
     body {
       background: #1f2937;
       color: #e5e7eb;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     .toolbar {
@@ -98,8 +105,8 @@
     }
 
     .slide-frame {
-      width: 960px;
-      height: 540px;
+      width: calc(var(--slide-width) / 2);
+      height: calc(var(--slide-height) / 2);
       border: 0;
       border-radius: 8px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -108,11 +115,17 @@
 
     /* Print styles */
     @page {
-      size: A4 landscape;
+      size: var(--slide-width) var(--slide-height);
       margin: 0;
     }
 
     @media print {
+      html, body {
+        width: var(--slide-width);
+        height: var(--slide-height);
+        background: white;
+      }
+
       body {
         background: white;
       }
@@ -128,8 +141,8 @@
 
       .slide-frame {
         display: block;
-        width: 297mm;
-        height: 210mm;
+        width: var(--slide-width);
+        height: var(--slide-height);
         border-radius: 0;
         box-shadow: none;
         page-break-after: always;
@@ -162,7 +175,7 @@
   <div class="slides-container" id="container"></div>
 
   <script>
-    const total = 16;
+    const total = 15;
     const container = document.getElementById('container');
     const loadingEl = document.getElementById('loading');
     const loadingText = document.getElementById('loadingText');
