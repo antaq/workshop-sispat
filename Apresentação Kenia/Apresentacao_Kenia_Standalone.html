@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manual de Procedimentos - Inventário de Bens</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+/* ===== Reset / Body ===== */
+* { box-sizing: border-box; }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0; padding: 0;
+    background-color: #111827;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* ===== Slide container (original 1280x720) ===== */
+.slide-container {
+    width: 1280px; height: 720px;
+    background-color: #ffffff;
+    position: relative; overflow: hidden;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    flex-shrink: 0;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+.slide-container.active {
+    display: flex;
+}
+
+/* ===== Scaling wrapper ===== */
+#slideWrapper {
+    display: flex; justify-content: center; align-items: center;
+    width: 100vw; height: 100vh;
+}
+#slideScaler {
+    transform-origin: center center;
+}
+
+/* ===== Original slide styles (inlined from styles.css) ===== */
+.gov-blue-bg { background-color: #0c326f; }
+.gov-yellow-bg { background-color: #ffdf00; }
+.gov-green-bg { background-color: #009c3b; }
+.text-gov-blue { color: #0c326f; }
+.gov-blue { color: #0c326f; }
+.gov-bg-blue { background-color: #0c326f; }
+.gov-bg-blue-light { background-color: #e5f1ff; }
+.gov-light-blue-bg { background-color: #e5f1ff; }
+.gov-text-blue { color: #0c326f; }
+.gov-border-yellow { border-color: #ffdf00; }
+.pattern-overlay {
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 20px 20px; opacity: 0.05;
+}
+.dot-pattern {
+    background-image: radial-gradient(#0c326f 1px, transparent 1px);
+    background-size: 20px 20px; opacity: 0.05;
+}
+.card { transition: all 0.3s ease; border-left: 4px solid transparent; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-left: 4px solid #ffdf00; }
+.col-reversible { background-color: #f0f7ff; border-top: 6px solid #0c326f; }
+.col-reversible-icon { background-color: #0c326f; color: white; }
+.col-non-reversible { background-color: #fcfcfc; border-top: 6px solid #9ca3af; }
+.col-non-reversible-icon { background-color: #9ca3af; color: white; }
+.concept-card { transition: all 0.3s ease; position: relative; overflow: hidden; }
+.concept-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background-color: #e5e7eb; transition: background-color 0.3s ease; }
+.concept-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card-depreciacao:hover::before { background-color: #0c326f; }
+.card-depreciacao .icon-box { background-color: #e5f1ff; color: #0c326f; }
+.card-amortizacao:hover::before { background-color: #009c3b; }
+.card-amortizacao .icon-box { background-color: #e6f7ed; color: #009c3b; }
+.card-impairment:hover::before { background-color: #eab308; }
+.card-impairment .icon-box { background-color: #fef9c3; color: #ca8a04; }
+.level-card { transition: all 0.3s ease; position: relative; border-bottom-width: 6px; }
+.level-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.level-novo { background-color: #f0fdf4; border-bottom-color: #16a34a; }
+.level-novo .icon-bg { background-color: #dcfce7; color: #16a34a; }
+.level-novo .text-highlight { color: #16a34a; }
+.level-bom { background-color: #f0f9ff; border-bottom-color: #0284c7; }
+.level-bom .icon-bg { background-color: #e0f2fe; color: #0284c7; }
+.level-bom .text-highlight { color: #0284c7; }
+.level-regular { background-color: #fffbeb; border-bottom-color: #d97706; }
+.level-regular .icon-bg { background-color: #fef3c7; color: #d97706; }
+.level-regular .text-highlight { color: #d97706; }
+.level-pessimo { background-color: #fef2f2; border-bottom-color: #dc2626; }
+.level-pessimo .icon-bg { background-color: #fee2e2; color: #dc2626; }
+.level-pessimo .text-highlight { color: #dc2626; }
+.connector-line { position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: #e5e7eb; z-index: 0; transform: translateY(-50%); }
+.step-card { transition: all 0.3s ease; z-index: 10; }
+.step-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.step-number { background-color: #ffffff; border: 4px solid #e5e7eb; transition: all 0.3s ease; }
+.step-card:hover .step-number { border-color: #0c326f; background-color: #0c326f; color: white; }
+.timeline-container { position: relative; padding-top: 20px; }
+.timeline-line { position: absolute; top: 40px; left: 0; right: 0; height: 4px; background-color: #e5e7eb; z-index: 0; }
+.block-card { transition: all 0.3s ease; position: relative; overflow: hidden; }
+.block-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+.block-general { border-left: 6px solid #0c326f; background-color: #f8fafc; }
+.block-general .icon-box { background-color: #e0f2fe; color: #0c326f; }
+.block-technical { border-left: 6px solid #059669; background-color: #f0fdf4; }
+.block-technical .icon-box { background-color: #d1fae5; color: #059669; }
+.list-item { display: flex; align-items: flex-start; margin-bottom: 12px; }
+.list-bullet { min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; margin-top: 2px; font-size: 12px; }
+.bullet-general { background-color: #0c326f; color: white; }
+.bullet-technical { background-color: #059669; color: white; }
+.content-box { background-color: #f8fafc; border-left: 5px solid #0c326f; transition: all 0.3s ease; }
+.content-box:hover { transform: translateX(5px); background-color: #f0f7ff; }
+.media-placeholder { background-color: #1e293b; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.media-placeholder::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 2px dashed rgba(255,255,255,0.3); margin: 10px; border-radius: 8px; pointer-events: none; }
+.icon-box-slide { min-width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 16px; font-size: 20px; }
+.icon-platform { background-color: #e0f2fe; color: #0284c7; }
+.icon-registry { background-color: #dcfce7; color: #16a34a; }
+.icon-sicrasp { background-color: #fef3c7; color: #d97706; }
+.icon-contact { background-color: #f3e8ff; color: #9333ea; }
+.icon-admin { background-color: #e0f2fe; color: #0369a1; }
+.icon-contract { background-color: #ecfccb; color: #65a30d; }
+.icon-item { background-color: #fee2e2; color: #b91c1c; }
+.content-scroll::-webkit-scrollbar { width: 6px; }
+.content-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+.slide-dark { background-color: #0c326f; color: white; }
+.shape-circle { position: absolute; border-radius: 50%; opacity: 0.1; z-index: 0; }
+.shape-1 { width: 600px; height: 600px; top: -100px; right: -100px; background-color: #ffffff; }
+.shape-2 { width: 400px; height: 400px; bottom: -50px; left: -50px; border: 2px solid rgba(255,255,255,0.2); }
+.shape-1-alt { width: 800px; height: 800px; top: -200px; left: -200px; background-color: #ffffff; opacity: 0.05; }
+.shape-2-alt { width: 500px; height: 500px; bottom: -100px; right: -100px; border: 40px solid rgba(255,255,255,0.05); opacity: 0.05; }
+.thank-you-text { font-size: 80px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 20px; background: rgba(255,255,255,0.1); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 2px 2px 0px rgba(255,255,255,0.2); }
+.divider { width: 80px; height: 6px; background-color: #fbbf24; margin: 30px auto; border-radius: 3px; }
+.contact-box { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; }
+.contact-box:hover { background-color: rgba(255,255,255,0.15); transform: translateY(-5px); border-color: rgba(255,255,255,0.4); }
+.icon-circle { width: 50px; height: 50px; border-radius: 50%; background-color: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 24px; }
+.sfc-title { font-size: 120px; font-weight: 900; letter-spacing: -5px; line-height: 1; margin-bottom: 10px; color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; display: inline-block; }
+.sfc-title::after { content: ''; position: absolute; bottom: 10px; right: -20px; width: 20px; height: 20px; background-color: #fbbf24; border-radius: 50%; }
+.commitment-card { background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.0) 100%); border-left: 4px solid #10b981; }
+.bg-pattern { background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; }
+
+/* ===== Navigation bar ===== */
+.nav-bar {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(12, 50, 111, 0.95); backdrop-filter: blur(12px);
+    padding: 8px 16px; border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 1000;
+    font-family: 'Roboto', sans-serif;
+}
+.nav-bar button {
+    background: none; border: none; color: white; cursor: pointer;
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; transition: background 0.2s;
+}
+.nav-bar button:hover { background: rgba(255,255,255,0.2); }
+.nav-bar button:disabled { opacity: 0.3; cursor: default; }
+.nav-bar button:disabled:hover { background: none; }
+.nav-bar .page-info {
+    color: white; font-size: 13px; font-weight: 500;
+    min-width: 80px; text-align: center;
+}
+.nav-bar .home-btn { font-size: 12px; }
+
+/* ===== Slide dots ===== */
+.nav-dots {
+    display: flex; gap: 4px; align-items: center;
+    margin: 0 8px;
+}
+.nav-dots button {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.3); border: none;
+    cursor: pointer; padding: 0; transition: all 0.2s;
+}
+.nav-dots button.active {
+    background: #ffdf00; width: 24px; border-radius: 4px;
+}
+.nav-dots button:hover:not(.active) { background: rgba(255,255,255,0.6); }
+
+/* ===== Fullscreen button ===== */
+.fs-btn {
+    position: fixed; top: 16px; right: 16px;
+    background: rgba(12, 50, 111, 0.8); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white; cursor: pointer;
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; z-index: 1000; transition: all 0.2s;
+}
+.fs-btn:hover { background: rgba(12, 50, 111, 1); }
+
+/* ===== Print styles ===== */
+@media print {
+    body { background: white; overflow: visible; }
+    .nav-bar, .fs-btn { display: none !important; }
+    #slideWrapper { width: auto; height: auto; display: block; }
+    #slideScaler { transform: none !important; }
+    .slide-container {
+        display: flex !important;
+        page-break-after: always; break-after: page;
+        box-shadow: none; border-radius: 0;
+    }
+    .slide-container:last-child { page-break-after: avoid; break-after: avoid; }
+}
+@page { size: A4 landscape; margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="slideWrapper">
+<div id="slideScaler">
+
+<!-- ==================== SLIDE 1 ==================== -->
+<div class="slide-container" data-slide="1">
+    <div class="h-2 w-full flex">
+        <div class="h-full w-1/3 gov-green-bg"></div>
+        <div class="h-full w-1/3 gov-yellow-bg"></div>
+        <div class="h-full w-1/3 bg-white"></div>
+    </div>
+    <div class="flex flex-1 relative">
+        <div class="w-2/5 gov-blue-bg relative flex flex-col justify-between p-12 text-white overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full border-4 border-white opacity-10"></div>
+            <div class="absolute -left-20 bottom-40 w-60 h-60 rounded-full border-2 border-white opacity-10"></div>
+            <div class="mt-10 mb-auto relative z-10">
+                <div class="w-24 h-24 bg-white bg-opacity-10 rounded-2xl flex items-center justify-center mb-6 backdrop-filter backdrop-blur-sm border border-white border-opacity-20">
+                    <i class="fa-solid fa-boxes-stacked text-5xl text-white"></i>
+                </div>
+                <div class="h-1 w-20 gov-yellow-bg mb-6"></div>
+                <p class="text-lg font-light tracking-wider opacity-80 uppercase">Gestão Patrimonial</p>
+                <p class="text-sm font-light opacity-60 mt-2">Agência Nacional de Transportes Aquaviários</p>
+            </div>
+            <div class="relative z-10">
+                <p class="text-6xl font-bold opacity-20">2026</p>
+            </div>
+        </div>
+        <div class="w-3/5 bg-white p-16 flex flex-col justify-center relative">
+            <div class="absolute inset-0 pattern-overlay pointer-events-none"></div>
+            <div class="absolute top-12 right-12 flex items-center space-x-3">
+                <div class="text-right">
+                    <p class="text-xs text-gray-400 font-bold tracking-widest uppercase">Documento Oficial</p>
+                    <p class="text-sm font-bold text-gov-blue">ANTAQ</p>
+                </div>
+                <div class="h-8 w-1 gov-blue-bg"></div>
+            </div>
+            <div class="z-10 mt-10">
+                <p class="text-gov-blue font-bold tracking-widest text-sm mb-4 uppercase flex items-center">
+                    <i class="fa-solid fa-circle text-xs mr-2 text-green-500"></i>
+                    Manual de Procedimentos
+                </p>
+                <h1 class="text-5xl font-extrabold text-gray-800 leading-tight mb-6">
+                    Inventário de Bens e <br/>
+                    <span class="text-gov-blue">Lista de Bens Reversíveis</span>
+                </h1>
+                <p class="text-xl text-gray-500 font-light mb-12 border-l-4 border-gray-200 pl-4">
+                    Diretrizes para elaboração, análise e conformidade regulatória.
+                    <span class="block text-sm mt-2 text-gray-400 font-normal">Versão Aprimorada &bull; Atualização 2026</span>
+                </p>
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg mr-4 text-gov-blue">
+                        <i class="fa-solid fa-building-columns text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 font-bold uppercase mb-1">Unidade Responsável</p>
+                        <p class="text-gray-800 font-bold text-lg leading-snug">SFC</p>
+                        <p class="text-gray-600 text-sm">Superintendência de Fiscalização e Coordenação das Unidades Regionais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-1 w-full bg-gray-200"></div>
+</div>
+
+<!-- ==================== SLIDE 2 ==================== -->
+<div class="slide-container" data-slide="2" style="flex-direction: row;">
+    <div class="w-1/3 gov-blue-bg text-white p-12 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full border-4 border-white opacity-10"></div>
+        <div class="absolute -left-10 bottom-20 w-40 h-40 rounded-full border-2 border-white opacity-5"></div>
+        <div class="relative z-10">
+            <div class="flex items-center space-x-3 mb-8 opacity-80">
+                <i class="fa-solid fa-book-open text-xl"></i>
+                <p class="text-sm font-medium tracking-widest uppercase">Manual de Procedimentos</p>
+            </div>
+            <h1 class="text-5xl font-bold leading-tight mb-6">
+                Objetivos<br/>
+                <span class="font-light text-blue-200">do Manual</span>
+            </h1>
+            <div class="w-16 h-2 bg-yellow-400 mb-8"></div>
+            <p class="text-lg leading-relaxed font-light opacity-90">
+                Este documento estabelece as diretrizes fundamentais para assegurar a correta gestão e controle dos bens públicos e reversíveis.
+            </p>
+        </div>
+        <div class="relative z-10 mt-auto">
+            <p class="text-xs opacity-50 uppercase tracking-widest">Inventário de Bens 2026</p>
+        </div>
+    </div>
+    <div class="w-2/3 bg-white p-12 flex flex-col relative">
+        <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+        <div class="flex justify-between items-center mb-10 border-b border-gray-100 pb-4">
+            <div class="flex items-center space-x-2 text-gray-400">
+                <i class="fa-solid fa-list-check"></i>
+                <p class="text-sm font-bold uppercase tracking-wider">Metas Principais</p>
+            </div>
+            <div class="bg-gray-100 rounded-full px-4 py-1">
+                <p class="text-xs font-bold text-gray-500">Página 02</p>
+            </div>
+        </div>
+        <div class="flex-1 flex flex-col justify-center space-y-6">
+            <div class="flex items-start group">
+                <div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6 group-hover:bg-blue-100 transition-colors duration-300"><i class="fa-solid fa-scale-balanced text-2xl gov-text-blue"></i></div>
+                <div><h3 class="text-xl font-bold text-gray-800 mb-1 group-hover:text-blue-800 transition-colors">Padronização do Inventário</h3><p class="text-gray-600 leading-snug">Estabelecer parâmetros uniformes para a realização do inventário em todas as unidades.</p></div>
+            </div>
+            <div class="flex items-start group">
+                <div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6 group-hover:bg-blue-100 transition-colors duration-300"><i class="fa-solid fa-gavel text-2xl gov-text-blue"></i></div>
+                <div><h3 class="text-xl font-bold text-gray-800 mb-1 group-hover:text-blue-800 transition-colors">Conformidade Legal</h3><p class="text-gray-600 leading-snug">Garantir total aderência às normas legais e regulatórias vigentes do setor portuário.</p></div>
+            </div>
+            <div class="flex items-start group">
+                <div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6 group-hover:bg-blue-100 transition-colors duration-300"><i class="fa-solid fa-magnifying-glass-chart text-2xl gov-text-blue"></i></div>
+                <div><h3 class="text-xl font-bold text-gray-800 mb-1 group-hover:text-blue-800 transition-colors">Transparência na Gestão</h3><p class="text-gray-600 leading-snug">Promover a clareza na gestão patrimonial e na alocação eficiente de recursos públicos.</p></div>
+            </div>
+            <div class="flex items-start group">
+                <div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6 group-hover:bg-blue-100 transition-colors duration-300"><i class="fa-solid fa-chart-line text-2xl gov-text-blue"></i></div>
+                <div><h3 class="text-xl font-bold text-gray-800 mb-1 group-hover:text-blue-800 transition-colors">Otimização de Investimentos</h3><p class="text-gray-600 leading-snug">Maximizar o retorno sobre os ativos e direcionar melhor os investimentos futuros.</p></div>
+            </div>
+            <div class="flex items-start group">
+                <div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6 group-hover:bg-blue-100 transition-colors duration-300"><i class="fa-solid fa-shield-halved text-2xl gov-text-blue"></i></div>
+                <div><h3 class="text-xl font-bold text-gray-800 mb-1 group-hover:text-blue-800 transition-colors">Prevenção de Perdas</h3><p class="text-gray-600 leading-snug">Implementar controles eficazes para evitar depreciação acelerada e extravio de bens patrimoniais.</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-2 flex z-50">
+        <div class="w-1/3 bg-green-600"></div>
+        <div class="w-1/3 bg-yellow-400"></div>
+        <div class="w-1/3 bg-blue-800"></div>
+    </div>
+</div>
+
+<!-- ==================== SLIDE 3 ==================== -->
+<div class="slide-container" data-slide="3">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100">
+        <div>
+            <div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Diretrizes Contábeis</span></div>
+            <h1 class="text-4xl font-extrabold text-gray-800">Registro <span class="gov-blue">Patrimonial</span></h1>
+        </div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-8 flex flex-col justify-between bg-gray-50 relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full opacity-50 z-0 pointer-events-none"></div>
+        <div class="grid grid-cols-3 gap-8 z-10 h-full">
+            <div class="card bg-white p-8 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100">
+                <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mb-6"><i class="fa-solid fa-building-columns text-3xl gov-blue"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 uppercase tracking-wide">Bens da União</h3>
+                <div class="w-10 h-1 bg-gray-200 mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-lg">Registrar pelo valor de <strong class="text-blue-800">aquisição</strong>, <strong class="text-blue-800">produção</strong> ou <strong class="text-blue-800">construção</strong>.</p>
+                <p class="text-sm text-gray-400 mt-auto pt-4 italic">(Incluindo todos os custos de instalação)</p>
+            </div>
+            <div class="card bg-white p-8 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100">
+                <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mb-6"><i class="fa-solid fa-arrow-right-arrow-left text-3xl gov-blue"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 uppercase tracking-wide">Transferidos / Revertidos</h3>
+                <div class="w-10 h-1 bg-gray-200 mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-lg">Devem ser registrados pelo seu <strong class="text-blue-800">valor justo</strong> na data da incorporação.</p>
+            </div>
+            <div class="card bg-white p-8 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100">
+                <div class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mb-6"><i class="fa-solid fa-hand-holding-heart text-3xl gov-blue"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 uppercase tracking-wide">Doações</h3>
+                <div class="w-10 h-1 bg-gray-200 mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-lg">Registro pelo <strong class="text-blue-800">valor justo</strong> ou valor estabelecido no ato da doação.</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white px-12 py-6 border-t border-gray-200 z-20 shadow-lg">
+        <div class="bg-blue-50 rounded-lg p-5 flex items-start border-l-4 border-blue-600">
+            <div class="mr-4 mt-1 text-blue-600"><i class="fa-solid fa-circle-info text-2xl"></i></div>
+            <div>
+                <h4 class="text-blue-900 font-bold mb-1 flex items-center"><span class="uppercase text-sm tracking-wider mr-2 bg-blue-200 px-2 py-0.5 rounded text-blue-800">Obrigatório</span>Cadastro no Sistema SisPAT</h4>
+                <p class="text-gray-700 text-sm leading-relaxed">O registro consiste no cadastro do bem no sistema, garantindo sua <strong>identificação</strong> e <strong>rastreabilidade</strong>, seguindo rigorosamente as diretrizes do plano de contas regulatório (SICRASP).</p>
+            </div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 4 ==================== -->
+<div class="slide-container" data-slide="4" style="flex-direction: row;">
+    <div class="w-1/3 gov-blue-bg text-white p-12 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full border-4 border-white opacity-10"></div>
+        <div class="absolute -left-10 bottom-20 w-40 h-40 rounded-full border-2 border-white opacity-5"></div>
+        <div class="relative z-10">
+            <div class="flex items-center space-x-3 mb-8 opacity-80"><i class="fa-solid fa-tags text-xl"></i><p class="text-sm font-medium tracking-widest uppercase">Manual de Procedimentos</p></div>
+            <h1 class="text-5xl font-bold leading-tight mb-6">Classificação<br/><span class="font-light text-blue-200">por Titularidade</span></h1>
+            <div class="w-16 h-2 bg-yellow-400 mb-8"></div>
+            <p class="text-lg leading-relaxed font-light opacity-90">A correta identificação da origem e propriedade dos bens é fundamental para o registro patrimonial e para a definição de responsabilidades.</p>
+        </div>
+        <div class="relative z-10 mt-auto"><p class="text-xs opacity-50 uppercase tracking-widest">Inventário de Bens 2026</p></div>
+    </div>
+    <div class="w-2/3 bg-white p-12 flex flex-col relative">
+        <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+        <div class="flex justify-between items-center mb-10 border-b border-gray-100 pb-4">
+            <div class="flex items-center space-x-2 text-gray-400"><i class="fa-solid fa-layer-group"></i><p class="text-sm font-bold uppercase tracking-wider">Grupos de Bens</p></div>
+            <div class="bg-gray-100 rounded-full px-4 py-1"><p class="text-xs font-bold text-gray-500">Página 04</p></div>
+        </div>
+        <div class="flex-1 flex flex-col justify-center space-y-5">
+            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-landmark text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Legado</h3><p class="text-gray-600 text-sm leading-snug">Bens que já integravam o Porto e foram entregues pela União no momento da assunção da gestão.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-building-columns text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Orçamento da União</h3><p class="text-gray-600 text-sm leading-snug">Bens adquiridos diretamente com recursos do orçamento federal e colocados à disposição.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-ship text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Receitas Portuárias</h3><p class="text-gray-600 text-sm leading-snug">Adquiridos pela Autoridade Portuária com recursos oriundos da própria operação (Tarifas).</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-arrow-rotate-left text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Reversíveis</h3><p class="text-gray-600 text-sm leading-snug">Bens vinculados à concessão que retornam ao patrimônio da União ao final do contrato.</p></div></div>
+            <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <div class="flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation text-yellow-600 mr-2"></i><h4 class="text-sm font-bold text-gray-800 uppercase">Nota Importante</h4></div>
+                <p class="text-gray-700 text-sm">Os bens de propriedade de terceiros (arrendatários/autorizatários) <strong>não estão sujeitos à reversão</strong>, devendo ser classificados separadamente.</p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-2 flex z-50"><div class="w-1/3 bg-green-600"></div><div class="w-1/3 bg-yellow-400"></div><div class="w-1/3 bg-blue-800"></div></div>
+    </div>
+</div>
+
+<!-- ==================== SLIDE 5 ==================== -->
+<div class="slide-container" data-slide="5">
+    <div class="px-12 pt-8 pb-4 flex justify-between items-end border-b border-gray-100 bg-white z-10">
+        <div><div class="flex items-center space-x-2 mb-1"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Classificação de Ativos</span></div><h1 class="text-4xl font-extrabold text-gray-800">Bens <span class="text-gov-blue">Reversíveis</span> x <span class="text-gray-500">Não Reversíveis</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 flex w-full h-full relative">
+        <div class="w-1/2 col-reversible p-10 flex flex-col relative">
+            <div class="absolute right-0 top-0 bottom-0 w-px bg-gray-200"></div>
+            <div class="flex items-center mb-8"><div class="w-16 h-16 rounded-2xl col-reversible-icon flex items-center justify-center shadow-lg mr-5"><i class="fa-solid fa-rotate text-3xl"></i></div><div><h2 class="text-2xl font-bold text-gov-blue">Bens Reversíveis</h2><p class="text-sm text-blue-800 font-medium opacity-80 uppercase tracking-wide">Foco do Inventário</p></div></div>
+            <div class="space-y-5 flex-1">
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-800 flex items-start"><i class="fa-solid fa-check-circle text-xl text-gov-blue mt-1 mr-3"></i><div><p class="font-bold text-gray-800">Essenciais à Atividade Portuária</p><p class="text-sm text-gray-600 mt-1">Vinculados diretamente à operação e execução dos serviços.</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-800 flex items-start"><i class="fa-solid fa-arrow-rotate-left text-xl text-gov-blue mt-1 mr-3"></i><div><p class="font-bold text-gray-800">Retornam à União</p><p class="text-sm text-gray-600 mt-1">Devem ser devolvidos ao poder concedente ao final do contrato.</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-800 flex items-start"><i class="fa-solid fa-layer-group text-xl text-gov-blue mt-1 mr-3"></i><div><p class="font-bold text-gray-800">Infraestrutura e Continuidade</p><p class="text-sm text-gray-600 mt-1">Garantem a continuidade do serviço público prestado.</p></div></div>
+            </div>
+        </div>
+        <div class="w-1/2 col-non-reversible p-10 flex flex-col">
+            <div class="flex items-center mb-8"><div class="w-16 h-16 rounded-2xl col-non-reversible-icon flex items-center justify-center shadow-lg mr-5"><i class="fa-solid fa-ban text-3xl"></i></div><div><h2 class="text-2xl font-bold text-gray-500">Bens Não Reversíveis</h2><p class="text-sm text-gray-400 font-medium uppercase tracking-wide">Apoio Administrativo</p></div></div>
+            <div class="space-y-5 flex-1">
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-gray-400 flex items-start opacity-80"><i class="fa-solid fa-circle-xmark text-xl text-gray-400 mt-1 mr-3"></i><div><p class="font-bold text-gray-700">Não Vinculados diretamente à Operação portuária</p><p class="text-sm text-gray-500 mt-1">Não impactam diretamente a atividade fim do porto.</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-gray-400 flex items-start opacity-80"><i class="fa-solid fa-briefcase text-xl text-gray-400 mt-1 mr-3"></i><div><p class="font-bold text-gray-700">Suporte Administrativo</p><p class="text-sm text-gray-500 mt-1">Garantem apenas o funcionamento administrativo diário.</p></div></div>
+                <div class="bg-gray-100 p-4 rounded-lg border border-gray-200"><p class="text-xs font-bold text-gray-400 uppercase mb-2">Exemplos Comuns:</p><div class="flex flex-wrap gap-2"><span class="bg-white px-2 py-1 rounded text-xs text-gray-600 border border-gray-200">Mobiliário de escritório</span><span class="bg-white px-2 py-1 rounded text-xs text-gray-600 border border-gray-200">Veículos administrativos</span><span class="bg-white px-2 py-1 rounded text-xs text-gray-600 border border-gray-200">Equipamentos</span><span class="bg-white px-2 py-1 rounded text-xs text-gray-600 border border-gray-200">Bens operacionais locados</span></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-yellow-50 border-t-2 border-yellow-400 p-5 z-20 shadow-md mx-8 mb-8 -mt-6 rounded-lg relative">
+        <div class="flex items-center"><div class="bg-yellow-400 text-yellow-900 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0"><i class="fa-solid fa-triangle-exclamation text-lg"></i></div><div><h4 class="text-yellow-900 font-bold uppercase text-xs tracking-wider mb-1">Nota Importante para o Inventário</h4><p class="text-gray-800 text-sm font-medium">Para fins de elaboração e entrega à ANTAQ, será exigido no Inventário <span class="font-bold underline">somente</span> a apresentação de informações relativas aos bens operacionais vinculados diretamente à execução da atividade portuária (<span class="text-gov-blue font-bold">Bens Reversíveis</span>).</p></div></div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 6 ==================== -->
+<div class="slide-container" data-slide="6">
+    <div class="px-12 pt-8 pb-4 flex justify-between items-end border-b border-gray-100">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Fundamentos</span></div><h1 class="text-4xl font-extrabold text-gray-800">Conceitos <span class="gov-blue">Financeiros</span> e <span class="text-gray-500">Contábeis</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-5 bg-gray-50 relative z-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-bl-full opacity-60 -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-yellow-50 rounded-tr-full opacity-40 -z-10 pointer-events-none"></div>
+        <div class="grid grid-cols-3 gap-6 h-full">
+            <div class="concept-card card-depreciacao bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm"><i class="fa-solid fa-chart-line-down text-3xl"></i></div><h3 class="text-xl font-bold text-gray-800 mb-2">Depreciação</h3><p class="text-xs font-bold text-blue-800 uppercase tracking-widest mb-4 bg-blue-50 px-3 py-1 rounded-full">Ativos Tangíveis</p><div class="w-12 h-1 bg-gray-200 mb-4 rounded-full"></div><p class="text-gray-600 leading-relaxed text-sm mb-3">Desgaste natural pelo uso ou tempo.</p><div class="mt-auto bg-gray-50 p-3 rounded-lg w-full"><p class="text-sm font-medium text-gray-700"><span class="font-bold text-blue-800">Regra:</span> Método Linear</p><p class="text-xs text-gray-500">(Despesa constante)</p></div></div>
+            <div class="concept-card card-amortizacao bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm"><i class="fa-solid fa-file-invoice-dollar text-3xl"></i></div><h3 class="text-xl font-bold text-gray-800 mb-2">Amortização</h3><p class="text-xs font-bold text-green-700 uppercase tracking-widest mb-4 bg-green-50 px-3 py-1 rounded-full">Ativos Intangíveis</p><div class="w-12 h-1 bg-gray-200 mb-4 rounded-full"></div><p class="text-gray-600 leading-relaxed text-sm mb-3">Redução do valor aplicada a bens imateriais.</p><div class="mt-auto bg-gray-50 p-3 rounded-lg w-full text-left"><p class="text-xs font-bold text-gray-500 uppercase mb-1">Exemplos:</p><div class="flex flex-wrap gap-2 justify-center"><span class="bg-white border border-gray-200 text-xs px-2 py-1 rounded text-gray-600">Softwares</span><span class="bg-white border border-gray-200 text-xs px-2 py-1 rounded text-gray-600">Direitos</span><span class="bg-white border border-gray-200 text-xs px-2 py-1 rounded text-gray-600">Licenças</span></div></div></div>
+            <div class="concept-card card-impairment bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm"><i class="fa-solid fa-triangle-exclamation text-3xl"></i></div><h3 class="text-xl font-bold text-gray-800 mb-2">Impairment</h3><p class="text-xs font-bold text-yellow-700 uppercase tracking-widest mb-4 bg-yellow-50 px-3 py-1 rounded-full">Valor Recuperável</p><div class="w-12 h-1 bg-gray-200 mb-4 rounded-full"></div><p class="text-gray-600 leading-relaxed text-sm mb-3">Redução no valor recuperável de um ativo que ocorre de forma repentina.</p><div class="mt-auto bg-gray-50 p-3 rounded-lg w-full"><p class="text-sm font-medium text-gray-700"><span class="font-bold text-yellow-700">Exemplo:</span> Nova tecnologia</p><p class="text-xs text-gray-500">(Obsolescência inesperada)</p></div></div>
+        </div>
+    </div>
+    <div class="bg-white px-12 py-3 border-t border-gray-200 flex items-center z-20 relative">
+        <div class="bg-blue-100 p-2 rounded-full mr-4 text-blue-800"><i class="fa-solid fa-circle-info text-lg"></i></div>
+        <div class="flex-1"><p class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Nota Técnica - Tabelas de Vida Útil</p><p class="text-sm text-gray-800">Podem ser estabelecidas pela <span class="font-bold text-blue-800">ANTAQ</span>. Na ausência, prevalecem as tabelas da <span class="font-bold">Receita Federal</span> ou previsões contratuais.</p></div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 7 ==================== -->
+<div class="slide-container" data-slide="7">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100 bg-white z-10">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Classificação Obrigatória</span></div><h1 class="text-4xl font-extrabold text-gray-800">Estado de <span class="gov-blue">Conservação</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-8 bg-gray-50 relative flex flex-col justify-center">
+        <div class="relative w-full h-80">
+            <div class="connector-line"></div>
+            <div class="grid grid-cols-4 gap-6 h-full relative z-10">
+                <div class="level-card level-novo rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl shadow-sm"><i class="fa-solid fa-star"></i></div><h3 class="text-xl font-bold text-gray-800 mb-1">Novo / Excelente</h3><p class="text-xs font-bold uppercase tracking-widest text-highlight mb-4">Nível 1</p><p class="text-gray-600 text-sm leading-relaxed">Bem sem desgaste aparente, em perfeitas condições de uso e funcionamento.</p></div>
+                <div class="level-card level-bom rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl shadow-sm"><i class="fa-solid fa-thumbs-up"></i></div><h3 class="text-xl font-bold text-gray-800 mb-1">Bom</h3><p class="text-xs font-bold uppercase tracking-widest text-highlight mb-4">Nível 2</p><p class="text-gray-600 text-sm leading-relaxed">Bem em boas condições, com desgaste natural leve, mas totalmente operacional.</p></div>
+                <div class="level-card level-regular rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl shadow-sm"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3 class="text-xl font-bold text-gray-800 mb-1">Regular</h3><p class="text-xs font-bold uppercase tracking-widest text-highlight mb-4">Nível 3</p><p class="text-gray-600 text-sm leading-relaxed">Bem operante, mas com desgaste acentuado. Exige manutenção corretiva em breve.</p></div>
+                <div class="level-card level-pessimo rounded-xl shadow-sm p-6 flex flex-col items-center text-center h-full border border-gray-100"><div class="icon-bg w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl shadow-sm"><i class="fa-solid fa-ban"></i></div><h3 class="text-xl font-bold text-gray-800 mb-1">Péssimo</h3><p class="text-xs font-bold uppercase tracking-widest text-highlight mb-4">Nível 4</p><p class="text-gray-600 text-sm leading-relaxed">Bem inservível ou com custo de recuperação inviável. Requer baixa ou substituição.</p></div>
+            </div>
+        </div>
+        <div class="mt-10 bg-white border border-gray-200 rounded-lg p-5 shadow-md flex items-center relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-gray-800"></div>
+            <div class="bg-gray-100 p-3 rounded-full mr-5 text-gray-700"><i class="fa-solid fa-scale-unbalanced text-xl"></i></div>
+            <div><h4 class="text-gray-800 font-bold text-lg mb-1">Impacto na Gestão</h4><p class="text-gray-600 text-sm">O estado de conservação do bem impacta diretamente seu <strong class="text-blue-800">valor contábil</strong> (depreciação) e define a prioridade para <strong class="text-blue-800">investimento em manutenção</strong> ou substituição.</p></div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 8 ==================== -->
+<div class="slide-container" data-slide="8">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100 bg-white z-20">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Cronograma &amp; Diretrizes</span></div><h1 class="text-4xl font-extrabold text-gray-800">Processo de <span class="gov-blue">Inventário</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-8 bg-gray-50 relative flex flex-col">
+        <div class="timeline-container w-full flex-1 flex items-center">
+            <div class="timeline-line top-1/2 transform -translate-y-1/2 mx-16"></div>
+            <div class="grid grid-cols-4 gap-6 w-full relative z-10">
+                <div class="step-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-600 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-12 mb-2"><div class="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl shadow-md border-4 border-white"><i class="fa-regular fa-calendar-check"></i></div></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Prazo Anual</h3><p class="text-2xl font-black text-blue-800 mb-2">30 de Abril</p><p class="text-sm text-gray-500 leading-snug">Data limite para entrega do inventário referente ao exercício anterior.</p></div><div class="w-full mt-2 pt-3 border-t border-gray-100"><span class="text-xs font-bold text-red-500 uppercase tracking-wide"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Obrigatório</span></div></div>
+                <div class="step-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-12 mb-2"><div class="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center text-2xl shadow-md border-4 border-white"><i class="fa-solid fa-magnifying-glass-location"></i></div></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Método</h3><p class="text-lg font-bold text-gray-700 mb-2">Levantamento In Loco</p><p class="text-sm text-gray-500 leading-snug">Verificação física e financeira dos bens. Não apenas documental.</p></div><div class="w-full mt-2 pt-3 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">Conferência Física</span></div></div>
+                <div class="step-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-12 mb-2"><div class="w-16 h-16 rounded-full bg-blue-400 text-white flex items-center justify-center text-2xl shadow-md border-4 border-white"><i class="fa-solid fa-file-invoice"></i></div></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">O Que Entregar?</h3><div class="flex flex-col space-y-1 mt-2"><p class="text-xs font-bold text-blue-900 bg-blue-50 py-1 px-2 rounded">AP: Inventário Patrimonial</p><p class="text-xs font-bold text-gray-700 bg-gray-100 py-1 px-2 rounded">Arr: Lista Bens Reversíveis</p></div></div><div class="w-full mt-2 pt-3 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">Documentação</span></div></div>
+                <div class="step-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-12 mb-2"><div class="w-16 h-16 rounded-full bg-yellow-500 text-white flex items-center justify-center text-2xl shadow-md border-4 border-white"><i class="fa-solid fa-star"></i></div></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">1º Inventário/Lista de Bens Reversíveis</h3><p class="text-sm font-bold text-yellow-700 mb-2">Requisito Adicional</p><p class="text-sm text-gray-500 leading-snug">Deve ser entregue acompanhado do <strong>Laudo de Avaliação de Bens</strong>.</p></div><div class="w-full mt-2 pt-3 border-t border-gray-100"><span class="text-xs font-bold text-yellow-600 uppercase tracking-wide">Regra Especial</span></div></div>
+            </div>
+        </div>
+        <div class="mt-4 bg-gray-100 border-l-4 border-gray-500 p-4 rounded-r-lg flex items-center shadow-sm">
+            <div class="mr-4 text-gray-600"><i class="fa-solid fa-circle-exclamation text-2xl"></i></div>
+            <div><h4 class="text-gray-800 font-bold text-sm uppercase mb-1">Atenção: Desincorporação</h4><p class="text-gray-600 text-sm">A avaliação também é mandatória em casos de <strong>desincorporação de bens sem substituição</strong> equivalente, para assegurar a preservação do patrimônio público.</p></div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 9 ==================== -->
+<div class="slide-container" data-slide="9">
+    <div class="px-12 pt-8 pb-4 flex justify-between items-end border-b border-gray-100 bg-white z-20">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Normas &amp; Procedimentos</span></div><h1 class="text-4xl font-extrabold text-gray-800">Diretrizes de <span class="gov-blue">Avaliação de Bens</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-5 bg-white relative flex gap-6">
+        <div class="w-1/2 block-card block-general rounded-xl p-6 flex flex-col h-full">
+            <div class="flex items-center mb-4"><div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center text-xl shadow-sm mr-4"><i class="fa-solid fa-scale-balanced"></i></div><div><h2 class="text-xl font-bold text-gray-800">Diretrizes Gerais</h2><p class="text-xs text-gray-500 font-medium">Princípios fundamentais</p></div></div>
+            <div class="flex-1 space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-blue-50"><h3 class="font-bold text-gray-800 mb-1 flex items-center text-sm"><i class="fa-solid fa-tags text-blue-600 mr-2"></i> Preços de Mercado</h3><p class="text-gray-600 text-xs leading-relaxed">A avaliação deve utilizar preços atualizados e praticados pelo mercado na data base do inventário.</p></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-blue-50"><h3 class="font-bold text-gray-800 mb-1 flex items-center text-sm"><i class="fa-solid fa-wrench text-blue-600 mr-2"></i> Condições de Uso</h3><p class="text-gray-600 text-xs leading-relaxed">Considerar bens em condições normais de uso, exceto o desgaste natural decorrente de sua utilização regular.</p></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-blue-50"><h3 class="font-bold text-gray-800 mb-1 flex items-center text-sm"><i class="fa-solid fa-layer-group text-blue-600 mr-2"></i> Agrupamento</h3><p class="text-gray-600 text-xs leading-relaxed">Permitido uso de técnica de amostragem e agrupamento (instalações), desde que preservada a individualização.</p></div>
+            </div>
+        </div>
+        <div class="w-1/2 block-card block-technical rounded-xl p-6 flex flex-col h-full">
+            <div class="flex items-center mb-4"><div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center text-xl shadow-sm mr-4"><i class="fa-solid fa-book-bookmark"></i></div><div><h2 class="text-xl font-bold text-gray-800">Referenciais Técnicos</h2><p class="text-xs text-gray-500 font-medium">Base normativa obrigatória</p></div></div>
+            <div class="flex-1 space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-600 relative overflow-hidden"><div class="absolute right-0 top-0 bg-green-100 text-green-800 text-xs font-bold px-2 py-0.5 rounded-bl-lg uppercase">Autoridades Portuárias</div><h3 class="font-bold text-gray-800 text-sm mb-2 mt-1">Referência Principal</h3><div class="list-item"><div class="list-bullet bullet-technical"><i class="fa-solid fa-check"></i></div><p class="text-gray-700 text-sm font-medium pt-1">Manual de Contas do Setor Portuário</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-gray-400 relative overflow-hidden"><div class="absolute right-0 top-0 bg-gray-200 text-gray-700 text-xs font-bold px-2 py-0.5 rounded-bl-lg uppercase">Arrendatários</div><h3 class="font-bold text-gray-800 text-sm mb-2 mt-1">Normas Aplicáveis</h3><div class="space-y-2"><div class="list-item mb-0"><div class="list-bullet bg-gray-500 text-white"><i class="fa-solid fa-1"></i></div><p class="text-gray-700 text-sm pt-1"><strong class="text-gray-900">NBR 14653</strong> - Avaliação de Bens</p></div><div class="list-item mb-0"><div class="list-bullet bg-gray-500 text-white"><i class="fa-solid fa-2"></i></div><p class="text-gray-700 text-sm pt-1"><strong class="text-gray-900">CPC</strong> - Comitê de Pronunciamentos Contábeis</p></div><div class="list-item mb-0"><div class="list-bullet bg-gray-500 text-white"><i class="fa-solid fa-3"></i></div><p class="text-gray-700 text-sm pt-1"><strong class="text-gray-900">CVM</strong> - Comissão de Valores Mobiliários</p></div></div><div class="mt-3 pt-2 border-t border-gray-100"><p class="text-xs text-gray-500 italic">*Complementados, quando necessário, pelo Manual de Contas das APs.</p></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 10 ==================== -->
+<div class="slide-container" data-slide="10">
+    <div class="px-12 pt-8 pb-4 flex justify-between items-end border-b border-gray-100">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Requisitos Técnicos</span></div><h1 class="text-4xl font-extrabold text-gray-800">Metodologia e <span class="gov-blue">Profissionalização</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-5 flex flex-col justify-between bg-gray-50 relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full opacity-50 z-0 pointer-events-none"></div>
+        <div class="grid grid-cols-3 gap-6 z-10 h-full">
+            <div class="card bg-white p-6 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100"><div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-4"><i class="fa-solid fa-user-tie text-2xl gov-blue"></i></div><h3 class="text-lg font-bold text-gray-800 mb-3 uppercase tracking-wide">Empresa Especializada</h3><div class="w-10 h-1 bg-gray-200 mb-4"></div><p class="text-gray-600 leading-relaxed text-sm mb-3">Profissionais com <strong class="text-blue-800">experiência comprovada</strong> e porte adequado às diligências.</p><div class="mt-auto pt-3 border-t border-gray-100 w-full"><p class="text-sm text-red-600 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle-exclamation mr-1"></i> Obrigatório</p><p class="text-xs text-gray-500 mt-1">Para o 1º Inventário e 1ª Avaliação</p></div></div>
+            <div class="card bg-white p-6 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100"><div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-4"><i class="fa-solid fa-clipboard-list text-2xl gov-blue"></i></div><h3 class="text-lg font-bold text-gray-800 mb-3 uppercase tracking-wide">Processo de Trabalho</h3><div class="w-10 h-1 bg-gray-200 mb-4"></div><ul class="text-left text-gray-600 space-y-3 w-full pl-4 list-disc text-sm"><li><p>Elaboração de <strong class="text-blue-800">Plano de Trabalho</strong> pela equipe responsável.</p></li><li><p>Emissão de <strong class="text-blue-800">Relatório Técnico Conclusivo</strong> ao final.</p></li></ul></div>
+            <div class="card bg-white p-6 rounded-xl shadow-sm flex flex-col items-center text-center h-full border border-gray-100"><div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-4"><i class="fa-solid fa-file-signature text-2xl gov-blue"></i></div><h3 class="text-lg font-bold text-gray-800 mb-3 uppercase tracking-wide">Documentação</h3><div class="w-10 h-1 bg-gray-200 mb-4"></div><ul class="text-left text-sm text-gray-600 space-y-2 w-full pl-2"><li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i><p>Atestado de Capacidade Técnica (ACT)</p></li><li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i><p>Certidão de Acervo Técnico (CAT)</p></li><li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i><p>Contratos de Prestação de Serviços</p></li><li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i><p>Notas Fiscais de Serviços</p></li></ul></div>
+        </div>
+    </div>
+    <div class="bg-white px-12 py-4 border-t border-gray-200 z-20">
+        <div class="bg-blue-50 rounded-lg p-4 flex items-start border-l-4 border-blue-600"><div class="mr-3 mt-0.5 text-blue-600"><i class="fa-solid fa-scale-balanced text-xl"></i></div><div><h4 class="text-blue-900 font-bold mb-1 flex items-center text-sm"><span class="uppercase text-xs tracking-wider mr-2 bg-blue-200 px-2 py-0.5 rounded text-blue-800">Normativa</span>Resolução nº 43/ANTAQ</h4><p class="text-gray-700 text-xs leading-relaxed">Conforme Resolução, o 1º (primeiro) inventário e a 1ª (primeira) avaliação deverão ser obrigatoriamente apurados por empresa especializada, garantindo imparcialidade e rigor técnico.</p></div></div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 11 ==================== -->
+<div class="slide-container" data-slide="11">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100 bg-white z-20">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Controle Informatizado</span></div><h1 class="text-4xl font-extrabold text-gray-800">Sistema <span class="gov-blue">SISPAT</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Manual de Procedimentos</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-8 bg-white relative flex gap-8">
+        <div class="w-5/12 flex flex-col justify-between h-full py-2">
+            <div class="mb-4"><p class="text-gray-600 mb-6 leading-relaxed" style="text-align: justify;">O Sistema de Patrimônio (SisPAT) é a plataforma oficial para gestão e controle. O inventário físico e os dados contábeis devem ser integralmente refletidos no sistema.</p></div>
+            <div class="space-y-4 flex-1">
+                <div class="content-box p-4 rounded-r-lg flex items-center"><div class="icon-box-slide icon-registry shadow-sm"><i class="fa-solid fa-barcode"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Registro Completo</h3><p class="text-xs text-gray-600">Mesmo bens sem plaqueta física devem ser registrados.</p></div></div>
+                <div class="content-box p-4 rounded-r-lg flex items-center" style="border-left-color: #d97706;"><div class="icon-box-slide icon-sicrasp shadow-sm"><i class="fa-solid fa-sitemap"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Alinhamento SICRASP</h3><p class="text-xs text-gray-600">Cadastro alinhado ao plano de contas regulatório é mandatório.</p></div></div>
+                <div class="content-box p-4 rounded-r-lg flex items-center" style="border-left-color: #9333ea;"><div class="icon-box-slide icon-contact shadow-sm"><i class="fa-solid fa-headset"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Suporte Técnico</h3><p class="text-xs text-gray-600">Cadastro de usuários e dúvidas:</p><p class="text-xs font-bold text-purple-700 mt-1">inventario@antaq.gov.br</p></div></div>
+            </div>
+        </div>
+        <div class="w-7/12 h-full flex flex-col">
+            <div class="bg-gray-800 rounded-t-lg px-4 py-2 flex items-center justify-between"><div class="flex space-x-1.5"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div><p class="text-xs text-gray-400 font-mono">sispat.antaq.gov.br</p><div class="w-4"></div></div>
+            <div class="media-placeholder flex-1 rounded-b-lg shadow-lg relative group"><div class="text-center z-10"><div class="w-20 h-20 bg-white bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-opacity-20 transition-all cursor-pointer"><i class="fa-solid fa-play text-3xl text-white ml-2"></i></div><h3 class="text-white font-bold text-xl mb-1">Tutorial SisPAT</h3><p class="text-gray-300 text-sm">Espaço reservado para vídeo explicativo</p><p class="text-gray-400 text-xs mt-4 border border-gray-600 rounded px-2 py-1 inline-block">1920 x 1080 px</p></div><div class="absolute bottom-0 left-0 w-full h-1/3 bg-blue-900 bg-opacity-20 z-0"></div></div>
+            <div class="mt-3 flex justify-between items-center px-1"><p class="text-xs text-gray-400 italic"><i class="fa-solid fa-circle-info mr-1"></i> Este vídeo demonstra o processo de cadastro básico.</p><span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Vídeo 01</span></div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex mt-auto"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 12 ==================== -->
+<div class="slide-container" data-slide="12">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100 bg-white z-20">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">SISPAT</span><span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Obrigatório</span></div><h1 class="text-4xl font-extrabold text-gray-800">Cadastro do <span class="gov-blue">Bem</span></h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Campos Obrigatórios (*)</p><div class="h-1 w-16 bg-yellow-400 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-12 py-8 bg-white relative flex gap-8 overflow-hidden">
+        <div class="w-5/12 flex flex-col justify-between h-full py-2">
+            <div class="mb-2"><p class="text-gray-600 mb-4 leading-relaxed text-sm" style="text-align: justify;">Os campos obrigatórios estão sinalizados pelo caractere asterisco (<strong>*</strong>). O correto preenchimento garante a rastreabilidade e a consistência dos dados no sistema.</p></div>
+            <div class="space-y-3 flex-1 content-scroll overflow-y-auto pr-2">
+                <div class="content-box p-3 rounded-r-lg flex items-center"><div class="icon-box-slide icon-admin shadow-sm"><i class="fa-solid fa-building-columns"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Responsável / Administração (*)</h3><p class="text-xs text-gray-600">Administração Portuária, Porto Organizado ou Arrendatário.</p></div></div>
+                <div class="content-box p-3 rounded-r-lg flex items-center" style="border-left-color: #65a30d;"><div class="icon-box-slide icon-contract shadow-sm"><i class="fa-solid fa-file-signature"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Localização e Instrumento (*)</h3><p class="text-xs text-gray-600">Unidade da Federação (UF) e contrato de concessão, arrendamento, convênio de delegação ou outorga por instrumento legal.</p></div></div>
+                <div class="content-box p-3 rounded-r-lg flex items-center" style="border-left-color: #b91c1c;"><div class="icon-box-slide icon-item shadow-sm"><i class="fa-solid fa-tag"></i></div><div><h3 class="font-bold text-gray-800 text-sm mb-1">Identificação do Item (*)</h3><p class="text-xs text-gray-600">Nome do item e codificação correta alinhada ao SICRASP.</p></div></div>
+                <div class="bg-gray-50 p-3 rounded border border-gray-200 mt-2"><p class="text-xs text-gray-500 italic"><i class="fa-solid fa-circle-exclamation text-yellow-500 mr-1"></i>Os bens serão controlados, cadastrados e codificados pelos responsáveis.</p></div>
+            </div>
+        </div>
+        <div class="w-7/12 h-full flex flex-col">
+            <div class="bg-gray-800 rounded-t-lg px-4 py-2 flex items-center justify-between"><div class="flex space-x-1.5"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div><p class="text-xs text-gray-400 font-mono">sispat.antaq.gov.br/novo-bem</p><div class="w-4"></div></div>
+            <div class="media-placeholder flex-1 rounded-b-lg shadow-lg relative group"><div class="text-center z-10"><div class="w-20 h-20 bg-white bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-opacity-20 transition-all cursor-pointer"><i class="fa-solid fa-play text-3xl text-white ml-2"></i></div><h3 class="text-white font-bold text-xl mb-1">Exemplo de Cadastro</h3><p class="text-gray-300 text-sm">Demonstração de preenchimento dos campos obrigatórios</p><p class="text-gray-400 text-xs mt-4 border border-gray-600 rounded px-2 py-1 inline-block">1920 x 1080 px</p></div><div class="absolute bottom-0 left-0 w-full h-1/3 bg-blue-900 bg-opacity-20 z-0"></div></div>
+            <div class="mt-3 flex justify-between items-center px-1"><p class="text-xs text-gray-400 italic"><i class="fa-solid fa-circle-info mr-1"></i> Este vídeo detalha o preenchimento passo a passo.</p><span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded font-bold">Vídeo 02</span></div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex mt-auto"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 13 ==================== -->
+<div class="slide-container" data-slide="13" style="flex-direction: row;">
+    <div class="w-1/3 gov-blue-bg text-white p-12 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full border-4 border-white opacity-10"></div>
+        <div class="absolute -left-10 bottom-20 w-40 h-40 rounded-full border-2 border-white opacity-5"></div>
+        <div class="relative z-10">
+            <div class="flex items-center space-x-3 mb-8 opacity-80"><i class="fa-solid fa-book-open text-xl"></i><p class="text-sm font-medium tracking-widest uppercase">Manual de Procedimentos</p></div>
+            <h1 class="text-5xl font-bold leading-tight mb-6">Instruções<br/><span class="font-light text-blue-200">Gerais</span></h1>
+            <div class="w-16 h-2 bg-yellow-400 mb-8"></div>
+            <p class="text-lg leading-relaxed font-light opacity-90">Diretrizes fundamentais sobre responsabilidades, atualização de dados e trâmites para o envio das informações à ANTAQ.</p>
+        </div>
+        <div class="relative z-10 mt-auto"><p class="text-xs opacity-50 uppercase tracking-widest">Inventário de Bens 2026</p></div>
+    </div>
+    <div class="w-2/3 bg-white p-12 flex flex-col relative">
+        <div class="absolute inset-0 dot-pattern pointer-events-none"></div>
+        <div class="flex justify-between items-center mb-10 border-b border-gray-100 pb-4"><div class="flex items-center space-x-2 text-gray-400"><i class="fa-solid fa-clipboard-list"></i><p class="text-sm font-bold uppercase tracking-wider">Responsabilidades e Procedimentos</p></div><div class="bg-gray-100 rounded-full px-4 py-1"><p class="text-xs font-bold text-gray-500">Página 13</p></div></div>
+        <div class="flex-1 flex flex-col justify-center space-y-8">
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6"><i class="fa-solid fa-sync text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-1">Atualização Constante</h3><p class="text-gray-600 leading-snug" style="text-align: justify;">É fundamental manter o SISPAT atualizado. Toda divergência deve ser registrada no relatório de regularização patrimonial.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6"><i class="fa-solid fa-file-signature text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-1">Autodeclaração</h3><p class="text-gray-600 leading-snug" style="text-align: justify;">O conteúdo é autodeclaratório. Signatários respondem administrativa, civil e penalmente por dados falsos ou omissos.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6"><i class="fa-solid fa-check-double text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-1">Padronização</h3><p class="text-gray-600 leading-snug" style="text-align: justify;">Uso obrigatório de modelos da ANTAQ (Termos de vistoria, doação, etc.), disponíveis nos anexos do Manual.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-2xl flex items-center justify-center mr-6"><i class="fa-solid fa-paper-plane text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-1">Envio e Protocolo</h3><p class="text-gray-600 leading-snug" style="text-align: justify;">O envio e o protocolo dos documentos devem ser feitos preferencialmente, via peticionamento eletrônico na Unidade Regional da ANTAQ correspondente à jurisdição, que os encaminhará com a devida instrução processual à Superintendência competente, quando necessário.</p></div></div>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-2 flex z-50"><div class="w-1/3 bg-green-600"></div><div class="w-1/3 bg-yellow-400"></div><div class="w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 14 ==================== -->
+<div class="slide-container" data-slide="14">
+    <div class="px-12 pt-10 pb-6 flex justify-between items-end border-b border-gray-100 bg-white z-20">
+        <div><div class="flex items-center space-x-2 mb-2"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Procedimentos Administrativos</span></div><h1 class="text-4xl font-extrabold text-gray-800">Trâmites de <span class="gov-blue">Regularização</span> e Homologação</h1></div>
+        <div class="flex flex-col items-end"><p class="text-sm text-gray-500 font-medium">Fluxo de Processo</p><div class="h-1 w-16 bg-green-500 mt-2"></div></div>
+    </div>
+    <div class="flex-1 px-10 py-6 bg-gray-50 relative flex flex-col justify-center">
+        <div class="timeline-container w-full flex-1 flex items-center">
+            <div class="timeline-line top-1/2 transform -translate-y-1/2 mx-12"></div>
+            <div class="grid grid-cols-5 gap-4 w-full relative z-10">
+                <div class="step-card bg-white p-4 rounded-xl shadow-lg border-t-4 border-yellow-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-10 mb-2"><div class="w-14 h-14 rounded-full bg-yellow-500 text-white flex items-center justify-center text-xl shadow-md border-4 border-white"><i class="fa-solid fa-triangle-exclamation"></i></div></div><div><h3 class="text-base font-bold text-gray-800 mb-1">Notificação</h3><p class="text-xs font-bold text-yellow-600 mb-2 uppercase">Inconsistências</p><p class="text-xs text-gray-500 leading-snug">Qualquer divergência detectada deve ser imediatamente comunicada aos responsáveis (AP e Arrendatários).</p></div><div class="w-full mt-1 pt-2 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">1. Identificação</span></div></div>
+                <div class="step-card bg-white p-4 rounded-xl shadow-lg border-t-4 border-blue-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-10 mb-2"><div class="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl shadow-md border-4 border-white"><i class="fa-regular fa-clock"></i></div></div><div><h3 class="text-base font-bold text-gray-800 mb-1">Saneamento</h3><p class="text-lg font-black text-blue-800 mb-1">10 Dias Úteis</p><p class="text-xs text-gray-500 leading-snug">Prazo regulamentar para apresentação de resposta e regularização completa das divergências apontadas.</p></div><div class="w-full mt-1 pt-2 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">2. Resposta</span></div></div>
+                <div class="step-card bg-white p-4 rounded-xl shadow-lg border-t-4 border-indigo-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-10 mb-2"><div class="w-14 h-14 rounded-full bg-indigo-500 text-white flex items-center justify-center text-xl shadow-md border-4 border-white"><i class="fa-solid fa-file-contract"></i></div></div><div><h3 class="text-base font-bold text-gray-800 mb-1">Relatório Técnico</h3><p class="text-xs font-bold text-indigo-600 mb-2 uppercase">Conclusivo</p><p class="text-xs text-gray-500 leading-snug">Emissão de documento detalhando o inventário/avaliação e as respectivas justificativas técnicas.</p></div><div class="w-full mt-1 pt-2 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">3. Consolidação</span></div></div>
+                <div class="step-card bg-white p-4 rounded-xl shadow-lg border-t-4 border-purple-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-10 mb-2"><div class="w-14 h-14 rounded-full bg-purple-500 text-white flex items-center justify-center text-xl shadow-md border-4 border-white"><i class="fa-solid fa-check-double"></i></div></div><div><h3 class="text-base font-bold text-gray-800 mb-1">Aprovação</h3><p class="text-xs font-bold text-purple-600 mb-2 uppercase">Interna</p><p class="text-xs text-gray-500 leading-snug">Submissão e validação pelo dirigente máximo da Autoridade Portuária ou Arrendatária.</p></div><div class="w-full mt-1 pt-2 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">4. Validação</span></div></div>
+                <div class="step-card bg-white p-4 rounded-xl shadow-lg border-t-4 border-green-500 flex flex-col items-center text-center h-64 justify-between"><div class="step-icon -mt-10 mb-2"><div class="w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center text-xl shadow-md border-4 border-white"><i class="fa-solid fa-paper-plane"></i></div></div><div><h3 class="text-base font-bold text-gray-800 mb-1">Homologação</h3><p class="text-xs font-bold text-green-600 mb-2 uppercase">Envio à ANTAQ</p><p class="text-xs text-gray-500 leading-snug">Apresentação final do relatório aprovado à ANTAQ para encerramento do processo de inventário.</p></div><div class="w-full mt-1 pt-2 border-t border-gray-100"><span class="text-xs font-bold text-gray-400 uppercase tracking-wide">5. Finalização</span></div></div>
+            </div>
+        </div>
+        <div class="mt-2 bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg flex items-center shadow-sm mx-2">
+            <div class="mr-4 text-blue-600"><i class="fa-solid fa-circle-info text-2xl"></i></div>
+            <div><h4 class="text-blue-900 font-bold text-sm uppercase mb-1">Ciclo de Conformidade</h4><p class="text-blue-800 text-sm">O processo só será considerado encerrado após a regularização completa de todas as divergências e a devida homologação pelo órgão regulador.</p></div>
+        </div>
+    </div>
+    <div class="h-2 w-full flex"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 15 ==================== -->
+<div class="slide-container slide-dark" data-slide="15">
+    <div class="shape-circle shape-1"></div>
+    <div class="shape-circle shape-2"></div>
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <div class="flex-1 flex flex-col items-center justify-center relative z-10 px-16 text-center">
+        <div class="mb-8"><div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto"><i class="fa-solid fa-building-columns text-5xl text-blue-900"></i></div></div>
+        <h1 class="text-6xl font-bold text-white mb-2 tracking-tight">OBRIGADA</h1>
+        <p class="text-xl text-blue-200 font-light tracking-widest uppercase">Pela Atenção</p>
+        <div class="divider"></div>
+        <h2 class="text-2xl font-bold text-white mb-1">SFC</h2>
+        <p class="text-lg text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed mb-10">Superintendência de Fiscalização e Coordenação das Unidades Regionais</p>
+        <div class="flex gap-6 mt-4">
+            <div class="contact-box px-8 py-6 rounded-xl flex flex-col items-center min-w-[280px]"><div class="icon-circle text-yellow-400"><i class="fa-solid fa-envelope"></i></div><p class="text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Dúvidas &amp; Suporte</p><p class="text-lg font-bold text-white">inventario@antaq.gov.br</p></div>
+            <div class="contact-box px-8 py-6 rounded-xl flex flex-col items-center min-w-[280px]"><div class="icon-circle text-green-400"><i class="fa-solid fa-globe"></i></div><p class="text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Site Oficial</p><p class="text-lg font-bold text-white">www.antaq.gov.br</p></div>
+        </div>
+    </div>
+    <div class="h-3 w-full flex relative z-20"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+<!-- ==================== SLIDE 16 ==================== -->
+<div class="slide-container slide-dark" data-slide="16">
+    <div class="shape-circle shape-1-alt"></div>
+    <div class="shape-circle shape-2-alt"></div>
+    <div class="absolute inset-0 bg-pattern opacity-30"></div>
+    <div class="flex-1 flex flex-col items-center justify-center relative z-10 px-16 text-center w-full max-w-6xl mx-auto">
+        <div class="mb-6"><div class="w-20 h-20 rounded-full flex items-center justify-center border mx-auto" style="background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);"><i class="fa-solid fa-anchor text-4xl text-white"></i></div></div>
+        <h1 class="sfc-title">SFC</h1>
+        <h2 class="text-2xl font-light text-blue-100 mb-8 max-w-4xl pb-8 mx-auto leading-relaxed" style="border-bottom: 1px solid rgba(255,255,255,0.2);">Superintendência de Fiscalização e Coordenação das Unidades Regionais</h2>
+        <div class="commitment-card w-full max-w-3xl p-6 mb-12 rounded-r-lg text-left mx-auto"><p class="text-xl text-white font-medium italic flex items-start gap-4"><i class="fa-solid fa-quote-left text-green-400 text-3xl opacity-50 mt-1"></i>Compromisso com a eficiência, transparência e conformidade regulatória na gestão portuária brasileira.</p></div>
+        <div class="flex flex-row gap-6 justify-center w-full">
+            <div class="contact-box px-6 py-5 rounded-xl flex items-center"><div class="icon-circle text-green-400 flex-shrink-0"><i class="fa-solid fa-globe"></i></div><div class="text-left"><p class="text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Portal Oficial</p><p class="text-xl font-bold text-white">www.antaq.gov.br</p></div></div>
+            <div class="contact-box px-6 py-5 rounded-xl flex items-center"><div class="icon-circle text-yellow-400 flex-shrink-0"><i class="fa-solid fa-envelope"></i></div><div class="text-left"><p class="text-xs text-blue-200 uppercase tracking-wider font-bold mb-1">Contato Direto</p><p class="text-xl font-bold text-white">inventario@antaq.gov.br</p></div></div>
+        </div>
+    </div>
+    <div class="h-4 w-full flex relative z-20"><div class="h-full w-1/3 bg-green-600"></div><div class="h-full w-1/3 bg-yellow-400"></div><div class="h-full w-1/3 bg-blue-800"></div></div>
+</div>
+
+</div><!-- /slideScaler -->
+</div><!-- /slideWrapper -->
+
+<!-- Navigation -->
+<div class="nav-bar">
+    <button onclick="goHome()" class="home-btn" title="Início"><i class="fa-solid fa-house"></i></button>
+    <button onclick="prevSlide()" id="btnPrev" title="Anterior (←)"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="nav-dots" id="navDots"></div>
+    <button onclick="nextSlide()" id="btnNext" title="Próximo (→)"><i class="fa-solid fa-chevron-right"></i></button>
+    <span class="page-info" id="pageInfo">1 / 16</span>
+</div>
+
+<button class="fs-btn" onclick="toggleFullscreen()" title="Tela Cheia (F)"><i class="fa-solid fa-expand" id="fsIcon"></i></button>
+
+<script>
+const slides = document.querySelectorAll('.slide-container');
+const total = slides.length;
+let current = 0;
+
+function showSlide(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    document.getElementById('pageInfo').textContent = `${current + 1} / ${total}`;
+    document.getElementById('btnPrev').disabled = current === 0;
+    document.getElementById('btnNext').disabled = current === total - 1;
+    updateDots();
+}
+
+function nextSlide() { showSlide(current + 1); }
+function prevSlide() { showSlide(current - 1); }
+function goHome() { showSlide(0); }
+
+function updateDots() {
+    document.querySelectorAll('.nav-dots button').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+    });
+}
+
+// Build dots
+const dotsContainer = document.getElementById('navDots');
+for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.addEventListener('click', () => showSlide(i));
+    dot.title = `Slide ${i + 1}`;
+    dotsContainer.appendChild(dot);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prevSlide(); }
+    else if (e.key === 'Home') { e.preventDefault(); showSlide(0); }
+    else if (e.key === 'End') { e.preventDefault(); showSlide(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+});
+
+// Click to advance (on slide area only)
+document.getElementById('slideScaler').addEventListener('click', (e) => {
+    if (e.target.closest('.nav-bar, .fs-btn, button, a')) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    if (e.clientX > rect.left + rect.width / 2) nextSlide();
+    else prevSlide();
+});
+
+// Fullscreen
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+        document.exitFullscreen();
+    }
+}
+document.addEventListener('fullscreenchange', () => {
+    const icon = document.getElementById('fsIcon');
+    icon.className = document.fullscreenElement ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
+});
+
+// Scale slide to fit viewport
+function scaleSlides() {
+    const scaler = document.getElementById('slideScaler');
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const sw = 1280, sh = 720;
+    const scale = Math.min(vw / sw, (vh - 80) / sh, 1.2);
+    scaler.style.transform = `scale(${scale})`;
+}
+window.addEventListener('resize', scaleSlides);
+scaleSlides();
+
+// Init
+showSlide(0);
+</script>
+</body>
+</html>
