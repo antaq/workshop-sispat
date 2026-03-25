@@ -706,7 +706,7 @@ body {
 
 <!-- Navigation -->
 <div class="nav-bar">
-    <button onclick="window.location.href='../index.html'" class="home-btn" title="Voltar ao menu"><i class="fa-solid fa-house"></i></button>
+    <button onclick="if (window.opener) { window.close(); } else { window.location.href='../index.html'; }" class="home-btn" title="Voltar ao menu"><i class="fa-solid fa-house"></i></button>
     <button onclick="prevSlide()" id="btnPrev" title="Anterior (←)"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="nav-dots" id="navDots"></div>
     <button onclick="nextSlide()" id="btnNext" title="Próximo (→)"><i class="fa-solid fa-chevron-right"></i></button>
