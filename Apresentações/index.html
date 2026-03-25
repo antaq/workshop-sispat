@@ -4,147 +4,228 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apresentações - SisPAT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c326f 100%);
+      background-color: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-bar { background-color: #003366; height: 12px; width: 100%; }
+    .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+    .main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #e5e7eb;
-      padding: 2rem;
+      padding: 40px 24px;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    .header-section {
       text-align: center;
+      margin-bottom: 48px;
     }
-    .subtitle {
-      font-size: 1.1rem;
-      color: #9ca3af;
-      margin-bottom: 3rem;
-      text-align: center;
+
+    .header-section h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #003366;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header-section p {
+      font-size: 16px;
+      color: #64748B;
+      font-weight: 500;
     }
 
     .cards {
       display: flex;
-      gap: 2.5rem;
+      gap: 32px;
       flex-wrap: wrap;
       justify-content: center;
       max-width: 900px;
     }
 
     .card {
-      background: rgba(30, 41, 59, 0.85);
-      border: 1px solid #334155;
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 6px solid #E2E8F0;
       border-radius: 16px;
-      width: 380px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      cursor: pointer;
+      width: 400px;
+      padding: 32px 28px;
       text-decoration: none;
       color: inherit;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 5px;
-      background: #334155;
-      transition: background 0.3s ease;
-    }
+
+    .card-sispat { border-left-color: #0066CC; }
+    .card-inventario { border-left-color: #003366; }
+
     .card:hover {
-      transform: translateY(-8px);
-      border-color: #0066cc;
-      box-shadow: 0 20px 50px rgba(0, 102, 204, 0.2);
-    }
-    .card:hover::before {
-      background: linear-gradient(90deg, #0066cc, #ffdf00);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 51, 102, 0.1);
     }
 
     .card-icon {
-      width: 80px; height: 80px;
-      border-radius: 50%;
+      width: 56px; height: 56px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 2rem;
-    }
-    .card:first-child .card-icon {
-      background: rgba(0, 102, 204, 0.15);
-      color: #60a5fa;
-    }
-    .card:last-child .card-icon {
-      background: rgba(255, 223, 0, 0.12);
-      color: #ffdf00;
+      font-size: 22px;
+      flex-shrink: 0;
     }
 
-    .card h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
+    .card-sispat .card-icon {
+      background-color: #DBEAFE;
+      color: #0066CC;
     }
-    .card p {
-      font-size: 0.95rem;
-      color: #9ca3af;
+    .card-inventario .card-icon {
+      background-color: #E0E7FF;
+      color: #003366;
+    }
+
+    .card-content h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: 6px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #64748B;
       line-height: 1.5;
+      margin-bottom: 12px;
     }
 
-    .card .arrow {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      color: #475569;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .card:hover .arrow {
-      color: #60a5fa;
-      transform: translateX(4px);
+    .card-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
     }
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #475569;
+    .card-sispat .card-link { color: #0066CC; }
+    .card-inventario .card-link { color: #003366; }
+
+    .card:hover .card-link { gap: 10px; }
+
+    .footer {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #E2E8F0;
+      background-color: #FFFFFF;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-left .anchor-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background-color: #003366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .footer-left p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: #94A3B8;
     }
   </style>
 </head>
 <body>
 
-  <h1>Apresentações SisPAT</h1>
-  <p class="subtitle">Selecione a apresentação que deseja visualizar</p>
+  <div class="header-bar"></div>
+  <div class="secondary-bar"></div>
 
-  <div class="cards">
-    <a class="card" href="Apresentação Sispat/index.html">
-      <div class="card-icon">
-        <i class="fas fa-desktop"></i>
-      </div>
-      <h2>Apresentação SisPAT</h2>
-      <p>Visão geral do sistema SisPAT, funcionalidades e demonstração da plataforma.</p>
-      <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-
-    <a class="card" href="Apresentação Kenia/Apresentacao_Kenia_Standalone.html">
-      <div class="card-icon">
-        <i class="fas fa-book-open"></i>
-      </div>
-      <h2>Manual de Inventário</h2>
-      <p>Manual de procedimentos para inventário de bens patrimoniais.</p>
-      <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
+  <div style="padding: 20px 40px 0; display: flex; align-items: center; gap: 12px;">
+    <img src="Apresentação Sispat/Imagens/Logo ANTAQ.jpg" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
+    <div>
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #64748B; letter-spacing: 2px; text-transform: uppercase;">Agência Nacional de Transportes Aquaviários</p>
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: #94A3B8; letter-spacing: 1.5px; text-transform: uppercase;">ANTAQ</p>
+    </div>
   </div>
 
-  <footer>ANTAQ - Agência Nacional de Transportes Aquaviários</footer>
+  <div class="main">
+    <div class="header-section">
+      <h1><img src="Apresentação Sispat/Imagens/LogoSisPat_fundocinza.jpg" alt="Logo SisPAT" style="height: 42px; width: auto; vertical-align: middle; margin-right: 10px; border-radius: 6px;">Apresentações SisPAT</h1>
+      <p>Selecione a apresentação que deseja visualizar</p>
+    </div>
+
+    <div class="cards">
+      <a class="card card-sispat" href="Apresentação Sispat/index.html" target="_blank">
+        <div class="card-icon">
+          <i class="fa-solid fa-desktop"></i>
+        </div>
+        <div class="card-content">
+          <h2>Apresentação SisPAT</h2>
+          <p>Visão geral do sistema SisPAT, funcionalidades e demonstração da plataforma.</p>
+          <span class="card-link">Acessar <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="card card-inventario" href="Apresentação Kenia/Apresentacao_Kenia_Standalone.html" target="_blank">
+        <div class="card-icon">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div class="card-content">
+          <h2>Manual de Inventário</h2>
+          <p>Manual de procedimentos para inventário de bens patrimoniais.</p>
+          <span class="card-link">Acessar <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      <p>SisPAT - Treinamento Simplificado da Funcionalidade de Cadastro de Bens e Inventário</p>
+    </div>
+    <div class="footer-right">SFC — Superintendência de Fiscalização e Coordenação</div>
+  </div>
 
 </body>
 </html>
