@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fluxo de Cadastro via API</title>
+<title>Cadastro de Bens - Visão Geral</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -56,242 +56,60 @@
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding: 30px 80px 40px 80px;
-            justify-content: center;
+            padding: 20px 64px 36px 64px;
+            gap: 24px;
         }
 
-        /* Flow Steps Container */
-        .flow-container {
+        /* Área principal: painel de vídeo */
+        .split-section {
             display: flex;
-            justify-content: space-between;
-            align-items: stretch;
-            position: relative;
-            margin-bottom: 40px;
-            gap: 30px;
-        }
-
-        /* Connecting Line */
-        .flow-line {
-            position: absolute;
-            top: 60px; /* Aligned with icon center */
-            left: 50px;
-            right: 50px;
-            height: 4px;
-            background-color: #CBD5E1;
-            z-index: 0;
-        }
-
-        .flow-line-progress {
-            position: absolute;
-            top: 60px;
-            left: 50px;
-            width: 60%; /* Simulate progress */
-            height: 4px;
-            background: linear-gradient(to right, #0066CC, #3B82F6);
-            z-index: 0;
-        }
-
-        /* Step Card */
-        .step-card {
             flex: 1;
-            background-color: #FFFFFF;
-            border-radius: 16px;
-            padding: 0 0 24px 0;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            border: 1px solid #E2E8F0;
-            transition: transform 0.3s ease;
+            justify-content: center;
+            min-height: 0;
         }
 
-        .step-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: #BFDBFE;
-        }
-
-        .step-header {
+        .media-panel {
             width: 100%;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        /* Step Icon Circle */
-        .step-icon-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            border: 8px solid #FFFFFF;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: relative;
-            background-color: #F8FAFC;
-            color: #64748B;
-        }
-
-        /* Step 1 Colors */
-        .step-1 .step-icon-circle {
-            background-color: #E0F2FE;
-            color: #0066CC;
-        }
-        
-        /* Step 2 Colors */
-        .step-2 .step-icon-circle {
-            background-color: #DBEAFE;
-            color: #2563EB;
-        }
-
-        /* Step 3 Colors */
-        .step-3 .step-icon-circle {
-            background-color: #EFF6FF;
-            color: #1E40AF;
-            border-color: #FFFFFF;
-        }
-
-        /* Step Number Badge */
-        .step-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 30px;
-            height: 30px;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
             background-color: #1E293B;
-            color: #FFFFFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            border: 3px solid #FFFFFF;
-        }
-
-        .step-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #1E293B;
-            margin-bottom: 12px;
-            padding: 0 20px;
-        }
-
-        .step-desc {
-            font-size: 14px;
-            color: #64748B;
-            line-height: 1.5;
-            padding: 0 24px;
-            margin-bottom: 20px;
-        }
-
-        /* Code/File Preview */
-        .preview-box {
-            background-color: #1E293B;
-            border-radius: 8px;
-            padding: 12px;
-            width: 85%;
-            text-align: left;
-            margin-top: auto;
-            border: 1px solid #334155;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 6px;
-        }
-
-        .file-tag {
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-
-        .tag-csv { background-color: #10B981; color: #064E3B; }
-        .tag-json { background-color: #F59E0B; color: #78350F; }
-        .tag-api { background-color: #3B82F6; color: #1E3A8A; }
-
-        .preview-code {
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            color: #E2E8F0;
-            line-height: 1.4;
-            white-space: pre;
-            overflow: hidden;
-        }
-
-        /* Arrows between cards */
-        .arrow-connector {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 32px;
-            color: #94A3B8;
-            z-index: 5;
-        }
-
-        .arrow-1-2 { left: 31%; }
-        .arrow-2-3 { left: 65%; }
-
-        /* API Highlight Box */
-        .api-highlight {
-            background-color: #F0F9FF;
-            border: 2px dashed #0066CC;
             border-radius: 12px;
-            padding: 20px;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 4px solid #334155;
         }
 
-        .api-url {
-            font-family: 'Courier New', monospace;
-            font-weight: 700;
-            color: #0066CC;
-            background-color: #FFFFFF;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #BAE6FD;
-            font-size: 16px;
-            margin-top: 8px;
+        .screen-glare {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(30deg);
+            pointer-events: none;
         }
 
-        .api-label {
-            font-size: 12px;
-            font-weight: 700;
-            color: #64748B;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(15,23,42,0.6);
         }
 
-        .env-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 28px;
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-
-        .env-box {
-            flex: 1;
-        }
-
     </style>
 </head>
 <body>
@@ -300,94 +118,27 @@
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
 <!-- Header -->
-<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="px-12 pt-8 pb-4 relative z-20">
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Fluxo de Cadastro via API</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Processo de integração massiva de dados</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Bens Cadastrados</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Gestão e visualização do inventário patrimonial</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-network-wired text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTEGRAÇÃO</p>
+<i class="fas fa-boxes text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INVENTÁRIO</p>
 </div>
 </div>
 </div>
 <!-- Main Content -->
 <div class="content-wrapper">
-<!-- Ambientes de API -->
-<div class="env-row">
-<div class="api-highlight env-box">
-<p class="api-label"><i class="fas fa-check-circle mr-2"></i>Ambiente de Produção</p>
-<p class="api-url">https://prd-apex.antaq.gov.br/ords/sfc_sispat/bens/</p>
-<p class="mt-2 text-xs text-gray-600">Uso em operação oficial. Utilize somente dados reais e credenciais de produção.</p>
+<div class="split-section">
+<div class="media-panel">
+<div class="video-frame">
+<video id="sispat-video" src="Imagens/SisPATvideo.webm" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>
 </div>
-<div class="api-highlight env-box">
-<p class="api-label"><i class="fas fa-flask mr-2"></i>Ambiente de Teste / Homologação</p>
-<p class="api-url">https://des-apex.antaq.gov.br/ords/sfc_sispat/sispat/bens/</p>
-<p class="mt-2 text-xs text-gray-600">Uso para validação de integrações e cenários de teste, sem impacto nos dados de produção.</p>
-</div>
-</div>
-<!-- Flow Container -->
-<div class="flow-container">
-<!-- Connecting Line Background -->
-<div class="flow-line"></div>
-<div class="flow-line-progress"></div>
-<!-- Arrow Connector (entre os 2 cards) -->
-<i class="fas fa-chevron-right arrow-connector arrow-1-2"></i>
-<!-- Step 1: Arquivo JSON -->
-<div class="step-card step-1">
-<div class="step-header">
-<div class="step-icon-circle">
-<i class="fas fa-file-code"></i>
-<div class="step-badge">1</div>
-</div>
-</div>
-<p class="step-title">Arquivo JSON</p>
-<p class="step-desc">A API recebe os dados no formato JSON. Prepare o payload com a estrutura exigida pela documentação (campos dos bens a cadastrar).</p>
-<div class="preview-box">
-<div class="preview-header">
-<span class="file-tag tag-json">payload.json</span>
-<i class="fas fa-code text-gray-500 text-xs"></i>
-</div>
-<p class="preview-code">[
-  {
-    "cnpj": 049***08,
-    "numero_registro_patrimonial": "PAT-2024-0001",
-    "numero_do_contrato": "CT-2024-001",
-    "nome_item": "Guindaste portuário",
-    ...
-  },
-  ...
-]</p>
-</div>
-</div>
-<!-- Step 2: Inserção -->
-<div class="step-card step-2">
-<div class="step-header">
-<div class="step-icon-circle">
-<i class="fas fa-cloud-upload-alt"></i>
-<div class="step-badge">2</div>
-</div>
-</div>
-<p class="step-title">Inserção</p>
-<p class="step-desc">Envie o JSON para o endpoint da API (requisição POST) e valide o retorno. O sistema processa os dados e retorna a confirmação do cadastro.</p>
-<div class="preview-box">
-<div class="preview-header">
-<span class="file-tag tag-api">POST Request</span>
-<i class="fas fa-paper-plane text-gray-500 text-xs"></i>
-</div>
-<p class="preview-code">Status: 201 Bem atualizado com sucesso.
-    {
-        "message": "Operação realizada com sucesso.",
-        "action": "Atualizado",
-        "data": {
-          "cnpj": "049***08",
-          "numero_registro_patrimonial": "CT-2024-0001",
-          "nome_item": "Guindaste portuário"
-        }
-      }</p>
-</div>
+<div class="screen-glare"></div>
 </div>
 </div>
 </div>
@@ -395,8 +146,16 @@
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">SisPAT - Treinamento Simplificado da Funcionalidade de
     Cadastro de Bens e Inventário</p>
-<p class="text-gray-300 text-xs font-mono">11 / 16</p>
+<p class="text-gray-300 text-xs font-mono">11 / 18</p>
 </div>
 </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var video = document.getElementById('sispat-video');
+    if (video) {
+      video.playbackRate = 2.0;
+    }
+  });
+</script>
 </html>
