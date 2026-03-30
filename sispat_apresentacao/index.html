@@ -109,6 +109,8 @@
   <div class="app">
     <div class="stage">
       <iframe id="slideFrame" title="Slide"></iframe>
+      <div id="clickLeft" style="position:absolute;top:0;left:0;width:15%;height:100%;z-index:10;cursor:pointer;"></div>
+      <div id="clickRight" style="position:absolute;top:0;right:0;width:15%;height:100%;z-index:10;cursor:pointer;"></div>
     </div>
   </div>
 
@@ -175,6 +177,10 @@
       else if (e.key === 'End') { e.preventDefault(); current = total; render(); }
       else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
     });
+
+    // Click side zones to navigate
+    document.getElementById('clickLeft').addEventListener('click', () => prev());
+    document.getElementById('clickRight').addEventListener('click', () => next());
 
     render();
 

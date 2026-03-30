@@ -141,7 +141,7 @@ body {
 
 /* ===== Navigation bar ===== */
 .nav-bar {
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    position: fixed; bottom: 6px; left: 50%; transform: translateX(-50%);
     display: flex; align-items: center; gap: 8px;
     background: rgba(12, 50, 111, 0.95); backdrop-filter: blur(12px);
     padding: 8px 16px; border-radius: 50px;
@@ -401,15 +401,11 @@ body {
             <div class="flex items-center space-x-2 text-gray-400"><i class="fa-solid fa-layer-group"></i><p class="text-sm font-bold uppercase tracking-wider">Grupos de Bens</p></div>
             <div class="bg-gray-100 rounded-full px-4 py-1"><p class="text-xs font-bold text-gray-500">Página 04</p></div>
         </div>
-        <div class="flex-1 flex flex-col justify-center space-y-5">
-            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-landmark text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Legado</h3><p class="text-gray-600 text-sm leading-snug">Bens que já integravam o Porto e foram entregues pela União no momento da assunção da gestão.</p></div></div>
-            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-building-columns text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Orçamento da União</h3><p class="text-gray-600 text-sm leading-snug">Bens adquiridos diretamente com recursos do orçamento federal e colocados à disposição.</p></div></div>
-            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-ship text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Receitas Portuárias</h3><p class="text-gray-600 text-sm leading-snug">Adquiridos pela Autoridade Portuária com recursos oriundos da própria operação (Tarifas).</p></div></div>
-            <div class="flex items-start group"><div class="flex-shrink-0 w-14 h-14 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-arrow-rotate-left text-xl gov-text-blue"></i></div><div><h3 class="text-lg font-bold text-gray-800 mb-1">Reversíveis</h3><p class="text-gray-600 text-sm leading-snug">Bens vinculados à concessão que retornam ao patrimônio da União ao final do contrato.</p></div></div>
-            <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
-                <div class="flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation text-yellow-600 mr-2"></i><h4 class="text-sm font-bold text-gray-800 uppercase">Nota Importante</h4></div>
-                <p class="text-gray-700 text-sm">Os bens de propriedade de terceiros (arrendatários/autorizatários) <strong>não estão sujeitos à reversão</strong>, devendo ser classificados separadamente.</p>
-            </div>
+        <div class="flex-1 flex flex-col justify-center space-y-6">
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-landmark text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-2">Legado</h3><p class="text-gray-600 text-base leading-relaxed">Bens que já integravam o Porto e foram entregues pela União no momento da assunção da gestão. Incluem infraestruturas, equipamentos e instalações pré-existentes transferidos ao início da concessão.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-building-columns text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-2">Orçamento da União</h3><p class="text-gray-600 text-base leading-relaxed">Bens adquiridos diretamente com recursos do orçamento federal e colocados à disposição da Autoridade Portuária. São bens de propriedade da União, independentemente de quem os utiliza.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-ship text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-2">Receitas Portuárias</h3><p class="text-gray-600 text-base leading-relaxed">Adquiridos pela Autoridade Portuária com recursos oriundos da própria operação, como tarifas portuárias e outras receitas geradas pela atividade do porto.</p></div></div>
+            <div class="flex items-start group"><div class="flex-shrink-0 w-16 h-16 gov-light-blue-bg rounded-xl flex items-center justify-center mr-5"><i class="fa-solid fa-arrow-rotate-left text-2xl gov-text-blue"></i></div><div><h3 class="text-xl font-bold text-gray-800 mb-2">Reversíveis</h3><p class="text-gray-600 text-base leading-relaxed">Bens vinculados à concessão que retornam ao patrimônio da União ao final do contrato. Devem ser mantidos em condições adequadas de uso durante toda a vigência contratual.</p></div></div>
         </div>
         <div class="absolute bottom-0 left-0 w-full h-2 flex z-50"><div class="w-1/3 bg-green-600"></div><div class="w-1/3 bg-yellow-400"></div><div class="w-1/3 bg-blue-800"></div></div>
     </div>
