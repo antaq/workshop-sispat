@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
+        html { font-size: 20px; }
         body {
             margin: 0;
             padding: 0;
@@ -55,59 +56,88 @@
         .cards-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px 60px 40px 60px;
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            padding: 16px 56px 28px 56px;
             flex: 1;
+            min-height: 0;
         }
-        
+
         .card {
             background-color: #F8FAFC;
             border-radius: 12px;
-            padding: 20px;
+            padding: 22px 26px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             border-left: 5px solid #0066CC;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
             overflow: hidden;
+            min-height: 0;
+            position: relative;
         }
-        
+
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            background-color: #FFFFFF;
         }
-        
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background-color: #E0F2FE;
-            color: #0066CC;
+
+        .card:nth-child(1) { border-left-color: #94A3B8; }
+        .card:nth-child(2) { border-left-color: #60A5FA; }
+        .card:nth-child(3) { border-left-color: #3B82F6; }
+        .card:nth-child(4) { border-left-color: #2563EB; }
+        .card:nth-child(5) { border-left-color: #1D4ED8; }
+
+        .card-header {
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .card-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: #1E3A8A;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background-color: #DBEAFE;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-bottom: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
-        
+
         .card-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: #003366;
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            color: #0F172A;
             text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
-        
+
         .card-desc {
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.5;
-            flex: 1;
+            font-size: 18px;
+            color: #4B5563;
+            line-height: 1.4;
+            max-width: 80%;
         }
-        
+
+        .card-icon-bg {
+            position: absolute;
+            right: -6px;
+            bottom: -6px;
+            font-size: 62px;
+            color: #E5E7EB;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
         /* Special layout for the last card to span or center if odd number */
         .card:last-child {
             grid-column: 2 / 3; /* Center in the bottom row if 5 items */
@@ -149,59 +179,63 @@
 <div class="cards-container">
 <!-- Card 1 -->
 <div class="card">
-<div class="card-icon">
-<i class="fas fa-sitemap"></i>
-</div>
+<div class="card-header">
+<span class="card-number">Tópico 01</span>
 <p class="card-title">Sistema Único e Padronizado</p>
+</div>
 <p class="card-desc">
                     Centralização das informações patrimoniais em um único sistema reduz riscos de divergência entre planilhas, bases paralelas e soluções isoladas, garantindo um <strong>ponto único de verdade</strong> para todos os portos organizados.
                 </p>
+<i class="fas fa-sitemap card-icon-bg"></i>
 </div>
 <!-- Card 2 -->
 <div class="card">
-<div class="card-icon">
-<i class="fas fa-tachometer-alt"></i>
-</div>
+<div class="card-header">
+<span class="card-number">Tópico 02</span>
 <p class="card-title">Infraestrutura Oracle</p>
+</div>
 <p class="card-desc">
                     O SisPAT é executado sobre a <strong>plataforma Oracle</strong>, utilizando o <strong>Oracle APEX</strong> diretamente no banco de dados. Isso permite herdar todos os controles de segurança, resiliência e alta disponibilidade da infraestrutura corporativa da ANTAQ.
                 </p>
+<i class="fas fa-tachometer-alt card-icon-bg"></i>
 </div>
 <!-- Card 3 -->
 <div class="card">
-<div class="card-icon">
-<i class="fas fa-shield-alt"></i>
-</div>
+<div class="card-header">
+<span class="card-number">Tópico 03</span>
 <p class="card-title">Segurança da Informação</p>
+</div>
 <p class="card-desc">
                     Recursos nativos do Oracle APEX para proteção contra ameaças web, autenticação centralizada, <strong>perfis de acesso por tipo de usuário</strong> e uso de padrões corporativos de segurança da informação definidos pela ANTAQ.
                 </p>
+<i class="fas fa-shield-alt card-icon-bg"></i>
 </div>
 <!-- Card 4 -->
 <div class="card">
-<div class="card-icon">
-<i class="fas fa-laptop-code"></i>
-</div>
+<div class="card-header">
+<span class="card-number">Tópico 04</span>
 <p class="card-title">Proteção e Integridade dos Dados</p>
+</div>
 <p class="card-desc">
                     Armazenamento dos dados diretamente no banco Oracle, com mecanismos de <strong>backup, recuperação</strong> e controle de integridade, reduzindo o risco de perda, corrupção ou uso indevido das informações patrimoniais.
                 </p>
+<i class="fas fa-laptop-code card-icon-bg"></i>
 </div>
 <!-- Card 5 -->
 <div class="card">
-<div class="card-icon">
-<i class="fas fa-sync-alt"></i>
-</div>
+<div class="card-header">
+<span class="card-number">Tópico 05</span>
 <p class="card-title">Monitoramento e Rastreabilidade</p>
+</div>
 <p class="card-desc">
                     Registro de ações de usuários, logs de acesso e trilhas de auditoria no ambiente Oracle, permitindo <strong>rastrear alterações</strong>, apoiar a governança e responder a demandas de controle interno e externo.
                 </p>
+<i class="fas fa-sync-alt card-icon-bg"></i>
 </div>
 </div>
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs font-montserrat">SisPAT - Treinamento Simplificado da Funcionalidade de
-    Cadastro de Bens e Inventário</p>
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
 <p class="text-gray-300 text-xs font-mono">4 / 18</p>
 </div>
 <!-- Background Decor -->

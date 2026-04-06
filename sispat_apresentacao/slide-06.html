@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
+        html { font-size: 20px; }
         body {
             margin: 0;
             padding: 0;
@@ -61,29 +62,6 @@
             position: relative;
         }
 
-        /* Connecting Line */
-        .timeline-line {
-            position: absolute;
-            top: 45%;
-            left: 10%;
-            right: 10%;
-            height: 4px;
-            background-color: #E2E8F0;
-            z-index: 1;
-        }
-        
-        .timeline-progress {
-            position: absolute;
-            top: 45%;
-            left: 10%;
-            width: 80%;
-            height: 4px;
-            background: #CBD5E1; /* Fallback */
-            background-image: linear-gradient(to right, #94A3B8, #0066CC); /* Note: Gradient usage is discouraged by guidelines but simple linear gradient for progress bar is often acceptable, if not, use solid color */
-            background-color: #0066CC; /* Solid color alternative */
-            z-index: 1;
-            opacity: 0.3;
-        }
 
         /* Timeline Cards */
         .stages-container {
@@ -205,9 +183,16 @@
         .arrow-next {
             position: absolute;
             top: 45%;
-            right: -25px;
-            font-size: 24px;
-            color: #CBD5E1;
+            right: -32px;
+            font-size: 32px;
+            color: #0066CC;
+            animation: arrow-pulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes arrow-pulse {
+            0%   { transform: translateX(-8px); opacity: 0.2; }
+            50%  { transform: translateX(8px);  opacity: 1;   }
+            100% { transform: translateX(-8px); opacity: 0.2; }
         }
 
         /* Background Pattern */
@@ -245,8 +230,6 @@
 </div>
 <!-- Main Content: Timeline -->
 <div class="timeline-wrapper">
-<!-- Connecting Line Background -->
-<div class="timeline-line"></div>
 <div class="stages-container">
 <!-- Stage 1 -->
 <div class="stage-card stage-1">
@@ -327,8 +310,7 @@
 </div>
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs font-montserrat">SisPAT - Treinamento Simplificado da Funcionalidade de
-    Cadastro de Bens e Inventário</p>
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
 <p class="text-gray-300 text-xs font-mono">6 / 18</p>
 </div>
 <!-- Background Decor -->

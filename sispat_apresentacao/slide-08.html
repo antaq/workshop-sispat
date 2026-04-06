@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
+        html { font-size: 20px; }
         body {
             margin: 0;
             padding: 0;
@@ -225,9 +226,15 @@
 <!-- Main Content -->
 <div class="content-wrapper">
 <!-- URL Highlight -->
-<div class="url-box">
+<div style="display:flex; gap:30px; width:96%; margin-bottom:50px;">
+<div class="url-box" style="width:50%; margin-bottom:0;">
 <p class="url-label"><i class="fas fa-link mr-2"></i>Link de Acesso Principal</p>
-<a class="url-text" href="https://prd-apex.antaq.gov.br/ords/r/sfc/sispat" target="_blank" style="display:block; text-decoration:none; color:#003366; cursor:pointer;">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</a>
+<a class="url-text" href="https://prd-apex.antaq.gov.br/ords/r/sfc/sispat" target="_blank" style="display:block; text-decoration:none; color:#003366; cursor:pointer; font-size:24px;">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</a>
+</div>
+<div class="url-box" style="width:50%; margin-bottom:0; border-color:#003366;">
+<p class="url-label"><i class="fas fa-code mr-2"></i>Ambiente de Desenvolvimento</p>
+<a class="url-text" href="https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat" target="_blank" style="display:block; text-decoration:none; color:#003366; cursor:pointer; font-size:24px;">https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat</a>
+</div>
 </div>
 <!-- Info Cards -->
 <div class="info-grid">
@@ -259,8 +266,7 @@
 </div>
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
-<p class="text-gray-400 text-xs font-montserrat">SisPAT - Treinamento Simplificado da Funcionalidade de
-    Cadastro de Bens e Inventário</p>
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
 <p class="text-gray-300 text-xs font-mono">8 / 18</p>
 </div>
 <!-- Background Decor -->
