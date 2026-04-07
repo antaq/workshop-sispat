@@ -119,15 +119,15 @@
         .step-content h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 22px;
             color: #1E293B;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .step-content p {
-            font-size: 14px;
+            font-size: 17px;
             color: #64748B;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         .step-icon-bg {
@@ -348,5 +348,6 @@
 <p class="text-gray-300 text-xs font-mono">11 / 16</p>
 </div>
 </div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

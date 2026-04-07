@@ -78,7 +78,7 @@
         }
 
         .description-box p {
-            font-size: 15px;
+            font-size: 18px;
             color: #334155;
             line-height: 1.6;
         }
@@ -130,14 +130,14 @@
         .flow-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 19px;
             color: #1E293B;
         }
 
         .flow-desc {
-            font-size: 12px;
+            font-size: 16px;
             color: #64748B;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         /* Right Side - Preview */
@@ -400,5 +400,6 @@ Acessar Ferramenta
 <p class="text-gray-300 text-xs font-mono">14 / 16</p>
 </div>
 </div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

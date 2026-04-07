@@ -82,13 +82,13 @@
         .highlight-box h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 22px;
+            font-size: 26px;
             color: #003366;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .highlight-box p {
-            font-size: 16px;
+            font-size: 19px;
             color: #475569;
             line-height: 1.6;
         }
@@ -145,15 +145,15 @@
         .detail-content h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 21px;
             color: #1E293B;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
 
         .detail-content p {
-            font-size: 14px;
+            font-size: 17px;
             color: #64748B;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         /* Right Side: Visual Calendar */
@@ -431,5 +431,6 @@
 <p class="text-gray-300 text-xs font-mono">15 / 16</p>
 </div>
 </div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

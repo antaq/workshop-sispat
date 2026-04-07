@@ -184,15 +184,15 @@
         .feature-content h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 20px;
             color: #1E293B;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .feature-content p {
-            font-size: 14px;
+            font-size: 17px;
             color: #64748B;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         /* Background Decor */
@@ -338,5 +338,6 @@
             correctLevel : QRCode.CorrectLevel.H
         });
     </script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

@@ -189,7 +189,7 @@
         }
 
         .step-desc {
-            font-size: 14px;
+            font-size: 18px;
             color: #64748B;
             line-height: 1.5;
             padding: 0 24px;
@@ -320,12 +320,12 @@
 <!-- Ambientes de API -->
 <div class="env-row">
 <div class="api-highlight env-box">
-<p class="api-label"><i class="fas fa-check-circle mr-2"></i>Ambiente de Produção</p>
-<p class="api-url">https://prd-apex.antaq.gov.br/ords/sfc_sispat/bens/</p>
-</div>
-<div class="api-highlight env-box">
 <p class="api-label"><i class="fas fa-flask mr-2"></i>Ambiente de Teste / Homologação</p>
 <p class="api-url">https://des-apex.antaq.gov.br/ords/sfc_sispat/sispat/bens/</p>
+</div>
+<div class="api-highlight env-box">
+<p class="api-label"><i class="fas fa-check-circle mr-2"></i>Ambiente de Produção</p>
+<p class="api-url">https://prd-apex.antaq.gov.br/ords/sfc_sispat/bens/</p>
 </div>
 </div>
 <!-- Flow Container -->
@@ -397,5 +397,6 @@
 <p class="text-gray-300 text-xs font-mono">13 / 16</p>
 </div>
 </div>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

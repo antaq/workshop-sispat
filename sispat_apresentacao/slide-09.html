@@ -51,15 +51,40 @@
             display: flex;
             flex: 1;
             padding: 16px 56px 28px 56px;
-            flex-direction: column;
+            flex-direction: row;
+            gap: 24px;
             min-height: 0;
+        }
+
+        .steps-side {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            transition: flex 0.4s ease;
+        }
+
+        .video-side {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            transition: flex 0.4s ease;
+        }
+
+        /* Expanded state: video grows, cards shrink */
+        .content-wrapper.video-expanded .video-side {
+            flex: 2.4;
+        }
+        .content-wrapper.video-expanded .steps-side {
+            flex: 1;
         }
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, minmax(0, 1fr));
+            gap: 14px;
             flex: 1;
             min-height: 0;
         }
@@ -67,7 +92,7 @@
         .step-card {
             background-color: #F8FAFC;
             border-radius: 12px;
-            padding: 22px 26px;
+            padding: 18px 22px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -93,16 +118,16 @@
 
         .step-header {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-            margin-bottom: 10px;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
         }
 
         .step-number {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             color: #1E3A8A;
             padding: 3px 12px;
             border-radius: 999px;
@@ -117,17 +142,17 @@
         .step-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 19px;
             color: #0F172A;
             text-transform: uppercase;
             letter-spacing: 0.02em;
         }
 
         .step-desc {
-            font-size: 18px;
+            font-size: 16px;
             color: #4B5563;
-            line-height: 1.4;
-            max-width: 80%;
+            line-height: 1.45;
+            max-width: 88%;
         }
 
         .step-connector {
@@ -149,10 +174,75 @@
             position: absolute;
             right: -6px;
             bottom: -6px;
-            font-size: 62px;
+            font-size: 48px;
             color: #E5E7EB;
             opacity: 0.8;
             pointer-events: none;
+        }
+        .step-connector { display: none; }
+
+        /* Video panel */
+        .video-panel {
+            background-color: #0F172A;
+            border-radius: 14px;
+            border: 1px solid #1E293B;
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex: 1;
+            position: relative;
+        }
+        .video-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background-color: #1E293B;
+            border-bottom: 1px solid #334155;
+        }
+        .video-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .video-header-title i { color: #38BDF8; }
+        .video-expand-btn {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38BDF8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .video-expand-btn:hover {
+            background-color: rgba(56, 189, 248, 0.25);
+            color: #FFFFFF;
+        }
+        .video-frame {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+        }
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .footer-tip {
@@ -187,7 +277,8 @@
 </div>
 </div>
 
-<div class="content-wrapper relative">
+<div class="content-wrapper relative" id="contentWrapper">
+<div class="steps-side">
 <div class="steps-grid z-10">
 
                 <div class="step-card">
@@ -260,10 +351,46 @@
 </div>
 </div>
 
+<!-- Video side -->
+<div class="video-side">
+<div class="video-panel">
+<div class="video-header">
+<button class="video-expand-btn" id="videoExpandBtn" type="button" onclick="toggleVideoExpand()">
+<i class="fas fa-expand" id="videoExpandIcon"></i>
+<span id="videoExpandLabel">Expandir</span>
+</button>
+<div class="video-header-title">
+<i class="fas fa-circle-play"></i>
+<span>Demonstração — Cadastro de Bem</span>
+</div>
+</div>
+<div class="video-frame">
+<video id="demoVideo" src="Imagens/SisPATvideo.webm" controls preload="metadata"></video>
+</div>
+</div>
+</div>
+</div>
+
 <div class="px-10 pb-4 pt-1 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
 <p class="text-gray-300 text-xs font-mono">9 / 16</p>
 </div>
 </div>
+<script>
+function toggleVideoExpand() {
+  const wrapper = document.getElementById('contentWrapper');
+  const icon = document.getElementById('videoExpandIcon');
+  const label = document.getElementById('videoExpandLabel');
+  const expanded = wrapper.classList.toggle('video-expanded');
+  if (expanded) {
+    icon.className = 'fas fa-compress';
+    label.textContent = 'Reduzir';
+  } else {
+    icon.className = 'fas fa-expand';
+    label.textContent = 'Expandir';
+  }
+}
+</script>
+<script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>
