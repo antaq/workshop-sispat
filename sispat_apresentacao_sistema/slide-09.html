@@ -72,11 +72,11 @@
             transition: flex 0.4s ease;
         }
 
-        /* Expanded state: video grows, cards shrink */
-        .content-wrapper.video-expanded .video-side {
-            flex: 2.4;
-        }
+        /* Expanded state: hide cards, video takes full width */
         .content-wrapper.video-expanded .steps-side {
+            display: none;
+        }
+        .content-wrapper.video-expanded .video-side {
             flex: 1;
         }
 
@@ -190,7 +190,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            flex: 1;
+            align-self: flex-start;
+            width: 100%;
             position: relative;
         }
         .video-header {
@@ -231,17 +232,13 @@
             color: #FFFFFF;
         }
         .video-frame {
-            flex: 1;
             background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 0;
+            display: block;
+            line-height: 0;
         }
         .video-frame video {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: auto;
             display: block;
         }
 
@@ -365,7 +362,7 @@
 </div>
 </div>
 <div class="video-frame">
-<video id="demoVideo" src="Imagens/SisPATvideo.webm" controls preload="metadata"></video>
+<video id="demoVideo" src="Imagens/SisPATvideo.webm" autoplay loop muted playsinline preload="auto"></video>
 </div>
 </div>
 </div>

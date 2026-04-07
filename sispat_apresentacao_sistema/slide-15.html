@@ -57,17 +57,18 @@
         .content-wrapper {
             display: flex;
             flex: 1;
-            padding: 30px 80px 30px 80px;
-            gap: 60px;
+            min-height: 0;
+            padding: 24px 70px 24px 70px;
+            gap: 50px;
             align-items: center;
         }
 
         /* Left Side */
         .info-panel {
-            flex: 0.55;
+            flex: 0.42;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 22px;
             justify-content: center;
         }
 
@@ -158,7 +159,7 @@
 
         /* Right Side: Visual Calendar */
         .calendar-panel {
-            flex: 0.45;
+            flex: 0.58;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -174,7 +175,7 @@
             border: 1px solid #E2E8F0;
             overflow: hidden;
             width: 100%;
-            max-width: 420px;
+            max-width: 560px;
         }
 
         .calendar-header {
@@ -268,6 +269,77 @@
             color: #FCD34D;
         }
 
+        /* Notice Cards (Teams + WhatsApp) */
+        .notice-card {
+            margin-top: 14px;
+            border-radius: 0 14px 14px 0;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 800px;
+            max-width: 100%;
+        }
+        .notice-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 30px;
+        }
+        .notice-icon svg {
+            width: 34px;
+            height: 34px;
+            fill: #FFFFFF;
+        }
+        .notice-content h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .notice-content p {
+            font-size: 15px;
+            line-height: 1.45;
+        }
+
+        /* Teams */
+        .teams-card {
+            background: linear-gradient(135deg, #F5F4FA 0%, #EDEBF7 100%);
+            border: 1px solid #D6D2EE;
+            border-left: 6px solid #6264A7;
+            box-shadow: 0 4px 6px -1px rgba(98, 100, 167, 0.12);
+        }
+        .teams-card .notice-icon {
+            background-color: #6264A7;
+            box-shadow: 0 4px 6px -1px rgba(98, 100, 167, 0.3);
+        }
+        .teams-card h4 { color: #2D2A4A; }
+        .teams-card p { color: #4B4868; }
+        .teams-card p strong { color: #2D2A4A; }
+
+        /* WhatsApp */
+        .whatsapp-card {
+            background: linear-gradient(135deg, #ECFDF5 0%, #DCFCE7 100%);
+            border: 1px solid #BBF7D0;
+            border-left: 6px solid #25D366;
+            box-shadow: 0 4px 6px -1px rgba(37, 211, 102, 0.12);
+        }
+        .whatsapp-card .notice-icon {
+            background-color: #25D366;
+            box-shadow: 0 4px 6px -1px rgba(37, 211, 102, 0.3);
+        }
+        .whatsapp-card h4 { color: #14532D; }
+        .whatsapp-card p { color: #166534; }
+        .whatsapp-card p strong { color: #14532D; }
+
         /* Background Decor */
         .bg-circle {
             position: absolute;
@@ -331,7 +403,7 @@
 <div class="info-panel">
 <div class="highlight-box">
 <h2><i class="fas fa-bullhorn mr-2 text-brand-secondary"></i> Atendimento Exclusivo</h2>
-<p>Durante <strong>1 mês</strong>, a equipe técnica da ANTAQ estará disponível em plantão para esclarecer dúvidas sobre a integração com a API do SisPAT.</p>
+<p>Durante <strong>3 meses</strong>, a equipe técnica da ANTAQ estará disponível em plantão para esclarecer dúvidas sobre a integração com a API do SisPAT.</p>
 </div>
 <div class="detail-cards">
 <!-- Dias -->
@@ -340,7 +412,7 @@
 <i class="fas fa-calendar-alt"></i>
 </div>
 <div class="detail-content">
-<h3>Terças e Quintas-feiras</h3>
+<h3>Todas as Quintas-feiras</h3>
 <p>Sessões semanais recorrentes durante todo o período do plantão.</p>
 </div>
 </div>
@@ -360,7 +432,7 @@
 <i class="fas fa-hourglass-half"></i>
 </div>
 <div class="detail-content">
-<h3>Duração de 1 mês</h3>
+<h3>Duração de 3 meses</h3>
 <p>Período dedicado para garantir uma integração tranquila e bem-sucedida.</p>
 </div>
 </div>
@@ -385,7 +457,7 @@
 <!-- Semana 1 -->
 <div class="week-row">
 <div class="day-cell">—</div>
-<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
 <div class="day-cell">—</div>
 <div class="day-cell day-active">Qui</div>
 <div class="day-cell">—</div>
@@ -393,7 +465,7 @@
 <!-- Semana 2 -->
 <div class="week-row">
 <div class="day-cell">—</div>
-<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
 <div class="day-cell">—</div>
 <div class="day-cell day-active">Qui</div>
 <div class="day-cell">—</div>
@@ -401,7 +473,7 @@
 <!-- Semana 3 -->
 <div class="week-row">
 <div class="day-cell">—</div>
-<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
 <div class="day-cell">—</div>
 <div class="day-cell day-active">Qui</div>
 <div class="day-cell">—</div>
@@ -409,7 +481,7 @@
 <!-- Semana 4 -->
 <div class="week-row">
 <div class="day-cell">—</div>
-<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
 <div class="day-cell">—</div>
 <div class="day-cell day-active">Qui</div>
 <div class="day-cell">—</div>
@@ -417,6 +489,31 @@
 </div>
 <div class="cta-badge">
 <i class="fas fa-question-circle"></i> Tire suas dúvidas sobre a API
+</div>
+</div>
+<!-- Teams Notice Card -->
+<div class="notice-card teams-card">
+<div class="notice-icon">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Microsoft Teams">
+<rect x="3" y="7" width="18" height="18" rx="2" fill="#FFFFFF"/>
+<text x="12" y="20.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#5059C9">T</text>
+<circle cx="25" cy="11" r="3" fill="#FFFFFF" opacity="0.95"/>
+<path d="M22 16h6a1.5 1.5 0 0 1 1.5 1.5v4.5a3.5 3.5 0 0 1-3.5 3.5h-.5a3.5 3.5 0 0 1-3.5-3.5v-6z" fill="#FFFFFF" opacity="0.85"/>
+</svg>
+</div>
+<div class="notice-content">
+<h4><i class="fas fa-video"></i> Videoconferência via Microsoft Teams</h4>
+<p>O link de acesso será enviado posteriormente a <strong>todos os contatos habilitados</strong> pelo e-mail <strong>inventario@antaq.gov.br</strong>.</p>
+</div>
+</div>
+<!-- WhatsApp Notice Card -->
+<div class="notice-card whatsapp-card">
+<div class="notice-icon">
+<i class="fab fa-whatsapp"></i>
+</div>
+<div class="notice-content">
+<h4><i class="fas fa-comments"></i> Grupo de WhatsApp</h4>
+<p>Também teremos um <strong>grupo no WhatsApp</strong> para tirar dúvidas rápidas. O convite chega pelo mesmo e-mail.</p>
 </div>
 </div>
 </div>
