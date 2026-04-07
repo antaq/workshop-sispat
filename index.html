@@ -13,7 +13,7 @@
     body {
       font-family: 'Open Sans', sans-serif;
       min-height: 100vh;
-      background-color: #F8FAFC;
+      background: url('img_porto.jpeg') center center / cover no-repeat;
       display: flex;
       flex-direction: column;
     }
@@ -41,16 +41,18 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 32px;
       font-weight: 800;
-      color: #003366;
+      color: #FFFFFF;
       text-transform: uppercase;
       letter-spacing: -0.5px;
       margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
 
     .header-section p {
       font-size: 16px;
-      color: #64748B;
+      color: #E2E8F0;
       font-weight: 500;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     }
 
     .cards {
@@ -141,8 +143,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #E2E8F0;
-      background-color: #FFFFFF;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      background-color: rgba(0, 51, 102, 0.55);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+    }
+
+    .footer-left p {
+      color: #E2E8F0 !important;
+    }
+    .footer-right {
+      color: #E2E8F0 !important;
     }
 
     .footer-left {
@@ -183,17 +194,17 @@
   <div class="secondary-bar"></div>
 
   <div style="padding: 20px 40px 0; display: flex; align-items: center; gap: 12px;">
-    <img src="sispat_apresentacao/Imagens/Logo ANTAQ.jpg" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
+    <img src="sispat_apresentacao/Imagens/Logo Horizontal_Azul_S_N.png" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
     <div>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #64748B; letter-spacing: 2px; text-transform: uppercase;">Agência Nacional de Transportes Aquaviários</p>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: #94A3B8; letter-spacing: 1.5px; text-transform: uppercase;">ANTAQ</p>
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #FFFFFF; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Agência Nacional de Transportes Aquaviários</p>
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: #E2E8F0; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">ANTAQ</p>
     </div>
   </div>
   
 
   <div class="main">
     <div class="header-section">
-      <h1><img src="sispat_apresentacao/Imagens/LogoSisPat_fundocinza.jpg" alt="Logo SisPAT" style="height: 42px; width: auto; vertical-align: middle; margin-right: 10px; border-radius: 6px;">Apresentações SisPAT</h1>
+      <h1><img src="icon_sispat.png" alt="Logo SisPAT" style="height: 42px; width: auto; vertical-align: middle; margin-right: 10px;">Apresentações SisPAT</h1>
       <p>Selecione a apresentação que deseja visualizar</p>
     </div>
 
