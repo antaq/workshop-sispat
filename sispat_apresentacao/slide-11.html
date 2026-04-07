@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cadastro de Bens - Visão Geral</title>
+<title>Gerar Chave de API (API KEY)</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -55,62 +56,188 @@
         /* Main Layout */
         .content-wrapper {
             display: flex;
-            flex-direction: column;
             flex: 1;
-            padding: 20px 64px 36px 64px;
-            gap: 24px;
-        }
-
-        /* Área principal: painel de vídeo */
-        .split-section {
-            display: flex;
-            flex: 1;
+            padding: 20px 80px 30px 80px;
+            gap: 40px;
             align-items: center;
-            justify-content: center;
-            min-height: 0;
         }
 
-        .media-panel {
-            width: 100%;
-            max-width: 1280px;
-            aspect-ratio: 16 / 9;
-            background-color: #1E293B;
+        /* Left Side: Steps */
+        .steps-container {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
             border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #CBD5E1;
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-1 { border-left-color: #0066CC; }
+        .step-2 { border-left-color: #2563EB; }
+        .step-3 { border-left-color: #1D4ED8; }
+        .step-4 { border-left-color: #1E40AF; }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #F1F5F9;
+            color: #64748B;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 4px solid #334155;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
-        .screen-glare {
+        .step-1 .step-number { background-color: #E0F2FE; color: #0066CC; }
+        .step-2 .step-number { background-color: #DBEAFE; color: #2563EB; }
+        .step-3 .step-number { background-color: #EFF6FF; color: #1D4ED8; }
+        .step-4 .step-number { background-color: #F8FAFC; color: #1E40AF; border: 2px solid #E2E8F0; }
+
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        .step-icon-bg {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.05);
-            transform: rotate(30deg);
-            pointer-events: none;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            color: #F1F5F9;
+            z-index: 0;
+            opacity: 0.5;
         }
 
-        .video-frame {
-            width: 100%;
+        /* Right Side: Visual & Alert */
+        .visual-container {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             height: 100%;
-            border-radius: 8px;
+            justify-content: center;
+        }
+
+        .key-card {
+            background-color: #1E293B;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(15,23,42,0.6);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
         }
 
-        .video-frame video {
+        .key-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .key-title {
+            color: #F8FAFC;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .key-display {
+            background-color: #0F172A;
+            border: 1px dashed #475569;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            color: #38BDF8;
+            font-size: 14px;
+            word-break: break-all;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .key-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-size: 12px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
         }
+
+        .alert-box {
+            background-color: #FFFBEB;
+            border-left: 6px solid #F59E0B;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #B45309;
+        }
+
+        .alert-content p {
+            font-size: 14px;
+            color: #92400E;
+            line-height: 1.5;
+        }
+
+        .bg-key-icon {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 180px;
+            color: #F1F5F9;
+            opacity: 0.5;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
     </style>
 </head>
 <body>
@@ -119,43 +246,107 @@
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
 <!-- Header -->
-<div class="px-12 pt-8 pb-4 relative z-20">
+<div class="px-12 pt-10 pb-4 relative z-20">
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Bens Cadastrados</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Gestão e visualização do inventário patrimonial</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Gerar Chave de API (API KEY)</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Procedimento para obtenção de credenciais de acesso</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-boxes text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INVENTÁRIO</p>
+<i class="fas fa-key text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SEGURANÇA</p>
 </div>
 </div>
 </div>
 <!-- Main Content -->
-<div class="content-wrapper">
-<div class="split-section">
-<div class="media-panel">
-<div class="video-frame">
-<video id="sispat-video" src="Imagens/SisPATvideo.webm" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+<div class="content-wrapper relative z-10">
+<!-- Left: Steps -->
+<div class="steps-container">
+<!-- Step 1 -->
+<div class="step-item step-1">
+<div class="step-number">1</div>
+<div class="step-content">
+<h3>Solicite Habilitação</h3>
+<p>Entre em contato com o e-mail <a href="mailto:inventario@antaq.gov.br">inventario@antaq.gov.br</a> para solicitar o acesso ao sistema enviando as informações necessárias.</p>
 </div>
-<div class="screen-glare"></div>
+<i class="fas fa-user-check step-icon-bg"></i>
+</div>
+<!-- Step 2 -->
+<div class="step-item step-2">
+<div class="step-number">2</div>
+<div class="step-content">
+<h3>Gere sua Chave</h3>
+<p>Acesse o painel de desenvolvedor no portal SisPAT web e clique em "Gerarenciador de API" e em "Gerar Chave de API".</p>
+</div>
+<i class="fas fa-magic step-icon-bg"></i>
+</div>
+<!-- Step 3 -->
+<div class="step-item step-3">
+<div class="step-number">3</div>
+<div class="step-content">
+<h3>Armazene com Segurança</h3>
+<p>Sua chave de API é pessoal e intransferível. Para evitar acessos indevidos, nunca compartilhe ou exponha essa credencial em repositórios públicos.</p>
+</div>
+<i class="fas fa-shield-alt step-icon-bg"></i>
+</div>
+<!-- Step 4 -->
+<div class="step-item step-4">
+<div class="step-number">4</div>
+<div class="step-content">
+<h3>Rotação de Chaves</h3>
+<p>Em caso de suspeita de comprometimento da chave, entre em contato pelo e-mail <a href="mailto:inventario@antaq.gov.br">inventario@antaq.gov.br</a> para solicitar a geração de uma nova credencial.</p>
+</div>
+<i class="fas fa-sync-alt step-icon-bg"></i>
+</div>
+</div>
+<!-- Right: Visual & Alert -->
+<div class="visual-container">
+<!-- Key Card Visualization -->
+<div class="key-card">
+<div class="key-header">
+<span class="key-title"><i class="fas fa-terminal mr-2 text-blue-400"></i>API Credential</span>
+<span class="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">Active</span>
+</div>
+<div class="key-display">
+<p>sispat_live_8f92a3...</p>
+<div class="key-blur">
+<i class="fas fa-eye-slash mr-2"></i> Clique para revelar
+                    </div>
+</div>
+<div class="flex justify-between text-xs text-gray-400">
+<p>Criado em: 04/03/2026</p>
+</div>
+</div>
+<!-- Critical: Asset Number -->
+<div style="background-color:#EFF6FF; border-left:6px solid #0066CC; border-radius:12px; padding:24px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);">
+<div style="display:flex; align-items:center; margin-bottom:10px; color:#003366;">
+<i class="fas fa-barcode mr-2 text-xl"></i>
+<h4 class="font-bold text-lg">N° do Bem Patrimonial</h4>
+</div>
+<div>
+<p style="font-size:14px; color:#1E40AF; line-height:1.5;">O correto funcionamento da API depende diretamente do <strong>número do bem patrimonial</strong>. É essencial que cada bem possua um número válido e único, pois ele é a chave de identificação utilizada em todas as consultas e operações da API.</p>
+</div>
+</div>
+<!-- Alert Box -->
+<div class="alert-box">
+<div class="alert-header">
+<i class="fas fa-exclamation-triangle mr-2 text-xl"></i>
+<h4 class="font-bold text-lg">Atenção Importante</h4>
+</div>
+<div class="alert-content">
+<p>Utilize chaves distintas para ambientes de <strong>Teste</strong> e <strong>Produção</strong>. Nunca utilize dados reais com chaves de teste ou vice-versa para garantir a integridade das informações.</p>
 </div>
 </div>
 </div>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-fingerprint bg-key-icon"></i>
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">11 / 18</p>
+<p class="text-gray-300 text-xs font-mono">11 / 16</p>
 </div>
 </div>
 </body>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('sispat-video');
-    if (video) {
-      video.playbackRate = 2.0;
-    }
-  });
-</script>
 </html>

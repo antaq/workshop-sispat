@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login no SisPAT</title>
+<title>Login e Acesso aos Ambientes</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -26,181 +27,207 @@
             background-color: #ffffff;
             overflow: hidden;
         }
-        .header-bar {
-            background-color: #003366;
-            height: 12px;
-            width: 100%;
-        }
-        .secondary-bar {
-            background-color: #0066CC;
-            height: 6px;
-            width: 100%;
-        }
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .text-brand-primary {
-            color: #003366;
-        }
-        .bg-brand-primary {
-            background-color: #003366;
-        }
-        .text-brand-secondary {
-            color: #0066CC;
-        }
-        .bg-brand-secondary {
-            background-color: #0066CC;
-        }
-        
-        /* Main Layout */
-        .content-wrapper {
+        .header-bar { background-color: #003366; height: 12px; width: 100%; }
+        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #003366; }
+        .bg-brand-primary { background-color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        /* Top section: two columns (DEV left, PRD right) */
+        .top-section {
             display: flex;
+            gap: 28px;
+            padding: 12px 60px 0 60px;
+        }
+        .env-col {
             flex: 1;
+            display: flex;
             flex-direction: column;
-            padding: 30px 80px 40px 80px;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 10;
+            gap: 18px;
         }
-        
-        /* URL Highlight Box */
         .url-box {
-            background-color: #F0F9FF;
-            border: 3px solid #0066CC;
-            border-radius: 16px;
-            padding: 40px 60px;
-            text-align: center;
-            width: 90%;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 25px -5px rgba(0, 102, 204, 0.1), 0 10px 10px -5px rgba(0, 102, 204, 0.04);
+            border-radius: 14px;
+            padding: 22px 28px;
+            box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.15);
             position: relative;
-            z-index: 20;
         }
-        
-        .url-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            color: #64748B;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            font-weight: 600;
+        .url-box.prd {
+            background-color: #F0FDF4;
+            border: 2px solid #16A34A;
         }
-        
-        .url-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            color: #003366;
-            margin-bottom: 20px;
-            word-break: break-all;
-            padding: 10px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            border: 1px dashed #CBD5E1;
+        .url-box.dev {
+            background-color: #FFF7ED;
+            border: 2px solid #EA580C;
         }
-        
-        .url-tip {
+        .url-tag {
             display: inline-flex;
             align-items: center;
-            background-color: #FFFBEB;
-            color: #92400E;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 1px solid #FDE68A;
+            gap: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
         }
-
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-        }
-        
-        .info-card {
+        .url-tag.prd { color: #16A34A; }
+        .url-tag.dev { color: #EA580C; }
+        .url-text {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #003366;
+            text-decoration: none;
             background-color: #FFFFFF;
-            padding: 24px;
-            border-radius: 12px;
-            border-left: 6px solid #CBD5E1;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: flex-start;
-            transition: transform 0.2s ease;
+            border: 1px dashed #CBD5E1;
+            border-radius: 6px;
+            padding: 12px 16px;
+            word-break: break-all;
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-current {
-            border-left-color: #0066CC;
-        }
-        
-        .card-future {
-            border-left-color: #003366;
-        }
-        
-        .card-icon {
-            width: 50px;
-            height: 50px;
+        .info-card {
             border-radius: 12px;
+            padding: 22px 26px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid;
+            flex: 1;
+        }
+        .info-card.prd {
+            background-color: #F0FDF4;
+            border-left-color: #16A34A;
+        }
+        .info-card.dev {
+            background-color: #FFF7ED;
+            border-left-color: #EA580C;
+        }
+        .info-card .title {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .icon-current {
-            background-color: #E0F2FE;
-            color: #0066CC;
-        }
-        
-        .icon-future {
-            background-color: #E0E7FF;
-            color: #003366;
-        }
-        
-        .card-title {
+            gap: 12px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 18px;
-            color: #1E293B;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-        
-        .card-desc {
-            font-size: 14px;
-            color: #64748B;
+        .info-card.prd .title { color: #16A34A; }
+        .info-card.dev .title { color: #EA580C; }
+        .info-card .desc {
+            font-size: 15px;
+            line-height: 1.55;
+        }
+        .info-card.prd .desc { color: #166534; }
+        .info-card.dev .desc { color: #9A3412; }
+
+        /* Bottom dark steps panel - narrower, fills vertical space */
+        .steps-panel {
+            margin: 22px 180px 0 180px;
+            background-color: #1E293B;
+            border-radius: 18px;
+            padding: 28px 36px 32px 36px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+            border: 1px solid #334155;
+            position: relative;
+            z-index: 10;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px 36px;
+            margin-top: 18px;
+            flex: 1;
+            align-content: space-around;
+        }
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #334155;
+        }
+        .panel-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #F8FAFC;
+        }
+        .step-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: #38BDF8;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .step-text {
+            font-size: 15px;
+            color: #CBD5E1;
             line-height: 1.5;
         }
-
-        /* Background Graphics */
-        .bg-lock {
-            position: absolute;
-            top: 15%;
-            right: 5%;
-            font-size: 400px;
-            color: #F1F5F9;
-            z-index: 0;
-            opacity: 0.4;
-            transform: rotate(-15deg);
+        .step-text strong { color: #F8FAFC; }
+        .step-text a {
+            color: #38BDF8;
+            text-decoration: none;
+            font-weight: 600;
         }
-        
-        .bg-key {
+        .data-box {
+            background-color: #0F172A;
+            border: 1px dashed #475569;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-top: 8px;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+        }
+        .data-label {
+            font-size: 12px;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .data-value {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #38BDF8;
+            font-weight: 600;
+        }
+
+        /* Footer pinned to bottom */
+        .slide-footer {
+            margin-top: auto;
+        }
+
+        /* Background decor */
+        .bg-decor {
             position: absolute;
-            bottom: 5%;
-            left: 5%;
-            font-size: 250px;
-            color: #F8FAFC;
+            bottom: 4%;
+            right: 3%;
+            font-size: 280px;
+            color: #F1F5F9;
+            opacity: 0.35;
             z-index: 0;
-            opacity: 0.6;
+            transform: rotate(-15deg);
         }
     </style>
 </head>
@@ -209,13 +236,14 @@
 <!-- Top Accents -->
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
+
 <!-- Header -->
-<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="px-12 pt-8 pb-3 relative z-20">
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login no SisPAT</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Endereço eletrônico para acesso ao sistema</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login e Acesso aos Ambientes</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Endereços eletrônicos e procedimentos de login para Produção e Desenvolvimento</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
 <i class="fas fa-sign-in-alt text-brand-secondary text-xl"></i>
@@ -223,55 +251,89 @@
 </div>
 </div>
 </div>
-<!-- Main Content -->
-<div class="content-wrapper">
-<!-- URL Highlight -->
-<div style="display:flex; gap:30px; width:96%; margin-bottom:50px;">
-<div class="url-box" style="width:50%; margin-bottom:0;">
-<p class="url-label"><i class="fas fa-link mr-2"></i>Link de Acesso Principal</p>
-<a class="url-text" href="https://prd-apex.antaq.gov.br/ords/r/sfc/sispat" target="_blank" style="display:block; text-decoration:none; color:#003366; cursor:pointer; font-size:24px;">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</a>
+
+<!-- Top section: DEV (left) | PRD (right) -->
+<div class="top-section relative z-20">
+<!-- DEV column (left) -->
+<div class="env-col">
+<div class="url-box dev">
+<p class="url-tag dev"><i class="fas fa-flask"></i> Desenvolvimento (DEV)</p>
+<a class="url-text" href="https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat" target="_blank">https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat</a>
+<p class="mt-2 text-xs text-gray-600">Uso para validação de integrações e cenários de teste.</p>
 </div>
-<div class="url-box" style="width:50%; margin-bottom:0; border-color:#003366;">
-<p class="url-label"><i class="fas fa-code mr-2"></i>Ambiente de Desenvolvimento</p>
-<a class="url-text" href="https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat" target="_blank" style="display:block; text-decoration:none; color:#003366; cursor:pointer; font-size:24px;">https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat</a>
-</div>
-</div>
-<!-- Info Cards -->
-<div class="info-grid">
-<!-- Current Access -->
-<div class="info-card card-current">
-<div class="card-icon icon-current">
-<i class="fas fa-user-lock"></i>
-</div>
-<div>
-<p class="card-title">Acesso Atual</p>
-<p class="card-desc">
-                            O login é realizado por meio da autenticação <strong>Gov.br</strong>, utilizando sua conta oficial do governo federal para acessar o sistema de forma segura.
-                        </p>
+<div class="info-card dev">
+<div class="title"><i class="fas fa-tools"></i> Acesso ao Desenvolvimento</div>
+<p class="desc">Requer <strong>pré-cadastro</strong> no ambiente de <strong>staging do Gov.br</strong>, pois o ambiente DEV não usa a base oficial. Siga as etapas abaixo para criar sua conta de teste.</p>
 </div>
 </div>
-<!-- Additional Access -->
-<div class="info-card card-future">
-<div class="card-icon icon-future">
-<i class="fas fa-id-badge"></i>
+<!-- PRD column (right) -->
+<div class="env-col">
+<div class="url-box prd">
+<p class="url-tag prd"><i class="fas fa-check-circle"></i> Produção (PRD)</p>
+<a class="url-text" href="https://prd-apex.antaq.gov.br/ords/r/sfc/sispat" target="_blank">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</a>
+<p class="mt-2 text-xs text-gray-600">Uso em operação oficial. Utilize somente dados reais e credenciais de produção.</p>
 </div>
-<div>
-<p class="card-title">Segurança e Conformidade</p>
-<p class="card-desc">
-                            A integração com o <strong>Gov.br</strong> garante autenticação SSO segura, em conformidade com os padrões do governo federal, com perfis de acesso para diferentes níveis de usuários.
-                        </p>
+<div class="info-card prd">
+<div class="title"><i class="fas fa-user-shield"></i> Acesso à Produção</div>
+<p class="desc">Login direto pelo <strong>Gov.br</strong> com sua conta oficial. A autenticação SSO é segura e está em conformidade com os padrões do governo federal — <strong>sem necessidade de cadastro adicional</strong>.</p>
 </div>
 </div>
 </div>
+
+<!-- Bottom: full-width staging steps -->
+<div class="steps-panel">
+<div class="panel-header">
+<i class="fas fa-list-ol text-blue-400"></i>
+<span class="panel-title">Cadastro no Staging Gov.br (acesso DEV)</span>
+<span style="font-size:9px; color:#94A3B8; background-color:#374151; padding:2px 7px; border-radius:10px; margin-left:auto;">DEV</span>
 </div>
-<!-- Footer -->
-<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
-<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">8 / 18</p>
+<div class="steps-grid">
+<div class="step-row">
+<div class="step-num">1</div>
+<div class="step-text">Acesse <a href="https://sso.staging.acesso.gov.br" target="_blank">sso.staging.acesso.gov.br</a></div>
 </div>
+<div class="step-row">
+<div class="step-num">2</div>
+<div class="step-text">Informe o <strong>CPF</strong> e concorde com os termos de uso</div>
+</div>
+<div class="step-row">
+<div class="step-num">3</div>
+<div class="step-text">Na validação facial, escolha <strong>"Não tenho celular"</strong> e depois <strong>"Tentar de outra forma"</strong></div>
+</div>
+<div class="step-row">
+<div class="step-num">4</div>
+<div class="step-text">Use os dados fictícios para validação:
+<div class="data-box">
+<div class="data-row">
+<span class="data-label">Data de nascimento</span>
+<span class="data-value">01/01/1980</span>
+</div>
+<div class="data-row" style="border-top:1px solid #1E293B; padding-top:4px; margin-top:1px;">
+<span class="data-label">Nome da mãe</span>
+<span class="data-value">MAMAE</span>
+</div>
+</div>
+</div>
+</div>
+<div class="step-row">
+<div class="step-num">5</div>
+<div class="step-text">Cadastre uma <strong>senha</strong> conforme as orientações demonstradas</div>
+</div>
+<div class="step-row">
+<div class="step-num">6</div>
+<div class="step-text">Informe um <strong>e-mail</strong> ou <strong>telefone celular</strong> para confirmação do cadastro</div>
+</div>
+</div>
+</div>
+
 <!-- Background Decor -->
-<i class="fas fa-lock bg-lock"></i>
-<i class="fas fa-key bg-key"></i>
+<i class="fas fa-server bg-decor"></i>
+
+<!-- Footer -->
+<div class="slide-footer px-12 pb-5 pt-2 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
+<p class="text-gray-300 text-xs font-mono">8 / 16</p>
+</div>
 </div>
 </body>
 </html>

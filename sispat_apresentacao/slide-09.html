@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Acesso ao Ambiente de Desenvolvimento</title>
+<title>Cadastro de Bem - Visão Geral</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -42,265 +43,226 @@
         .text-brand-primary {
             color: #003366;
         }
-        .bg-brand-primary {
-            background-color: #003366;
-        }
-        .text-brand-secondary {
-            color: #0066CC;
-        }
-        .bg-brand-secondary {
-            background-color: #0066CC;
-        }
+        .bg-brand-primary { background-color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-secondary { background-color: #0066CC; }
 
         .content-wrapper {
             display: flex;
             flex: 1;
-            padding: 20px 80px 20px 80px;
-            gap: 40px;
-            align-items: center;
+            padding: 16px 56px 28px 56px;
+            flex-direction: column;
+            min-height: 0;
         }
 
-        .left-panel {
-            flex: 0.55;
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .step-card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 22px 26px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: center;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            overflow: hidden;
+            min-height: 0;
+            position: relative;
         }
 
-        .env-cards {
+        .step-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            background-color: #FFFFFF;
+        }
+
+        .step-card:nth-child(1) { border-left-color: #94A3B8; }
+        .step-card:nth-child(2) { border-left-color: #60A5FA; }
+        .step-card:nth-child(3) { border-left-color: #3B82F6; }
+        .step-card:nth-child(4) { border-left-color: #2563EB; }
+        .step-card:nth-child(5) { border-left-color: #1D4ED8; }
+        .step-card:nth-child(6) { border-left-color: #003366; }
+
+        .step-header {
             display: flex;
-            gap: 16px;
-            margin-bottom: 8px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 10px;
         }
 
-        .env-card {
-            flex: 1;
-            padding: 16px;
-            border-radius: 12px;
-            border-left: 5px solid;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        .env-prd {
-            background-color: #F0FDF4;
-            border-left-color: #16A34A;
-        }
-
-        .env-dev {
-            background-color: #FFF7ED;
-            border-left-color: #EA580C;
-        }
-
-        .env-label {
+        .step-number {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 4px;
+            font-size: 13px;
+            color: #1E3A8A;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background-color: #DBEAFE;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
-        .env-desc {
-            font-size: 12px;
-            color: #64748B;
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #0F172A;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .step-desc {
+            font-size: 18px;
+            color: #4B5563;
             line-height: 1.4;
+            max-width: 80%;
         }
 
-        .right-panel {
-            flex: 0.45;
-            background-color: #1E293B;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-            border: 1px solid #334155;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+        .step-connector {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            color: #0066CC;
+            font-size: 28px;
+            animation: step-arrow-pulse 1.4s ease-in-out infinite;
         }
 
-        .panel-header {
+        @keyframes step-arrow-pulse {
+            0%   { transform: translate(-8px, -50%); opacity: 0.2; }
+            50%  { transform: translate(8px, -50%);  opacity: 1;   }
+            100% { transform: translate(-8px, -50%); opacity: 0.2; }
+        }
+
+        .step-icon-bg {
+            position: absolute;
+            right: -6px;
+            bottom: -6px;
+            font-size: 62px;
+            color: #E5E7EB;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .footer-tip {
+            margin-top: 12px;
+            padding: 12px 16px;
+            background-color: #EFF6FF;
+            border-radius: 8px;
+            border: 1px solid #BFDBFE;
+            font-size: 14px;
+            color: #1E40AF;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #334155;
-        }
-
-        .panel-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            color: #F8FAFC;
-        }
-
-        .step-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: #38BDF8;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .step-text {
-            font-size: 13px;
-            color: #CBD5E1;
-            line-height: 1.5;
-        }
-
-        .step-text strong {
-            color: #F8FAFC;
-        }
-
-        .step-text a {
-            color: #38BDF8;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .data-box {
-            background-color: #0F172A;
-            border: 1px dashed #475569;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin-top: 6px;
-        }
-
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4px 0;
-        }
-
-        .data-label {
-            font-size: 11px;
-            color: #94A3B8;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .data-value {
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            color: #38BDF8;
-            font-weight: 600;
-        }
-
-        .bg-decor {
-            position: absolute;
-            bottom: 5%;
-            right: 5%;
-            font-size: 300px;
-            color: #F1F5F9;
-            opacity: 0.3;
-            z-index: 0;
-            transform: rotate(-15deg);
         }
     </style>
 </head>
 <body>
 <div class="slide-container">
-<!-- Top Accents -->
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
-<!-- Header -->
-<div class="px-12 pt-10 pb-4 relative z-20">
+<div class="px-10 pt-6 pb-2 relative z-20">
 <div class="flex items-center gap-3">
-<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div class="w-1.5 h-8 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Acesso aos Ambientes</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Procedimentos de login para Produção e Desenvolvimento</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Cadastro de Bem - Visão Geral</h1>
+<p class="text-gray-500 font-medium text-lg mt-0.5">Ideia de cada etapa do cadastro no sistema</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-server text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">AMBIENTES</p>
+<i class="fas fa-list-ol text-brand-secondary text-lg"></i>
+<p class="font-montserrat font-bold text-gray-400 text-xs tracking-widest">PROCESSO</p>
 </div>
 </div>
 </div>
-<!-- Main Content -->
-<div class="content-wrapper relative z-10">
-<!-- Left Panel -->
-<div class="left-panel">
-<!-- Environment Cards -->
-<div style="display:flex; flex-direction:column; gap:16px;">
-<div style="background-color:#F0FDF4; border-left:6px solid #16A34A; border-radius:12px; padding:20px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);">
-<div style="display:flex; align-items:center; margin-bottom:8px; color:#16A34A;">
-<i class="fas fa-check-circle mr-2 text-lg"></i>
-<h4 class="font-bold text-base">Produção (PRD)</h4>
+
+<div class="content-wrapper relative">
+<div class="steps-grid z-10">
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 1</span>
+                        <p class="step-title">Descrição</p>
+                    </div>
+                    <p class="step-desc">Nesta aba, são registradas as <strong>informações gerais do bem e da empresa</strong>, como identificação, especificações técnicas e dados que individualizam o ativo no patrimônio.
+                    </p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-align-left step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 2</span>
+                        <p class="step-title">Categorização</p>
+                    </div>
+                    <p class="step-desc">Aqui, o bem é enquadrado na <strong>Nomenclatura Comum do Mercosul (NCM)</strong>. São coletados o Capítulo, a Posição e a Subposição do item.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-layer-group step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 3</span>
+                        <p class="step-title">Mensuração</p>
+                    </div>
+                    <p class="step-desc">Nesta etapa, inserem-se os <strong>dados financeiros e contábeis</strong>: valor original de compra, valor residual, vida útil e demais informações necessárias à contabilização do ativo.</p>
+                    <i class="fas fa-calculator step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 4</span>
+                        <p class="step-title">Classificação</p>
+                    </div>
+                    <p class="step-desc">Define-se a <strong>natureza, a situação de uso, o grupo ao qual o bem pertence e o tipo de vinculação contratual</strong>, entre outras informações pertinentes.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-clipboard-check step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 5</span>
+                        <p class="step-title">Localização</p>
+                    </div>
+                    <p class="step-desc">Indica a <strong>localização exata do bem</strong> (latitude e longitude), permitindo a rastreabilidade física e o apoio à realização de inventários.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-map-marker-alt step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 6</span>
+                        <p class="step-title">Anexos</p>
+                    </div>
+                    <p class="step-desc">Espaço destinado ao <strong>registro fotográfico</strong> do bem.</p>
+                    <i class="fas fa-paperclip step-icon-bg"></i>
+                </div>
+
 </div>
-<p style="font-size:13px; color:#166534; line-height:1.5;">Login direto pelo <strong>Gov.br</strong> com sua conta oficial. Sem necessidade de cadastro adicional.</p>
 </div>
-<div style="background-color:#FFF7ED; border-left:6px solid #EA580C; border-radius:12px; padding:20px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);">
-<div style="display:flex; align-items:center; margin-bottom:8px; color:#EA580C;">
-<i class="fas fa-flask mr-2 text-lg"></i>
-<h4 class="font-bold text-base">Desenvolvimento (DEV)</h4>
-</div>
-<p style="font-size:13px; color:#9A3412; line-height:1.5;">Requer <strong>pré-cadastro</strong> no ambiente de staging do <strong>Gov.br</strong> conforme orientações ao lado.</p>
-</div>
-</div>
-</div>
-<!-- Right Panel: Steps -->
-<div class="right-panel">
-<div class="panel-header">
-<i class="fas fa-list-ol text-blue-400"></i>
-<span class="panel-title">Cadastro no Staging Gov.br</span>
-<span style="font-size:10px; color:#94A3B8; background-color:#374151; padding:3px 8px; border-radius:10px; margin-left:auto;">DEV</span>
-</div>
-<div class="step-row">
-<div class="step-num">1</div>
-<div class="step-text">Acesse <a href="https://sso.staging.acesso.gov.br" target="_blank">sso.staging.acesso.gov.br</a></div>
-</div>
-<div class="step-row">
-<div class="step-num">2</div>
-<div class="step-text">Informe o <strong>CPF</strong> e concorde com os termos de uso</div>
-</div>
-<div class="step-row">
-<div class="step-num">3</div>
-<div class="step-text">Na validação facial, escolha <strong>"Não tenho celular"</strong> e depois <strong>"Tentar de outra forma"</strong></div>
-</div>
-<div class="step-row">
-<div class="step-num">4</div>
-<div class="step-text">Use os dados fictícios para validação:
-<div class="data-box">
-<div class="data-row">
-<span class="data-label">Data de nascimento</span>
-<span class="data-value">01/01/1980</span>
-</div>
-<div class="data-row" style="border-top:1px solid #1E293B; padding-top:6px; margin-top:2px;">
-<span class="data-label">Nome da mãe</span>
-<span class="data-value">MAMAE</span>
-</div>
-</div>
-</div>
-</div>
-<div class="step-row">
-<div class="step-num">5</div>
-<div class="step-text">Cadastre uma <strong>senha</strong> conforme as orientações demonstradas</div>
-</div>
-<div class="step-row">
-<div class="step-num">6</div>
-<div class="step-text">Informe um <strong>e-mail</strong> ou <strong>telefone celular</strong> para confirmação do cadastro</div>
-</div>
-</div>
-</div>
-<!-- Background Decor -->
-<i class="fas fa-server bg-decor"></i>
-<!-- Footer -->
-<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
+
+<div class="px-10 pb-4 pt-1 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">9 / 18</p>
+<p class="text-gray-300 text-xs font-mono">9 / 16</p>
 </div>
 </div>
 </body>

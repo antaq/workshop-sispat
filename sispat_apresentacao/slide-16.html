@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Importar por Planilha</title>
+<title>SFC Institucional</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -23,11 +24,15 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            background-color: #ffffff;
+            background-color: #003366;
             overflow: hidden;
+            color: white;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
         }
         .header-bar {
-            background-color: #003366;
+            background-color: #001a33;
             height: 12px;
             width: 100%;
         }
@@ -36,258 +41,76 @@
             height: 6px;
             width: 100%;
         }
-        .font-montserrat {
+
+        .sfc-title {
             font-family: 'Montserrat', sans-serif;
+            font-size: 110px;
+            font-weight: 900;
+            letter-spacing: -5px;
+            line-height: 1;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+            display: inline-block;
         }
-        .text-brand-primary {
-            color: #003366;
-        }
-        .bg-brand-primary {
-            background-color: #003366;
-        }
-        .text-brand-secondary {
-            color: #0066CC;
-        }
-        .bg-brand-secondary {
+        .sfc-title::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            right: -20px;
+            width: 20px;
+            height: 20px;
             background-color: #0066CC;
+            border-radius: 50%;
         }
 
-        .content-wrapper {
-            display: flex;
-            flex: 1;
-            padding: 20px 80px 20px 80px;
-            gap: 50px;
-            align-items: center;
-        }
-
-        /* Left Side */
-        .left-panel {
-            flex: 0.5;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .description-box {
-            background-color: #F0F9FF;
-            border-left: 6px solid #0066CC;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        .description-box p {
-            font-size: 15px;
-            color: #334155;
-            line-height: 1.6;
-        }
-
-        .flow-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .flow-step {
+        .contact-card {
+            background-color: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 24px 28px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px 20px;
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            border-left: 5px solid #CBD5E1;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        .flow-step:hover {
-            transform: translateX(8px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-        }
-
-        .flow-step:nth-child(1) { border-left-color: #0066CC; }
-        .flow-step:nth-child(2) { border-left-color: #2563EB; }
-        .flow-step:nth-child(3) { border-left-color: #1D4ED8; }
-        .flow-step:nth-child(4) { border-left-color: #16A34A; }
-
-        .flow-icon {
-            width: 44px;
-            height: 44px;
+        .contact-icon {
+            width: 52px;
+            height: 52px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 22px;
+            margin-right: 20px;
             flex-shrink: 0;
         }
 
-        .flow-step:nth-child(1) .flow-icon { background-color: #E0F2FE; color: #0066CC; }
-        .flow-step:nth-child(2) .flow-icon { background-color: #DBEAFE; color: #2563EB; }
-        .flow-step:nth-child(3) .flow-icon { background-color: #EFF6FF; color: #1D4ED8; }
-        .flow-step:nth-child(4) .flow-icon { background-color: #DCFCE7; color: #16A34A; }
-
-        .flow-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            color: #1E293B;
-        }
-
-        .flow-desc {
-            font-size: 12px;
-            color: #64748B;
-            margin-top: 2px;
-        }
-
-        /* Right Side - Preview */
-        .right-panel {
-            flex: 0.5;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .preview-card {
-            background-color: #1E293B;
-            border-radius: 16px;
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-            border: 1px solid #334155;
-        }
-
-        .preview-header {
-            background-color: #003366;
-            border-radius: 8px 8px 0 0;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: -20px -20px 16px -20px;
-            border-radius: 16px 16px 0 0;
-        }
-
-        .preview-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .preview-url {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 6px;
-            padding: 6px 12px;
-            font-size: 11px;
-            color: #94A3B8;
-            font-family: 'Courier New', monospace;
-            flex: 1;
-        }
-
-        .preview-body {
-            background-color: #F8FAFC;
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        .preview-section {
-            margin-bottom: 16px;
-        }
-
-        .preview-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .preview-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            color: #003366;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .preview-toggle {
-            display: flex;
-            gap: 0;
-            margin-bottom: 6px;
-        }
-
-        .preview-toggle span {
-            padding: 5px 14px;
-            font-size: 10px;
-            font-weight: 600;
-            border: 1px solid #E2E8F0;
-        }
-
-        .preview-toggle .active {
-            background-color: #003366;
-            color: white;
-            border-color: #003366;
-            border-radius: 6px 0 0 6px;
-        }
-
-        .preview-toggle .inactive {
-            background-color: white;
-            color: #64748B;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .preview-input {
-            background-color: white;
-            border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 11px;
-            color: #94A3B8;
-            width: 100%;
-            font-family: 'Courier New', monospace;
-        }
-
-        .preview-upload {
-            border: 2px dashed #CBD5E1;
-            border-radius: 10px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: #94A3B8;
-        }
-
-        .access-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #0066CC;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            padding: 14px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
-            transition: all 0.2s ease;
-        }
-
-        .access-btn:hover {
-            background-color: #004C99;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,102,204,0.4);
-        }
-
-        .bg-decor {
+        .shape-circle {
             position: absolute;
-            bottom: 5%;
-            left: 5%;
-            font-size: 280px;
-            color: #F1F5F9;
-            opacity: 0.3;
+            border-radius: 50%;
             z-index: 0;
-            transform: rotate(10deg);
+        }
+        .shape-1 {
+            width: 600px; height: 600px;
+            top: -150px; right: -150px;
+            border: 60px solid rgba(255,255,255,0.03);
+        }
+        .shape-2 {
+            width: 400px; height: 400px;
+            bottom: -100px; left: -100px;
+            border: 40px solid rgba(255,255,255,0.03);
+        }
+        .bg-pattern {
+            background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
     </style>
 </head>
@@ -296,107 +119,67 @@
 <!-- Top Accents -->
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
-<!-- Header -->
-<div class="px-12 pt-10 pb-4 relative z-20">
-<div class="flex items-center gap-3">
-<div class="w-1.5 h-10 bg-brand-primary"></div>
-<div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Importar por Planilha</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Envio de bens patrimoniais via planilha Excel com validação automática</p>
-</div>
-<div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-file-excel text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">FERRAMENTA</p>
-</div>
-</div>
-</div>
+
+<!-- Background shapes -->
+<div class="shape-circle shape-1"></div>
+<div class="shape-circle shape-2"></div>
+<div class="absolute inset-0 bg-pattern"></div>
+
+<!-- Watermark logo -->
+<img src="Imagens/Logo Horizontal_Azul_S_N.png" alt="" class="absolute top-1/2 left-1/2" style="width: 60vw; max-width: 900px; transform: translate(-50%, -50%); opacity: 0.08; z-index: 0; pointer-events: none; filter: brightness(0) invert(1);" />
+
 <!-- Main Content -->
-<div class="content-wrapper relative z-10">
-<!-- Left Panel -->
-<div class="left-panel">
-<!-- Description -->
-<div class="description-box">
-<p>Esta ferramenta permite importar bens patrimoniais para o SisPAT a partir de uma <strong>planilha Excel (.xlsx)</strong>. Baixe o modelo, preencha com os dados dos bens, faça o upload e os dados serão <strong>validados e enviados automaticamente</strong> para a API.</p>
+<div class="flex-1 flex flex-col items-center justify-center relative z-10 px-16 text-center w-full max-w-5xl mx-auto">
+
+    <!-- Logo -->
+    <div class="mb-6">
+        <img src="Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height: 80px; object-fit: contain; margin: 0 auto; display: block;" />
+    </div>
+
+    <!-- Title -->
+    <h1 class="sfc-title">SFC</h1>
+    <h2 class="font-montserrat text-2xl font-light text-blue-200 mb-8 max-w-4xl pb-8 mx-auto leading-relaxed" style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+        Superintendência de Fiscalização e Coordenação das Unidades Regionais
+    </h2>
+
+    <!-- Quote -->
+    <div class="w-full max-w-3xl p-6 mb-12 rounded-r-lg text-left mx-auto" style="background: linear-gradient(90deg, rgba(0,102,204,0.15) 0%, transparent 100%); border-left: 4px solid #0066CC;">
+        <p class="text-xl text-white font-medium italic flex items-start gap-4">
+            <i class="fa-solid fa-quote-left text-blue-400 text-3xl opacity-50 mt-1"></i>
+            <span>Ser uma Agência efetiva, independente e <strong>inovadora</strong> em sua atuação por um setor aquaviário eficiente, seguro e sustentável.</span>
+        </p>
+    </div>
+
+    <!-- Contact cards -->
+    <div class="flex flex-row gap-6 justify-center w-full">
+        <a href="https://www.gov.br/antaq/pt-br" target="_blank" class="contact-card">
+            <div class="contact-icon" style="background-color: rgba(0,102,204,0.25); color: #60a5fa;">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="text-left">
+                <p class="text-xs text-blue-300 uppercase tracking-wider font-bold mb-1 font-montserrat">Portal Oficial</p>
+                <p class="text-xl font-bold text-white font-montserrat">www.gov.br/antaq</p>
+            </div>
+        </a>
+        <a href="mailto:inventario@antaq.gov.br" class="contact-card">
+            <div class="contact-icon" style="background-color: rgba(0,102,204,0.25); color: #93c5fd;">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="text-left">
+                <p class="text-xs text-blue-300 uppercase tracking-wider font-bold mb-1 font-montserrat">Contato Direto</p>
+                <p class="text-xl font-bold text-white font-montserrat">inventario@antaq.gov.br</p>
+            </div>
+        </a>
+    </div>
 </div>
-<!-- Flow Steps -->
-<div class="flow-steps">
-<div class="flow-step">
-<div class="flow-icon"><i class="fas fa-download"></i></div>
-<div>
-<p class="flow-title">Baixar Modelo Excel</p>
-<p class="flow-desc">Download do template com os campos obrigatórios</p>
-</div>
-</div>
-<div class="flow-step">
-<div class="flow-icon"><i class="fas fa-edit"></i></div>
-<div>
-<p class="flow-title">Preencher Dados</p>
-<p class="flow-desc">Complete a planilha com os dados dos bens patrimoniais</p>
-</div>
-</div>
-<div class="flow-step">
-<div class="flow-icon"><i class="fas fa-upload"></i></div>
-<div>
-<p class="flow-title">Upload da Planilha</p>
-<p class="flow-desc">Arraste ou selecione o arquivo .xlsx na ferramenta</p>
-</div>
-</div>
-<div class="flow-step">
-<div class="flow-icon"><i class="fas fa-check-double"></i></div>
-<div>
-<p class="flow-title">Validação Automática</p>
-<p class="flow-desc">Os dados são validados e enviados para a API do SisPAT</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Panel - Preview & Access -->
-<div class="right-panel">
-<!-- Browser Preview -->
-<div class="preview-card">
-<div class="preview-header">
-<div class="preview-dot" style="background-color:#EF4444;"></div>
-<div class="preview-dot" style="background-color:#F59E0B;"></div>
-<div class="preview-dot" style="background-color:#22C55E;"></div>
-<div class="preview-url">antaq.github.io/sispat-api/upload.html</div>
-</div>
-<div class="preview-body">
-<div class="preview-section">
-<div class="preview-label"><i class="fas fa-cog"></i> Configuração</div>
-<div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-<span style="font-size:11px; color:#64748B;">Ambiente:</span>
-<div class="preview-toggle">
-<span class="active">Sandbox (Teste)</span>
-<span class="inactive">Produção</span>
-</div>
-</div>
-<div style="display:flex; align-items:center; gap:12px;">
-<span style="font-size:11px; color:#64748B;">Chave de API:</span>
-<div class="preview-input">sispat_test_...</div>
-</div>
-</div>
-<div class="preview-section">
-<div class="preview-label"><i class="fas fa-cloud-upload-alt"></i> Carregar Planilha</div>
-<div class="preview-upload">
-<i class="fas fa-arrow-up text-2xl" style="color:#CBD5E1;"></i>
-<p style="font-size:11px;">Arraste o arquivo <strong>.xlsx</strong> aqui ou <span style="color:#0066CC; font-weight:600;">clique para selecionar</span></p>
-</div>
-</div>
-</div>
-</div>
-<!-- Access Button -->
-<a class="access-btn" href="https://antaq.github.io/sispat-api/upload.html" target="_blank">
-<i class="fas fa-external-link-alt"></i>
-Acessar Ferramenta
-</a>
-</div>
-</div>
-<!-- Background Decor -->
-<i class="fas fa-file-excel bg-decor"></i>
+
+<!-- Colaboradores -->
+<p class="text-blue-200 text-center relative z-10 font-montserrat opacity-70 mb-4" style="font-size: 18px; letter-spacing: 0.5px;">Colaboradores: Pedro Soares, Artur Carvalho, Kenia Kelly de Araujo, Victor Hugo e Vitor Carvalho</p>
+
 <!-- Footer -->
-<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
-<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">16 / 18</p>
+<div class="px-12 pb-6 pt-2 flex justify-between items-center relative z-10" style="border-top: 1px solid rgba(255,255,255,0.1);">
+    <p class="text-blue-200 text-xs font-montserrat opacity-60">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
+    <p class="text-blue-200 text-xs font-mono opacity-60">16 / 16</p>
 </div>
 </div>
 </body>

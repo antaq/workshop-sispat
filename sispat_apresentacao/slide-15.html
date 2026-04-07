@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ambientes de Integração</title>
+<title>Plantão de Dúvidas — API SisPAT</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -51,100 +52,257 @@
         .bg-brand-secondary {
             background-color: #0066CC;
         }
-        
-        /* Layout específico para comparação */
-        .comparison-container {
+
+        /* Main Layout */
+        .content-wrapper {
             display: flex;
             flex: 1;
-            width: 100%;
-            height: 100%;
-            position: relative;
+            padding: 30px 80px 30px 80px;
+            gap: 60px;
+            align-items: center;
         }
-        
-        .side-panel {
-            flex: 1;
-            padding: 40px 60px;
+
+        /* Left Side */
+        .info-panel {
+            flex: 0.55;
             display: flex;
             flex-direction: column;
+            gap: 28px;
+            justify-content: center;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            border-left: 6px solid #0066CC;
+            border-radius: 0 16px 16px 0;
+            padding: 28px 32px;
             position: relative;
-            transition: all 0.3s ease;
         }
-        
-        .side-left {
-            background-color: #F8FAFC;
-            border-right: 1px dashed #CBD5E1;
+
+        .highlight-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: #003366;
+            margin-bottom: 8px;
         }
-        
-        .side-right {
-            background-color: #F0F9FF;
+
+        .highlight-box p {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.6;
         }
-        
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+
+        .detail-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .detail-card {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.2s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            font-size: 22px;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
-        
-        .icon-circle-left {
-            background-color: #FEF3C7; /* Amber-100 for Test */
-            color: #D97706; /* Amber-600 */
+
+        .icon-calendar {
+            background-color: #DBEAFE;
+            color: #2563EB;
         }
-        
-        .icon-circle-right {
-            background-color: #DBEAFE; /* Blue-100 for Prod */
-            color: #0066CC;
+
+        .icon-clock {
+            background-color: #FEF3C7;
+            color: #D97706;
         }
-        
-        .list-item {
+
+        .icon-duration {
+            background-color: #D1FAE5;
+            color: #059669;
+        }
+
+        .detail-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: #1E293B;
+            margin-bottom: 3px;
+        }
+
+        .detail-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        /* Right Side: Visual Calendar */
+        .calendar-panel {
+            flex: 0.45;
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.6);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
         }
-        
-        .list-icon {
-            margin-right: 16px;
-            margin-top: 4px;
+
+        .calendar-card {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .calendar-header {
+            background-color: #003366;
+            color: #FFFFFF;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .calendar-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             font-size: 18px;
         }
-        
-        /* Central VS Badge */
-        .vs-badge {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: #003366;
-            color: white;
-            border-radius: 50%;
+
+        .calendar-body {
+            padding: 24px 28px;
+        }
+
+        .week-header {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .week-header span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: #94A3B8;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .week-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .day-cell {
+            aspect-ratio: 1;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
             font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            z-index: 20;
-            border: 4px solid #ffffff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        
-        .code-pill {
-            font-family: 'Courier New', monospace;
-            background-color: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #334155;
             font-weight: 600;
+            font-size: 15px;
+            color: #64748B;
+            background-color: #F8FAFC;
+        }
+
+        .day-active {
+            background-color: #0066CC;
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.3);
+            position: relative;
+        }
+
+        .day-active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #FCD34D;
+        }
+
+        .cta-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #003366;
+            color: #FFFFFF;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-badge i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #FCD34D;
+        }
+
+        /* Background Decor */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 350px;
+            height: 350px;
+            background-color: #F8FAFC;
+            top: -80px;
+            right: -80px;
+            border: 40px solid #F1F5F9;
+        }
+
+        .circle-2 {
+            width: 180px;
+            height: 180px;
+            background-color: #EFF6FF;
+            bottom: 60px;
+            left: 40px;
+            opacity: 0.4;
+        }
+
+        .dots-pattern {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+            background-size: 20px 20px;
+            bottom: 30px;
+            right: 30px;
+            opacity: 0.3;
+            z-index: 0;
         }
     </style>
 </head>
@@ -154,108 +312,123 @@
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
 <!-- Header -->
-<div class="px-12 pt-10 pb-4">
+<div class="px-12 pt-10 pb-4 relative z-20">
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Ambientes de Integração</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Segregação segura para desenvolvimento e operação</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Plantão de Dúvidas — API</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Suporte técnico para integração com o SisPAT</p>
 </div>
-<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-anchor text-xl" aria-hidden="true"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ANTAQ</p>
-</div>
-</div>
-</div>
-<!-- Main Content - Comparison -->
-<div class="comparison-container">
-<!-- Center VS Badge -->
-<div class="vs-badge">VS</div>
-<!-- Left Side - TESTE -->
-<div class="side-panel side-left">
-<div class="flex flex-col items-center mb-8">
-<div class="icon-circle icon-circle-left">
-<i class="fas fa-flask text-4xl"></i>
-</div>
-<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">TESTE</h2>
-<p class="text-gray-500 font-medium mt-1">Sandbox / Homologação</p>
-</div>
-<div class="flex-1">
-<div class="list-item">
-<i class="fas fa-key text-yellow-500 list-icon"></i>
-<div>
-<p class="font-bold text-gray-700">Prefixo da Chave</p>
-<p class="text-sm text-gray-500 mt-1"><span class="code-pill">sispat_test_...</span></p>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-headset text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SUPORTE</p>
 </div>
 </div>
-<div class="list-item">
-<i class="fas fa-vial text-yellow-500 list-icon"></i>
-<div>
-<p class="font-bold text-gray-700">Finalidade</p>
-<p class="text-sm text-gray-500 mt-1">Exclusivo para desenvolvimento, validações de API e testes de carga.</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper relative">
+<!-- Left: Info -->
+<div class="info-panel">
+<div class="highlight-box">
+<h2><i class="fas fa-bullhorn mr-2 text-brand-secondary"></i> Atendimento Exclusivo</h2>
+<p>Durante <strong>1 mês</strong>, a equipe técnica da ANTAQ estará disponível em plantão para esclarecer dúvidas sobre a integração com a API do SisPAT.</p>
+</div>
+<div class="detail-cards">
+<!-- Dias -->
+<div class="detail-card">
+<div class="detail-icon icon-calendar">
+<i class="fas fa-calendar-alt"></i>
+</div>
+<div class="detail-content">
+<h3>Terças e Quintas-feiras</h3>
+<p>Sessões semanais recorrentes durante todo o período do plantão.</p>
 </div>
 </div>
-<div class="list-item">
-<i class="fas fa-user-shield text-yellow-500 list-icon"></i>
-<div>
-<p class="font-bold text-gray-700">Dados Seguros</p>
-<p class="text-sm text-gray-500 mt-1">Nunca utilize dados reais. Use apenas dados fictícios para simulação.</p>
+<!-- Horário -->
+<div class="detail-card">
+<div class="detail-icon icon-clock">
+<i class="fas fa-clock"></i>
+</div>
+<div class="detail-content">
+<h3>Às 10h (horário de Brasília)</h3>
+<p>Pontualidade é fundamental — as sessões iniciam no horário marcado.</p>
 </div>
 </div>
-<div class="list-item">
-<i class="fas fa-redo-alt text-yellow-500 list-icon"></i>
-<div>
-<p class="font-bold text-gray-700">Reset Periódico</p>
-<p class="text-sm text-gray-500 mt-1">O ambiente pode ser limpo periodicamente sem aviso prévio.</p>
+<!-- Duração -->
+<div class="detail-card">
+<div class="detail-icon icon-duration">
+<i class="fas fa-hourglass-half"></i>
+</div>
+<div class="detail-content">
+<h3>Duração de 1 mês</h3>
+<p>Período dedicado para garantir uma integração tranquila e bem-sucedida.</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Right Side - PRODUÇÃO -->
-<div class="side-panel side-right">
-<div class="flex flex-col items-center mb-8">
-<div class="icon-circle icon-circle-right">
-<i class="fas fa-rocket text-4xl"></i>
+<!-- Right: Calendar Visual -->
+<div class="calendar-panel">
+<div class="calendar-card">
+<div class="calendar-header">
+<h3><i class="far fa-calendar-check mr-2"></i> Agenda do Plantão</h3>
+<span class="text-sm opacity-80"><i class="fas fa-video mr-1"></i> Online</span>
 </div>
-<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">PRODUÇÃO</h2>
-<p class="text-brand-primary font-medium mt-1">Ambiente Real / Live</p>
+<div class="calendar-body">
+<!-- Week days header (Seg-Sex) -->
+<div class="week-header">
+<span>Seg</span>
+<span>Ter</span>
+<span>Qua</span>
+<span>Qui</span>
+<span>Sex</span>
 </div>
-<div class="flex-1">
-<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-key text-brand-secondary list-icon"></i>
-<div>
-<p class="font-bold text-brand-primary">Prefixo da Chave</p>
-<p class="text-sm text-gray-600 mt-1"><span class="code-pill">sispat_live_...</span></p>
+<!-- Semana 1 -->
+<div class="week-row">
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Qui</div>
+<div class="day-cell">—</div>
+</div>
+<!-- Semana 2 -->
+<div class="week-row">
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Qui</div>
+<div class="day-cell">—</div>
+</div>
+<!-- Semana 3 -->
+<div class="week-row">
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Qui</div>
+<div class="day-cell">—</div>
+</div>
+<!-- Semana 4 -->
+<div class="week-row">
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Ter</div>
+<div class="day-cell">—</div>
+<div class="day-cell day-active">Qui</div>
+<div class="day-cell">—</div>
 </div>
 </div>
-<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-check-circle text-green-500 list-icon"></i>
-<div>
-<p class="font-bold text-brand-primary">Finalidade</p>
-<p class="text-sm text-gray-600 mt-1">Uso exclusivo para operações reais e oficiais do sistema.</p>
-</div>
-</div>
-<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-file-contract text-green-500 list-icon"></i>
-<div>
-<p class="font-bold text-brand-primary">Auditoria Legal</p>
-<p class="text-sm text-gray-600 mt-1">Todas as ações são registradas e possuem valor legal/administrativo.</p>
-</div>
-</div>
-<div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-lock text-green-500 list-icon"></i>
-<div>
-<p class="font-bold text-brand-primary">Alta Criticidade</p>
-<p class="text-sm text-gray-600 mt-1">Requer aprovação formal para acesso. Alterações são definitivas.</p>
+<div class="cta-badge">
+<i class="fas fa-question-circle"></i> Tire suas dúvidas sobre a API
 </div>
 </div>
 </div>
-</div>
+<!-- Background Elements -->
+<div class="bg-circle circle-1"></div>
+<div class="bg-circle circle-2"></div>
+<div class="dots-pattern"></div>
 </div>
 <!-- Footer -->
-<div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">15 / 18</p>
+<p class="text-gray-300 text-xs font-mono">15 / 16</p>
 </div>
 </div>
 </body>

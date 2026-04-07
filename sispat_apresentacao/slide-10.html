@@ -4,12 +4,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cadastro de Bem - Visão Geral</title>
+<title>Guia de Integração Rápida</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- QR Code Generator -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -42,226 +45,298 @@
         .text-brand-primary {
             color: #003366;
         }
-        .bg-brand-primary { background-color: #003366; }
-        .text-brand-secondary { color: #0066CC; }
-        .bg-brand-secondary { background-color: #0066CC; }
-
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
         .content-wrapper {
             display: flex;
             flex: 1;
-            padding: 16px 56px 28px 56px;
+            padding: 30px 80px 40px 80px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left Side: QR Code Panel */
+        .qr-panel {
+            flex: 0.4;
+            display: flex;
             flex-direction: column;
-            min-height: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E2E8F0;
+            position: relative;
+            z-index: 10;
         }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            flex: 1;
-            min-height: 0;
-        }
-
-        .step-card {
-            background-color: #F8FAFC;
+        
+        .qr-wrapper {
+            background-color: #FFFFFF;
+            padding: 20px;
             border-radius: 12px;
-            padding: 22px 26px;
+            border: 2px solid #003366;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        #qrcode {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .scan-me {
+            display: flex;
+            align-items: center;
+            background-color: #0066CC;
+            color: #FFFFFF;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: -10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.3);
+            z-index: 20;
+        }
+
+        /* Right Side: Content */
+        .info-panel {
+            flex: 0.6;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-left: 5px solid #0066CC;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-            transition: all 0.2s ease;
-            overflow: hidden;
-            min-height: 0;
+            z-index: 10;
+        }
+
+        .url-box {
+            background-color: #F1F5F9;
+            border-left: 6px solid #0066CC;
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        .step-card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            background-color: #FFFFFF;
-        }
-
-        .step-card:nth-child(1) { border-left-color: #94A3B8; }
-        .step-card:nth-child(2) { border-left-color: #60A5FA; }
-        .step-card:nth-child(3) { border-left-color: #3B82F6; }
-        .step-card:nth-child(4) { border-left-color: #2563EB; }
-        .step-card:nth-child(5) { border-left-color: #1D4ED8; }
-        .step-card:nth-child(6) { border-left-color: #003366; }
-
-        .step-header {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-
-        .step-number {
+        .url-label {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 13px;
-            color: #1E3A8A;
-            padding: 3px 12px;
-            border-radius: 999px;
-            background-color: #DBEAFE;
-            display: inline-flex;
+            font-size: 14px;
+            color: #64748B;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-url {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #003366;
+            word-break: break-all;
+        }
+
+        .copy-hint {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: #94A3B8;
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            display: flex;
             align-items: center;
             justify-content: center;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 20px;
+            margin-right: 16px;
+            flex-shrink: 0;
         }
 
-        .step-title {
+        .feature-content h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 18px;
-            color: #0F172A;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            font-size: 16px;
+            color: #1E293B;
+            margin-bottom: 4px;
         }
 
-        .step-desc {
-            font-size: 18px;
-            color: #4B5563;
-            line-height: 1.4;
-            max-width: 80%;
-        }
-
-        .step-connector {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            color: #0066CC;
-            font-size: 28px;
-            animation: step-arrow-pulse 1.4s ease-in-out infinite;
-        }
-
-        @keyframes step-arrow-pulse {
-            0%   { transform: translate(-8px, -50%); opacity: 0.2; }
-            50%  { transform: translate(8px, -50%);  opacity: 1;   }
-            100% { transform: translate(-8px, -50%); opacity: 0.2; }
-        }
-
-        .step-icon-bg {
-            position: absolute;
-            right: -6px;
-            bottom: -6px;
-            font-size: 62px;
-            color: #E5E7EB;
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        .footer-tip {
-            margin-top: 12px;
-            padding: 12px 16px;
-            background-color: #EFF6FF;
-            border-radius: 8px;
-            border: 1px solid #BFDBFE;
+        .feature-content p {
             font-size: 14px;
-            color: #1E40AF;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #64748B;
+            line-height: 1.4;
         }
+
+        /* Background Decor */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background-color: #F8FAFC;
+            top: -100px;
+            right: -100px;
+            border: 40px solid #F1F5F9;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background-color: #EFF6FF;
+            bottom: 50px;
+            left: 50px;
+            opacity: 0.5;
+        }
+
+        .dots-pattern {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
+            background-size: 20px 20px;
+            bottom: 40px;
+            right: 40px;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
     </style>
 </head>
 <body>
 <div class="slide-container">
+<!-- Top Accents -->
 <div class="header-bar"></div>
 <div class="secondary-bar"></div>
-<div class="px-10 pt-6 pb-2 relative z-20">
+<!-- Header -->
+<div class="px-12 pt-10 pb-4 relative z-20">
 <div class="flex items-center gap-3">
-<div class="w-1.5 h-8 bg-brand-primary"></div>
+<div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Cadastro de Bem - Visão Geral</h1>
-<p class="text-gray-500 font-medium text-lg mt-0.5">Ideia de cada etapa do cadastro no sistema</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Guia de Integração Rápida</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Recursos e documentação para desenvolvedores</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-list-ol text-brand-secondary text-lg"></i>
-<p class="font-montserrat font-bold text-gray-400 text-xs tracking-widest">PROCESSO</p>
+<i class="fas fa-book text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">DOCS</p>
 </div>
 </div>
 </div>
-
+<!-- Main Content -->
 <div class="content-wrapper relative">
-<div class="steps-grid z-10">
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 1</span>
-                        <p class="step-title">Descrição</p>
-                    </div>
-                    <p class="step-desc">Nesta aba são registradas as <strong>informações gerais do bem e da empresa</strong>: identificação, características físicas e dados que individualizam o ativo no patrimônio.</p>
-                    <div class="step-connector">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <i class="fas fa-align-left step-icon-bg"></i>
+<!-- Left: QR Code Panel -->
+<div class="qr-panel">
+<div class="qr-wrapper">
+<div id="qrcode"></div>
+</div>
+<div class="scan-me">
+<i class="fas fa-camera mr-2"></i> Escaneie para acessar
                 </div>
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 2</span>
-                        <p class="step-title">Categorização</p>
-                    </div>
-                    <p class="step-desc">Aqui o bem é <strong>enquadrado em grupos e contas</strong>: tipo (móvel, imóvel, intangível), grupo patrimonial, conta contábil e vida útil, seguindo a padronização oficial (ANTAQ/Portos).</p>
-                    <div class="step-connector">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <i class="fas fa-layer-group step-icon-bg"></i>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 3</span>
-                        <p class="step-title">Mensuração</p>
-                    </div>
-                    <p class="step-desc">Nesta etapa entra a <strong>parte financeira e contábil</strong>: valor de aquisição, depreciação, valor residual e demais dados necessários à contabilização do ativo.</p>
-                    <i class="fas fa-calculator step-icon-bg"></i>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 4</span>
-                        <p class="step-title">Classificação</p>
-                    </div>
-                    <p class="step-desc">Define-se a <strong>natureza e a situação de uso</strong> do bem (ativo, ocioso, em manutenção, baixado etc.) e o <strong>responsável</strong> pela guarda e zelo do ativo.</p>
-                    <div class="step-connector">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <i class="fas fa-clipboard-check step-icon-bg"></i>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 5</span>
-                        <p class="step-title">Localização</p>
-                    </div>
-                    <p class="step-desc">Indica <strong>onde o bem está</strong>: unidade/porto, setor ou área e o responsável local, permitindo rastreabilidade física e apoio a inventários.</p>
-                    <div class="step-connector">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <i class="fas fa-map-marker-alt step-icon-bg"></i>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-header">
-                        <span class="step-number">Passo 6</span>
-                        <p class="step-title">Anexos</p>
-                    </div>
-                    <p class="step-desc">Espaço para <strong>documentação comprobatória</strong>: documentos fiscais, registro fotográfico e termos de responsabilidade que acompanham o cadastro do bem.</p>
-                    <i class="fas fa-paperclip step-icon-bg"></i>
-                </div>
-
+<p class="text-gray-400 text-xs mt-6 text-center max-w-xs">
+                    Aponte a câmera do seu celular ou tablet para acessar a documentação completa instantaneamente.
+                </p>
+</div>
+<!-- Right: Info Panel -->
+<div class="info-panel">
+<!-- URL Box -->
+<div class="url-box">
+<p class="url-label"><i class="fas fa-globe mr-2"></i>Portal do Desenvolvedor</p>
+<a class="main-url" href="https://antaq.github.io/sispat-api/" target="_blank" style="text-decoration: none;">https://antaq.github.io/sispat-api/</a>
+<a href="https://antaq.github.io/sispat-api/" target="_blank" class="copy-hint" style="color: #94A3B8; text-decoration: none;"><i class="fas fa-external-link-alt"></i></a>
+</div>
+<!-- Features Grid -->
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-code-branch"></i>
+</div>
+<div class="feature-content">
+<h3>Endpoints</h3>
+<p>Lista completa de rotas disponíveis, parâmetros e métodos suportados.</p>
 </div>
 </div>
-
-<div class="px-10 pb-4 pt-1 flex justify-between items-center z-20">
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<div class="feature-content">
+<h3>Exemplos de Payload</h3>
+<p>Modelos JSON de requisição e resposta para todos os cenários.</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="feature-content">
+<h3>Autenticação</h3>
+<p>Guia detalhado sobre como utilizar as chaves de API e tokens de acesso.</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">
+<i class="fas fa-bug"></i>
+</div>
+<div class="feature-content">
+<h3>Tratamento de Erros</h3>
+<p>Códigos de status HTTP e mensagens de erro padronizadas.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Elements -->
+<div class="bg-circle circle-1"></div>
+<div class="bg-circle circle-2"></div>
+<div class="dots-pattern"></div>
+</div>
+<!-- Footer -->
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">10 / 18</p>
+<p class="text-gray-300 text-xs font-mono">10 / 16</p>
 </div>
 </div>
+<!-- Script to generate QR Code -->
+<script>
+        // Generate QR Code
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://antaq.github.io/sispat-api/",
+            width: 200,
+            height: 200,
+            colorDark : "#003366",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
 </body>
 </html>

@@ -4,14 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Guia de Integração Rápida</title>
+<title>Importar por Planilha</title>
+<link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<!-- QR Code Generator -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 <style>
-        html { font-size: 20px; }
+        html { font-size: 26px; }
         body {
             margin: 0;
             padding: 0;
@@ -53,184 +52,244 @@
         .bg-brand-secondary {
             background-color: #0066CC;
         }
-        
-        /* Main Layout */
+
         .content-wrapper {
             display: flex;
             flex: 1;
-            padding: 30px 80px 40px 80px;
-            gap: 60px;
+            padding: 20px 80px 20px 80px;
+            gap: 50px;
             align-items: center;
         }
 
-        /* Left Side: QR Code Panel */
-        .qr-panel {
-            flex: 0.4;
+        /* Left Side */
+        .left-panel {
+            flex: 0.5;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #FFFFFF;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border: 1px solid #E2E8F0;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .qr-wrapper {
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #003366;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        
-        #qrcode {
-            width: 200px;
-            height: 200px;
-        }
-        
-        .scan-me {
-            display: flex;
-            align-items: center;
-            background-color: #0066CC;
-            color: #FFFFFF;
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: -10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.3);
-            z-index: 20;
+            gap: 20px;
         }
 
-        /* Right Side: Content */
-        .info-panel {
-            flex: 0.6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .url-box {
-            background-color: #F1F5F9;
+        .description-box {
+            background-color: #F0F9FF;
             border-left: 6px solid #0066CC;
+            border-radius: 12px;
             padding: 24px;
-            border-radius: 0 12px 12px 0;
-            margin-bottom: 40px;
-            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
-        .url-label {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            color: #64748B;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+        .description-box p {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flow-step {
             display: flex;
             align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            border-left: 5px solid #CBD5E1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
         }
 
-        .main-url {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: #003366;
-            word-break: break-all;
+        .flow-step:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
         }
 
-        .copy-hint {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            color: #94A3B8;
-            font-size: 18px;
-        }
+        .flow-step:nth-child(1) { border-left-color: #0066CC; }
+        .flow-step:nth-child(2) { border-left-color: #2563EB; }
+        .flow-step:nth-child(3) { border-left-color: #1D4ED8; }
+        .flow-step:nth-child(4) { border-left-color: #16A34A; }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background-color: #E0F2FE;
-            color: #0066CC;
+        .flow-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            margin-right: 16px;
+            font-size: 18px;
             flex-shrink: 0;
         }
 
-        .feature-content h3 {
+        .flow-step:nth-child(1) .flow-icon { background-color: #E0F2FE; color: #0066CC; }
+        .flow-step:nth-child(2) .flow-icon { background-color: #DBEAFE; color: #2563EB; }
+        .flow-step:nth-child(3) .flow-icon { background-color: #EFF6FF; color: #1D4ED8; }
+        .flow-step:nth-child(4) .flow-icon { background-color: #DCFCE7; color: #16A34A; }
+
+        .flow-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             color: #1E293B;
-            margin-bottom: 4px;
         }
 
-        .feature-content p {
-            font-size: 14px;
+        .flow-desc {
+            font-size: 12px;
             color: #64748B;
-            line-height: 1.4;
+            margin-top: 2px;
         }
 
-        /* Background Decor */
-        .bg-circle {
-            position: absolute;
+        /* Right Side - Preview */
+        .right-panel {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .preview-card {
+            background-color: #1E293B;
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+            border: 1px solid #334155;
+        }
+
+        .preview-header {
+            background-color: #003366;
+            border-radius: 8px 8px 0 0;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: -20px -20px 16px -20px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .preview-dot {
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            z-index: 0;
         }
 
-        .circle-1 {
-            width: 400px;
-            height: 400px;
+        .preview-url {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: #94A3B8;
+            font-family: 'Courier New', monospace;
+            flex: 1;
+        }
+
+        .preview-body {
             background-color: #F8FAFC;
-            top: -100px;
-            right: -100px;
-            border: 40px solid #F1F5F9;
+            border-radius: 10px;
+            padding: 20px;
         }
 
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            background-color: #EFF6FF;
-            bottom: 50px;
-            left: 50px;
-            opacity: 0.5;
+        .preview-section {
+            margin-bottom: 16px;
         }
 
-        .dots-pattern {
+        .preview-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .preview-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .preview-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 6px;
+        }
+
+        .preview-toggle span {
+            padding: 5px 14px;
+            font-size: 10px;
+            font-weight: 600;
+            border: 1px solid #E2E8F0;
+        }
+
+        .preview-toggle .active {
+            background-color: #003366;
+            color: white;
+            border-color: #003366;
+            border-radius: 6px 0 0 6px;
+        }
+
+        .preview-toggle .inactive {
+            background-color: white;
+            color: #64748B;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .preview-input {
+            background-color: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: #94A3B8;
+            width: 100%;
+            font-family: 'Courier New', monospace;
+        }
+
+        .preview-upload {
+            border: 2px dashed #CBD5E1;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #94A3B8;
+        }
+
+        .access-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #0066CC;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .access-btn:hover {
+            background-color: #004C99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,102,204,0.4);
+        }
+
+        .bg-decor {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background-image: radial-gradient(#CBD5E1 2px, transparent 2px);
-            background-size: 20px 20px;
-            bottom: 40px;
-            right: 40px;
-            opacity: 0.4;
+            bottom: 5%;
+            left: 5%;
+            font-size: 280px;
+            color: #F1F5F9;
+            opacity: 0.3;
             z-index: 0;
+            transform: rotate(10deg);
         }
-        
     </style>
 </head>
 <body>
@@ -243,99 +302,103 @@
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Guia de Integração Rápida</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Recursos e documentação para desenvolvedores</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Importar por Planilha</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Envio de bens patrimoniais via planilha Excel com validação automática</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-book text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">DOCS</p>
+<i class="fas fa-file-excel text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">FERRAMENTA</p>
 </div>
 </div>
 </div>
 <!-- Main Content -->
-<div class="content-wrapper relative">
-<!-- Left: QR Code Panel -->
-<div class="qr-panel">
-<div class="qr-wrapper">
-<div id="qrcode"></div>
+<div class="content-wrapper relative z-10">
+<!-- Left Panel -->
+<div class="left-panel">
+<!-- Description -->
+<div class="description-box">
+<p>Esta ferramenta permite importar bens patrimoniais para o SisPAT a partir de uma <strong>planilha Excel (.xlsx)</strong>. Baixe o modelo, preencha com os dados dos bens, faça o upload e os dados serão <strong>validados e enviados automaticamente</strong> para a API.</p>
 </div>
-<div class="scan-me">
-<i class="fas fa-camera mr-2"></i> Escaneie para acessar
-                </div>
-<p class="text-gray-400 text-xs mt-6 text-center max-w-xs">
-                    Aponte a câmera do seu celular ou tablet para acessar a documentação completa instantaneamente.
-                </p>
-</div>
-<!-- Right: Info Panel -->
-<div class="info-panel">
-<!-- URL Box -->
-<div class="url-box">
-<p class="url-label"><i class="fas fa-globe mr-2"></i>Portal do Desenvolvedor</p>
-<a class="main-url" href="https://antaq.github.io/sispat-api/" target="_blank" style="text-decoration: none;">https://antaq.github.io/sispat-api/</a>
-<a href="https://antaq.github.io/sispat-api/" target="_blank" class="copy-hint" style="color: #94A3B8; text-decoration: none;"><i class="fas fa-external-link-alt"></i></a>
-</div>
-<!-- Features Grid -->
-<div class="features-grid">
-<div class="feature-item">
-<div class="feature-icon">
-<i class="fas fa-code-branch"></i>
-</div>
-<div class="feature-content">
-<h3>Endpoints</h3>
-<p>Lista completa de rotas disponíveis, parâmetros e métodos suportados.</p>
+<!-- Flow Steps -->
+<div class="flow-steps">
+<div class="flow-step">
+<div class="flow-icon"><i class="fas fa-download"></i></div>
+<div>
+<p class="flow-title">Baixar Modelo Excel</p>
+<p class="flow-desc">Download do template com os campos obrigatórios</p>
 </div>
 </div>
-<div class="feature-item">
-<div class="feature-icon">
-<i class="fas fa-exchange-alt"></i>
-</div>
-<div class="feature-content">
-<h3>Exemplos de Payload</h3>
-<p>Modelos JSON de requisição e resposta para todos os cenários.</p>
+<div class="flow-step">
+<div class="flow-icon"><i class="fas fa-edit"></i></div>
+<div>
+<p class="flow-title">Preencher Dados</p>
+<p class="flow-desc">Complete a planilha com os dados dos bens patrimoniais</p>
 </div>
 </div>
-<div class="feature-item">
-<div class="feature-icon">
-<i class="fas fa-shield-alt"></i>
-</div>
-<div class="feature-content">
-<h3>Autenticação</h3>
-<p>Guia detalhado sobre como utilizar as chaves de API e tokens de acesso.</p>
+<div class="flow-step">
+<div class="flow-icon"><i class="fas fa-upload"></i></div>
+<div>
+<p class="flow-title">Upload da Planilha</p>
+<p class="flow-desc">Arraste ou selecione o arquivo .xlsx na ferramenta</p>
 </div>
 </div>
-<div class="feature-item">
-<div class="feature-icon">
-<i class="fas fa-bug"></i>
-</div>
-<div class="feature-content">
-<h3>Tratamento de Erros</h3>
-<p>Códigos de status HTTP e mensagens de erro padronizadas.</p>
+<div class="flow-step">
+<div class="flow-icon"><i class="fas fa-check-double"></i></div>
+<div>
+<p class="flow-title">Validação Automática</p>
+<p class="flow-desc">Os dados são validados e enviados para a API do SisPAT</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Background Elements -->
-<div class="bg-circle circle-1"></div>
-<div class="bg-circle circle-2"></div>
-<div class="dots-pattern"></div>
+<!-- Right Panel - Preview & Access -->
+<div class="right-panel">
+<!-- Browser Preview -->
+<div class="preview-card">
+<div class="preview-header">
+<div class="preview-dot" style="background-color:#EF4444;"></div>
+<div class="preview-dot" style="background-color:#F59E0B;"></div>
+<div class="preview-dot" style="background-color:#22C55E;"></div>
+<div class="preview-url">antaq.github.io/sispat-api/upload.html</div>
 </div>
+<div class="preview-body">
+<div class="preview-section">
+<div class="preview-label"><i class="fas fa-cog"></i> Configuração</div>
+<div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+<span style="font-size:11px; color:#64748B;">Ambiente:</span>
+<div class="preview-toggle">
+<span class="active">Sandbox (Teste)</span>
+<span class="inactive">Produção</span>
+</div>
+</div>
+<div style="display:flex; align-items:center; gap:12px;">
+<span style="font-size:11px; color:#64748B;">Chave de API:</span>
+<div class="preview-input">sispat_test_...</div>
+</div>
+</div>
+<div class="preview-section">
+<div class="preview-label"><i class="fas fa-cloud-upload-alt"></i> Carregar Planilha</div>
+<div class="preview-upload">
+<i class="fas fa-arrow-up text-2xl" style="color:#CBD5E1;"></i>
+<p style="font-size:11px;">Arraste o arquivo <strong>.xlsx</strong> aqui ou <span style="color:#0066CC; font-weight:600;">clique para selecionar</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Access Button -->
+<a class="access-btn" href="https://antaq.github.io/sispat-api/upload.html" target="_blank">
+<i class="fas fa-external-link-alt"></i>
+Acessar Ferramenta
+</a>
+</div>
+</div>
+<!-- Background Decor -->
+<i class="fas fa-file-excel bg-decor"></i>
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 flex justify-between items-center z-20">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">14 / 18</p>
+<p class="text-gray-300 text-xs font-mono">14 / 16</p>
 </div>
 </div>
-<!-- Script to generate QR Code -->
-<script>
-        // Generate QR Code
-        new QRCode(document.getElementById("qrcode"), {
-            text: "https://antaq.github.io/sispat-api/",
-            width: 200,
-            height: 200,
-            colorDark : "#003366",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
-    </script>
 </body>
 </html>
