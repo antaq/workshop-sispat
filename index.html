@@ -197,7 +197,29 @@
       font-size: 12px;
       color: #94A3B8;
     }
-  </style>
+
+    .qr-duvidas {
+      position: fixed;
+      left: 24px;
+      bottom: 90px;
+      width: 150px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      z-index: 50;
+    }
+
+    .qr-duvidas img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+</style>
 </head>
 <body>
 
@@ -242,6 +264,10 @@
         </div>
       </a>
     </div>
+  </div>
+
+  <div class="qr-duvidas">
+    <img src="qrcode_duvidas_wpp.jpeg" alt="QR Code Dúvidas WhatsApp 61 2029-6515" />
   </div>
 
   <div class="footer">

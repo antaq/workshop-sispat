@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
-        html { font-size: 26px; }
+        html { font-size: 23px; }
         body {
             margin: 0;
             padding: 0;
@@ -170,18 +170,18 @@
 
         .calendar-card {
             background-color: #FFFFFF;
-            border-radius: 20px;
+            border-radius: 18px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border: 1px solid #E2E8F0;
             overflow: hidden;
             width: 100%;
-            max-width: 560px;
+            max-width: 540px;
         }
 
         .calendar-header {
             background-color: #003366;
             color: #FFFFFF;
-            padding: 20px 28px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -194,14 +194,14 @@
         }
 
         .calendar-body {
-            padding: 24px 28px;
+            padding: 16px 24px;
         }
 
         .week-header {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 6px;
+            margin-bottom: 8px;
         }
 
         .week-header span {
@@ -216,12 +216,12 @@
         .week-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 6px;
+            margin-bottom: 6px;
         }
 
         .day-cell {
-            aspect-ratio: 1;
+            aspect-ratio: 1.2;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -256,7 +256,7 @@
             justify-content: center;
             background-color: #003366;
             color: #FFFFFF;
-            padding: 14px 28px;
+            padding: 10px 24px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 15px;
@@ -269,45 +269,45 @@
             color: #FCD34D;
         }
 
-        /* Notice Cards (Teams + WhatsApp) */
+        /* Notice Cards (Teams + WhatsApp + gov.br) */
         .notice-card {
-            margin-top: 14px;
-            border-radius: 0 14px 14px 0;
-            padding: 14px 20px;
+            margin-top: 10px;
+            border-radius: 0 12px 12px 0;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             width: 800px;
             max-width: 100%;
         }
         .notice-icon {
-            width: 58px;
-            height: 58px;
-            border-radius: 12px;
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 30px;
+            font-size: 24px;
         }
         .notice-icon svg {
-            width: 34px;
-            height: 34px;
+            width: 28px;
+            height: 28px;
             fill: #FFFFFF;
         }
         .notice-content h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 3px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         .notice-content p {
-            font-size: 15px;
-            line-height: 1.45;
+            font-size: 13px;
+            line-height: 1.4;
         }
 
         /* Teams */
@@ -339,6 +339,27 @@
         .whatsapp-card h4 { color: #14532D; }
         .whatsapp-card p { color: #166534; }
         .whatsapp-card p strong { color: #14532D; }
+
+        /* Carta de Serviço (gov.br) */
+        .govbr-card {
+            background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+            border: 1px solid #FED7AA;
+            border-left: 6px solid #F59E0B;
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.12);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .govbr-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.25);
+        }
+        .govbr-card .notice-icon {
+            background-color: #F59E0B;
+            box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3);
+        }
+        .govbr-card h4 { color: #7C2D12; }
+        .govbr-card p { color: #9A3412; }
+        .govbr-card p strong { color: #7C2D12; }
 
         /* Background Decor */
         .bg-circle {
@@ -516,6 +537,16 @@
 <p>Também teremos um <strong>grupo no WhatsApp</strong> para tirar dúvidas rápidas. O convite chega pelo mesmo e-mail.</p>
 </div>
 </div>
+<!-- Carta de Serviço (gov.br) Notice Card -->
+<a class="notice-card govbr-card" href="https://www.gov.br/pt-br/servicos/enviar-a-antaq-o-inventario-patrimonial-e-a-lista-de-bens-reversiveis-dos-portos-organizados" target="_blank" rel="noopener noreferrer">
+<div class="notice-icon">
+<i class="fas fa-landmark"></i>
+</div>
+<div class="notice-content">
+<h4><i class="fas fa-file-contract"></i> Carta de Serviço — gov.br</h4>
+<p>Acesse a <strong>Carta de Serviço oficial</strong> para envio do inventário patrimonial e da lista de bens reversíveis dos portos organizados.</p>
+</div>
+</a>
 </div>
 <!-- Background Elements -->
 <div class="bg-circle circle-1"></div>
