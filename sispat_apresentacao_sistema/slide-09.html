@@ -79,6 +79,12 @@
         .content-wrapper.video-expanded .video-side {
             flex: 1;
         }
+        /* When expanded, center the header content so the Reduzir button
+           stays outside the 15% lateral click-zones used for slide nav. */
+        .content-wrapper.video-expanded .video-header {
+            justify-content: center;
+            gap: 24px;
+        }
 
         .steps-grid {
             display: grid;
