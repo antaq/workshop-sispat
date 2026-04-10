@@ -38,7 +38,7 @@ html, body {
     display: flex;
 }
 
-/* ===== Stage + Scaler (mesma abordagem do sispat_apresentacao_sistema) ===== */
+/* ===== Stage + Scaler (mesma abordagem do sistema) ===== */
 #slideWrapper {
     width: 100vw;
     height: 100vh;
@@ -262,12 +262,12 @@ html, body {
     <!-- Decorative Shape -->
     <div style="position:absolute; top:0; right:0; width:45%; height:100%; background-color:rgba(255,255,255,0.03); clip-path:polygon(25% 0, 100% 0, 100% 100%, 0% 100%); z-index:1;"></div>
     <!-- Watermark logo (ANTAQ horizontal, same as sispat slide-01) -->
-    <img src="../sispat_apresentacao_sistema/Imagens/Logo Horizontal_Azul_S_N.png" alt="" style="position:absolute; top:50%; left:60%; transform:translate(-50%, -50%); width:55%; max-width:780px; opacity:0.10; z-index:2; pointer-events:none; filter:brightness(0) invert(1);" />
+    <img src="../sistema/Imagens/Logo Horizontal_Azul_S_N.png" alt="" style="position:absolute; top:50%; left:60%; transform:translate(-50%, -50%); width:55%; max-width:780px; opacity:0.10; z-index:2; pointer-events:none; filter:brightness(0) invert(1);" />
 
     <div class="relative z-10 flex flex-col justify-center h-full w-full" style="padding-left:96px; padding-right:64px;">
         <!-- Top Header / Organization -->
         <div style="position:absolute; top:64px; left:96px;" class="flex items-center gap-4">
-            <img src="../sispat_apresentacao_sistema/Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height:48px; width:auto;" />
+            <img src="../sistema/Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height:48px; width:auto;" />
             <div>
                 <p class="text-blue-200 text-sm font-bold tracking-widest uppercase">Agência Nacional de Transportes Aquaviários</p>
                 <p class="text-blue-300 text-xs font-semibold tracking-wider uppercase opacity-80">ANTAQ</p>
@@ -736,13 +736,13 @@ html, body {
     <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 20px 20px; z-index:0;"></div>
 
     <!-- Watermark logo -->
-    <img src="../sispat_apresentacao_sistema/Imagens/Logo Horizontal_Azul_S_N.png" alt="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60vw; max-width:900px; opacity:0.08; z-index:0; pointer-events:none; filter:brightness(0) invert(1);" />
+    <img src="../sistema/Imagens/Logo Horizontal_Azul_S_N.png" alt="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:60vw; max-width:900px; opacity:0.08; z-index:0; pointer-events:none; filter:brightness(0) invert(1);" />
 
     <!-- Main Content -->
     <div class="flex-1 flex flex-col items-center justify-center relative z-10 px-16 text-center w-full max-w-5xl mx-auto">
         <!-- Logo ANTAQ -->
         <div class="mb-6">
-            <img src="../sispat_apresentacao_sistema/Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height:80px; object-fit:contain; margin:0 auto; display:block;" />
+            <img src="../sistema/Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height:80px; object-fit:contain; margin:0 auto; display:block;" />
         </div>
 
         <!-- Title SFC -->
@@ -878,7 +878,7 @@ document.addEventListener('fullscreenchange', () => {
     icon.className = document.fullscreenElement ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
 });
 
-// Scale slide to fit stage (mesma abordagem do sispat_apresentacao_sistema)
+// Scale slide to fit stage (mesma abordagem do sistema)
 const stage = document.querySelector('.stage');
 function scaleSlides() {
     const scaler = document.getElementById('slideScaler');
