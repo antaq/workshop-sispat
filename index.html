@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apresentações - SisPAT</title>
+  <title>Relatório Trimestral - Ouvidoria da ANTAQ</title>
   <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
@@ -17,11 +17,20 @@
       display: flex;
       flex-direction: column;
     }
-
-    .header-bar { background-color: #003366; height: 12px; width: 100%; }
-    .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, rgba(10, 34, 54,0.72) 0%, rgba(16, 48, 80,0.55) 50%, rgba(22, 70, 110,0.45) 100%);
+      z-index: 0;
+    }
+    .header-bar { background-color: #103050; height: 12px; width: 100%; position: relative; z-index: 2; }
+    .secondary-bar { background-color: #0070C0; height: 6px; width: 100%; position: relative; z-index: 2; }
 
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+    .org-bar { padding: 20px 40px 0; display: flex; align-items: center; gap: 12px; position: relative; z-index: 2; }
+    .org-bar .org-title { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #FFFFFF; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    .org-bar .org-sub { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: #E2E8F0; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 
     .main {
       flex: 1;
@@ -30,23 +39,32 @@
       align-items: center;
       justify-content: center;
       padding: 40px 24px;
+      position: relative; z-index: 2;
     }
 
-    .header-section {
-      text-align: center;
-      margin-bottom: 48px;
+    .header-section { text-align: center; margin-bottom: 48px; }
+
+    .header-section .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: #0090C0;
+      margin-bottom: 14px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .header-section .eyebrow::before, .header-section .eyebrow::after {
+      content: ""; width: 34px; height: 2px; background: #0090C0; opacity: 0.8;
     }
 
     .header-section h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 800;
       color: #FFFFFF;
       text-transform: uppercase;
       letter-spacing: -0.5px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     }
+    .header-section h1 .gold { color: #0090C0; }
 
     .header-section p {
       display: inline-block;
@@ -54,7 +72,7 @@
       color: #FFFFFF;
       font-weight: 600;
       padding: 8px 18px;
-      background-color: rgba(0, 51, 102, 0.55);
+      background-color: rgba(16, 48, 80, 0.55);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       border-radius: 999px;
@@ -64,38 +82,45 @@
 
     .cards {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       flex-wrap: wrap;
       justify-content: center;
-      max-width: 900px;
+      max-width: 1300px;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.35);
       border-left: 6px solid rgba(255, 255, 255, 0.6);
       border-radius: 16px;
-      width: 400px;
+      width: 380px;
       padding: 32px 28px;
       text-decoration: none;
       color: inherit;
-      transition: all 0.3s ease;
+      transition: transform .3s cubic-bezier(.2,.7,.3,1), background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
       display: flex;
       align-items: flex-start;
       gap: 20px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      animation: cardIn .55s cubic-bezier(.2,.7,.3,1) both;
     }
+    .cards .card:nth-child(2) { animation-delay: .1s; }
+    .cards .card:nth-child(3) { animation-delay: .2s; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 
-    .card-sispat { border-left-color: #0066CC; }
-    .card-inventario { border-left-color: #003366; }
+    .card-relatorio { border-left-color: #0070C0; }
+    .card-falabr { border-left-color: #103050; }
+    .card-portal { border-left-color: #0090C0; }
 
     .card:hover {
-      transform: translateY(-6px);
-      background-color: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 12px 24px rgba(0, 51, 102, 0.2);
+      transform: translateY(-8px);
+      background-color: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 34px rgba(16, 48, 80, 0.28);
     }
+    .card-relatorio:hover { border-color: #0070C0; }
+    .card-portal:hover { border-color: #0090C0; }
 
     .card-icon {
       width: 56px; height: 56px;
@@ -105,16 +130,13 @@
       justify-content: center;
       font-size: 22px;
       flex-shrink: 0;
+      transition: transform .3s ease;
     }
+    .card:hover .card-icon { transform: scale(1.1) rotate(-6deg); }
 
-    .card-sispat .card-icon {
-      background-color: #DBEAFE;
-      color: #0066CC;
-    }
-    .card-inventario .card-icon {
-      background-color: #E0E7FF;
-      color: #003366;
-    }
+    .card-relatorio .card-icon { background-color: #DBEAFE; color: #0070C0; }
+    .card-falabr .card-icon { background-color: #E0E7FF; color: #103050; }
+    .card-portal .card-icon { background-color: #E1F2F8; color: #0090C0; }
 
     .card-content h2 {
       font-family: 'Montserrat', sans-serif;
@@ -144,10 +166,11 @@
       transition: gap 0.2s ease;
     }
 
-    .card-sispat .card-link { color: #0066CC; }
-    .card-inventario .card-link { color: #003366; }
+    .card-relatorio .card-link { color: #0070C0; }
+    .card-falabr .card-link { color: #103050; }
+    .card-portal .card-link { color: #0090C0; }
 
-    .card:hover .card-link { gap: 10px; }
+    .card:hover .card-link { gap: 11px; }
 
     .footer {
       padding: 20px 40px;
@@ -155,29 +178,19 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid rgba(255, 255, 255, 0.25);
-      background-color: rgba(0, 51, 102, 0.55);
+      background-color: rgba(16, 48, 80, 0.6);
       backdrop-filter: blur(6px);
       color: #FFFFFF;
+      position: relative; z-index: 2;
     }
 
-    .footer-left p {
-      color: #E2E8F0 !important;
-    }
-    .footer-right {
-      color: #E2E8F0 !important;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .footer-left { display: flex; align-items: center; gap: 10px; }
 
     .footer-left .anchor-icon {
       width: 32px; height: 32px;
       border-radius: 8px;
-      background-color: #003366;
-      color: white;
+      background-color: #0090C0;
+      color: #103050;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -188,36 +201,15 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      color: #94A3B8;
+      color: #CBD5E1;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .footer-right {
-      font-size: 12px;
-      color: #94A3B8;
-    }
+    .footer-right { font-size: 12px; color: #CBD5E1; font-weight: 600; }
 
-    .qr-duvidas {
-      position: fixed;
-      left: 24px;
-      bottom: 90px;
-      width: 150px;
-      background-color: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      z-index: 50;
-    }
-
-    .qr-duvidas img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
     }
 </style>
 </head>
@@ -226,55 +218,41 @@
   <div class="header-bar"></div>
   <div class="secondary-bar"></div>
 
-  <div style="padding: 20px 40px 0; display: flex; align-items: center; gap: 12px;">
-    <img src="sistema/Imagens/Logo Horizontal_Azul_S_N.png" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
+  <div class="org-bar">
+    <img src="sistema/Imagens/Logo Horizontal_Branca_C_N.png" alt="Logo ANTAQ" style="height: 48px; width: auto;" />
     <div>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #FFFFFF; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">Agência Nacional de Transportes Aquaviários</p>
-      <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: #E2E8F0; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">ANTAQ</p>
+      <p class="org-title">Agência Nacional de Transportes Aquaviários</p>
+      <p class="org-sub">ANTAQ · Ouvidoria</p>
     </div>
   </div>
-  
 
   <div class="main">
     <div class="header-section">
-      <h1><img src="icon_sispat.png" alt="Logo SisPAT" style="height: 42px; width: auto; vertical-align: middle; margin-right: 10px;">Apresentações SisPAT</h1>
-      <p>Selecione a apresentação que deseja visualizar</p>
+      <span class="eyebrow">Relatório Trimestral · 2026</span>
+      <h1>Ouvidoria <span class="gold">da ANTAQ</span></h1>
+      <p>Selecione o conteúdo que deseja acessar</p>
     </div>
 
     <div class="cards">
-      <a class="card card-inventario" href="#" onclick="event.preventDefault(); window.open('manual/index.html', '_blank');">
+      <a class="card card-relatorio" href="#" onclick="event.preventDefault(); window.open('sistema/index.html', '_blank');">
         <div class="card-icon">
-          <i class="fa-solid fa-book-open"></i>
+          <i class="fa-solid fa-chart-column"></i>
         </div>
         <div class="card-content">
-          <h2>Manual de Inventário</h2>
-          <p>Manual de procedimentos para inventário de bens patrimoniais.</p>
-          <span class="card-link">Acessar <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>
-
-      <a class="card card-sispat" href="#" onclick="event.preventDefault(); window.open('sistema/index.html', '_blank');">
-        <div class="card-icon">
-          <i class="fa-solid fa-desktop"></i>
-        </div>
-        <div class="card-content">
-          <h2>Apresentação SisPAT</h2>
-          <p>Visão geral do sistema SisPAT, funcionalidades e demonstração da plataforma.</p>
-          <span class="card-link">Acessar <i class="fa-solid fa-arrow-right"></i></span>
+          <h2>Relatório Trimestral 2026</h2>
+          <p>Dados consolidados das manifestações recebidas pela Ouvidoria no 1º trimestre (Jan–Mar).</p>
+          <span class="card-link">Abrir apresentação <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>
     </div>
-  </div>
-
-  <div class="qr-duvidas">
-    <img src="qrcode_duvidas_wpp.jpeg" alt="QR Code Dúvidas WhatsApp 61 2029-6515" />
   </div>
 
   <div class="footer">
     <div class="footer-left">
-      <p>SisPAT - Treinamento Simplificado da Funcionalidade de Cadastro de Bens e Inventário</p>
+      <div class="anchor-icon"><i class="fa-solid fa-anchor"></i></div>
+      <p>Relatório Trimestral 2026 · Ouvidoria da ANTAQ — 1º Trimestre (Jan–Mar)</p>
     </div>
-    <div class="footer-right">SFC — Superintendência de Fiscalização e Coordenação</div>
+    <div class="footer-right">Ouvidoria da ANTAQ · Ouvidora Renata Sousa Cordeiro</div>
   </div>
 
 </body>

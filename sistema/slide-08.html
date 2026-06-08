@@ -4,334 +4,121 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login e Acesso aos Ambientes</title>
+<title>Manifestações por Canal por Mês - Relatório Trimestral Ouvidoria ANTAQ</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
         html { font-size: 26px; }
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f3f4f6;
-            overflow: hidden;
+        body { margin: 0; padding: 0; background-color: #f3f4f6; overflow: hidden; }
+        .slide-container {
+            width: 100vw; height: 100vh; position: relative;
+            display: flex; flex-direction: column;
+            background-color: #ffffff; overflow: hidden;
             font-family: 'Open Sans', sans-serif;
         }
-        .slide-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            overflow: hidden;
-        }
-        .header-bar { background-color: #003366; height: 12px; width: 100%; }
-        .secondary-bar { background-color: #0066CC; height: 6px; width: 100%; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        .text-brand-primary { color: #003366; }
-        .bg-brand-primary { background-color: #003366; }
-        .text-brand-secondary { color: #0066CC; }
-        .bg-brand-secondary { background-color: #0066CC; }
-
-        /* Top section: two columns (DEV left, PRD right) */
-        .top-section {
-            display: flex;
-            gap: 28px;
-            padding: 12px 60px 0 60px;
+        .text-brand-primary { color: #103050; }
+        .text-brand-secondary { color: #0070C0; }
+        .bg-brand-secondary { background-color: #0070C0; }
+        .top-accent { height: 8px; background-color: #103050; width: 100%; }
+        .top-accent-secondary { height: 4px; background-color: #0070C0; width: 100%; }
+        /* ===== Interatividade ===== */
+        .chart-card { transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease; }
+        .chart-card:hover { transform: translateY(-7px); box-shadow: 0 22px 42px -12px rgba(16, 48, 80,.30); border-color: #0070C0; }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        .chart-card { animation: fadeIn .5s ease both; }
+        .chart-card:nth-child(2){ animation-delay:.1s; }
+        .chart-card:nth-child(3){ animation-delay:.2s; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+        .chart-card {
+            background-color: #ffffff; border: 2px solid #E2E8F0; border-radius: 16px;
+            box-shadow: 0 8px 20px -8px rgba(16, 48, 80, 0.18); padding: 1.4rem 1.6rem;
         }
-        .env-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        .url-box {
-            border-radius: 14px;
-            padding: 22px 28px;
-            box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
-        .url-box.prd {
-            background-color: #F0FDF4;
-            border: 2px solid #16A34A;
-        }
-        .url-box.dev {
-            background-color: #FFF7ED;
-            border: 2px solid #EA580C;
-        }
-        .url-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-        .url-tag.prd { color: #16A34A; }
-        .url-tag.dev { color: #EA580C; }
-        .url-text {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #003366;
-            text-decoration: none;
-            background-color: #FFFFFF;
-            border: 1px dashed #CBD5E1;
-            border-radius: 6px;
-            padding: 12px 16px;
-            word-break: break-all;
-        }
-
-        .info-card {
-            border-radius: 12px;
-            padding: 22px 26px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border-left: 6px solid;
-            flex: 1;
-        }
-        .info-card.prd {
-            background-color: #F0FDF4;
-            border-left-color: #16A34A;
-        }
-        .info-card.dev {
-            background-color: #FFF7ED;
-            border-left-color: #EA580C;
-        }
-        .info-card .title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .info-card.prd .title { color: #16A34A; }
-        .info-card.dev .title { color: #EA580C; }
-        .info-card .desc {
-            font-size: 19px;
-            line-height: 1.55;
-        }
-        .info-card.prd .desc { color: #166534; }
-        .info-card.dev .desc { color: #9A3412; }
-
-        /* Bottom dark steps panel - compacto, altura natural */
-        .steps-panel {
-            margin: 40px 180px 0 180px;
-            background-color: #1E293B;
-            border-radius: 16px;
-            padding: 16px 32px 18px 32px;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-            border: 1px solid #334155;
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-        }
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px 32px;
-            margin-top: 12px;
-        }
-        .panel-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #334155;
-        }
-        .panel-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: #F8FAFC;
-        }
-        .step-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-        .step-num {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: #38BDF8;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-        .step-text {
-            font-size: 18px;
-            color: #CBD5E1;
-            line-height: 1.45;
-        }
-        .step-text strong { color: #F8FAFC; }
-        .step-text a {
-            color: #38BDF8;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .data-box {
-            background-color: #0F172A;
-            border: 1px dashed #475569;
-            border-radius: 8px;
-            padding: 8px 14px;
-            margin-top: 6px;
-        }
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 3px 0;
-        }
-        .data-label {
-            font-size: 14px;
-            color: #94A3B8;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .data-value {
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            color: #38BDF8;
-            font-weight: 600;
-        }
-
-        /* Footer pinned to bottom */
-        .slide-footer {
-            margin-top: auto;
-        }
-
-        /* Background decor */
-        .bg-decor {
-            position: absolute;
-            bottom: 4%;
-            right: 3%;
-            font-size: 280px;
-            color: #F1F5F9;
-            opacity: 0.35;
-            z-index: 0;
-            transform: rotate(-15deg);
-        }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
     </style>
 </head>
 <body>
 <div class="slide-container">
-<!-- Top Accents -->
-<div class="header-bar"></div>
-<div class="secondary-bar"></div>
-
+<div class="top-accent"></div>
+<div class="top-accent-secondary"></div>
 <!-- Header -->
-<div class="px-12 pt-8 pb-3 relative z-20">
-<div class="flex items-center gap-3">
-<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div class="flex items-center justify-between px-16 pt-12 pb-4 z-10">
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Login e Acesso aos Ambientes</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Endereços eletrônicos e procedimentos de login para Produção e Desenvolvimento</p>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-1 h-8 bg-brand-secondary"></div>
+<p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Manifestações por Canal por Mês</p>
 </div>
-<div class="ml-auto flex items-center gap-2 opacity-80">
-<i class="fas fa-sign-in-alt text-brand-secondary text-xl"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">ACESSO</p>
+<p class="text-gray-500 font-medium ml-4 text-lg">Evolução mensal de cada canal — Jan / Fev / Mar de 2026</p>
 </div>
-</div>
-</div>
-
-<!-- Top section: DEV (left) | PRD (right) -->
-<div class="top-section relative z-20">
-<!-- DEV column (left) -->
-<div class="env-col">
-<div class="url-box dev">
-<p class="url-tag dev"><i class="fas fa-flask"></i> Desenvolvimento (DEV)</p>
-<a class="url-text" href="https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat" target="_blank">https://des-apex.antaq.gov.br/ords/r/sfc_dev/sispat</a>
-<p class="mt-2 text-xs text-gray-600">Uso para validação de integrações e cenários de teste.</p>
-</div>
-<div class="info-card dev">
-<div class="title"><i class="fas fa-tools"></i> Acesso ao Desenvolvimento</div>
-<p class="desc">Requer <strong>pré-cadastro</strong> no ambiente de <strong>staging do Gov.br</strong>, pois o ambiente DEV não usa a base oficial. Siga as etapas abaixo para criar sua conta de teste.</p>
+<div class="flex items-center gap-4 ml-6">
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#0070C0;"></span>Janeiro</span>
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#0090C0;"></span>Fevereiro</span>
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#103050;"></span>Março</span>
 </div>
 </div>
-<!-- PRD column (right) -->
-<div class="env-col">
-<div class="url-box prd">
-<p class="url-tag prd"><i class="fas fa-check-circle"></i> Produção (PRD)</p>
-<a class="url-text" href="https://prd-apex.antaq.gov.br/ords/r/sfc/sispat" target="_blank">https://prd-apex.antaq.gov.br/ords/r/sfc/sispat</a>
-<p class="mt-2 text-xs text-gray-600">Uso em operação oficial. Utilize somente dados reais e credenciais de produção.</p>
+<!-- Main Content -->
+<div class="flex-1 grid grid-cols-3 gap-6 px-16 pb-10 z-10">
+<div class="chart-card flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-headset text-brand-secondary"></i> Omnichannel</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">382</strong></p>
+<div class="flex-1 relative"><canvas id="chartOmni"></canvas></div>
 </div>
-<div class="info-card prd">
-<div class="title"><i class="fas fa-user-shield"></i> Acesso à Produção</div>
-<p class="desc">Login direto pelo <strong>Gov.br</strong> com sua conta oficial. A autenticação SSO é segura e está em conformidade com os padrões do governo federal — <strong>sem necessidade de cadastro adicional</strong>.</p>
+<div class="chart-card flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-comment-dots text-brand-secondary"></i> Fala.BR</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">304</strong></p>
+<div class="flex-1 relative"><canvas id="chartFalabr"></canvas></div>
 </div>
-</div>
-</div>
-
-<!-- Bottom: full-width staging steps -->
-<div class="steps-panel">
-<div class="panel-header">
-<i class="fas fa-list-ol text-blue-400"></i>
-<span class="panel-title">Cadastro no Staging Gov.br (acesso DEV)</span>
-<span style="font-size:9px; color:#94A3B8; background-color:#374151; padding:2px 7px; border-radius:10px; margin-left:auto;">DEV</span>
-</div>
-<div class="steps-grid">
-<div class="step-row">
-<div class="step-num">1</div>
-<div class="step-text">Acesse <a href="https://sso.staging.acesso.gov.br" target="_blank">sso.staging.acesso.gov.br</a></div>
-</div>
-<div class="step-row">
-<div class="step-num">2</div>
-<div class="step-text">Informe o <strong>CPF</strong> e concorde com os termos de uso</div>
-</div>
-<div class="step-row">
-<div class="step-num">3</div>
-<div class="step-text">Na validação facial, escolha <strong>"Não tenho celular"</strong> e depois <strong>"Tentar de outra forma"</strong></div>
-</div>
-<div class="step-row">
-<div class="step-num">4</div>
-<div class="step-text">Use os dados fictícios para validação:
-<div class="data-box">
-<div class="data-row">
-<span class="data-label">Data de nascimento</span>
-<span class="data-value">01/01/1980</span>
-</div>
-<div class="data-row" style="border-top:1px solid #1E293B; padding-top:4px; margin-top:1px;">
-<span class="data-label">Nome da mãe</span>
-<span class="data-value">MAMAE</span>
+<div class="chart-card flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-envelope text-brand-secondary"></i> E-mail</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">70</strong></p>
+<div class="flex-1 relative"><canvas id="chartEmail"></canvas></div>
 </div>
 </div>
-</div>
-</div>
-<div class="step-row">
-<div class="step-num">5</div>
-<div class="step-text">Cadastre uma <strong>senha</strong> conforme as orientações demonstradas</div>
-</div>
-<div class="step-row">
-<div class="step-num">6</div>
-<div class="step-text">Informe um <strong>e-mail</strong> ou <strong>telefone celular</strong> para confirmação do cadastro</div>
-</div>
-</div>
-</div>
-
-<!-- Background Decor -->
-<i class="fas fa-server bg-decor"></i>
-
 <!-- Footer -->
-<div class="slide-footer px-12 pb-5 pt-2 flex justify-between items-center z-20">
-<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">8 / 16</p>
+<div class="px-16 pb-8 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs">Relatório Trimestral 2026 · Ouvidoria da ANTAQ — 1º Trimestre (Jan–Mar)</p>
+<p class="text-gray-300 text-xs font-mono">8 / 11</p>
 </div>
 </div>
+<script>
+const monthColors = ['#0070C0', '#0090C0', '#103050'];
+const valueLabels = {
+  id: 'valueLabels',
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    ctx.save();
+    ctx.font = '700 16px Montserrat, sans-serif';
+    ctx.fillStyle = '#103050';
+    ctx.textAlign = 'center';
+    chart.getDatasetMeta(0).data.forEach((bar, i) => {
+      ctx.fillText(chart.data.datasets[0].data[i], bar.x, bar.y - 8);
+    });
+    ctx.restore();
+  }
+};
+function makeBar(id, data) {
+  new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: { labels: ['Jan', 'Fev', 'Mar'], datasets: [{ data, backgroundColor: monthColors, borderRadius: 6, maxBarThickness: 80 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 22 } },
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 14, weight: '600' } } },
+        y: { beginAtZero: true, grid: { color: '#eef2f7' }, ticks: { color: '#9ca3af', font: { size: 12 } } }
+      }
+    },
+    plugins: [valueLabels]
+  });
+}
+makeBar('chartOmni', [186, 106, 90]);
+makeBar('chartFalabr', [90, 129, 85]);
+makeBar('chartEmail', [23, 33, 14]);
+</script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

@@ -4,244 +4,139 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Segurança em um Sistema Único</title>
+<title>Manifestações Recebidas por Mês - Relatório Trimestral Ouvidoria ANTAQ</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
         html { font-size: 26px; }
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f3f4f6;
-            overflow: hidden;
+        body { margin: 0; padding: 0; background-color: #f3f4f6; overflow: hidden; }
+        .slide-container {
+            width: 100vw; height: 100vh; position: relative;
+            display: flex; flex-direction: column;
+            background-color: #ffffff; overflow: hidden;
             font-family: 'Open Sans', sans-serif;
         }
-        .slide-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            overflow: hidden;
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .text-brand-primary { color: #103050; }
+        .text-brand-secondary { color: #0070C0; }
+        .bg-brand-secondary { background-color: #0070C0; }
+        .top-accent { height: 8px; background-color: #103050; width: 100%; }
+        .top-accent-secondary { height: 4px; background-color: #0070C0; width: 100%; }
+        /* ===== Interatividade ===== */
+        .chart-card, .canal-card, .period-chip, .video-frame, .kpi-card, .glossary-card, .exp-group {
+            transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease, background-color .28s ease;
         }
-        .header-bar {
-            background-color: #003366;
-            height: 12px;
-            width: 100%;
+        .chart-card:hover, .canal-card:hover, .period-chip:hover, .video-frame:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 22px 42px -12px rgba(16, 48, 80,.30);
+            border-color: #0070C0;
         }
-        .secondary-bar {
-            background-color: #0066CC;
-            height: 6px;
-            width: 100%;
+        .glossary-card:hover { transform: translateY(-7px); border-color:#0070C0; box-shadow: 0 22px 42px -12px rgba(0, 112, 192,.32); }
+        .glossary-icon { transition: transform .3s ease; }
+        .glossary-card:hover .glossary-icon { transform: scale(1.12) rotate(-6deg); }
+        .kpi-card:hover { transform: translateY(-9px) scale(1.018); box-shadow: 0 30px 58px -16px rgba(16, 48, 80,.6); }
+        .kpi-watermark { transition: transform .4s ease, opacity .4s ease; }
+        .kpi-card:hover .kpi-watermark { transform: scale(1.12); opacity:.2; }
+        .exp-group:hover { transform: translateX(5px); }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        .chart-card, .kpi-card, .glossary-card, .canal-card, .period-chip { animation: fadeIn .5s ease both; }
+        .chart-card:nth-child(2), .kpi-card:nth-child(2), .glossary-card:nth-child(2), .canal-card:nth-child(2), .period-chip:nth-child(2) { animation-delay:.09s; }
+        .chart-card:nth-child(3), .kpi-card:nth-child(3), .glossary-card:nth-child(3), .canal-card:nth-child(3), .period-chip:nth-child(3) { animation-delay:.18s; }
+        .glossary-card:nth-child(4) { animation-delay:.27s; }
+        .glossary-card:nth-child(5) { animation-delay:.36s; }
+        .glossary-card:nth-child(6) { animation-delay:.45s; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+        .chart-card {
+            background-color: #ffffff; border: 2px solid #E2E8F0; border-radius: 16px;
+            box-shadow: 0 8px 20px -8px rgba(16, 48, 80, 0.18); padding: 1.4rem 1.6rem;
         }
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .text-brand-primary {
-            color: #003366;
-        }
-        .text-brand-secondary {
-            color: #0066CC;
-        }
-        .bg-brand-primary {
-            background-color: #003366;
-        }
-        .bg-brand-secondary {
-            background-color: #0066CC;
-        }
-        
-        /* Grid Layout for Cards */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            padding: 16px 56px 28px 56px;
-            flex: 1;
-            min-height: 0;
-        }
-
-        .card {
-            background-color: #F8FAFC;
-            border-radius: 12px;
-            padding: 22px 26px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-left: 5px solid #0066CC;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-            transition: all 0.2s ease;
-            overflow: hidden;
-            min-height: 0;
-            position: relative;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            background-color: #FFFFFF;
-        }
-
-        .card:nth-child(1) { border-left-color: #94A3B8; }
-        .card:nth-child(2) { border-left-color: #60A5FA; }
-        .card:nth-child(3) { border-left-color: #3B82F6; }
-        .card:nth-child(4) { border-left-color: #2563EB; }
-        .card:nth-child(5) { border-left-color: #1D4ED8; }
-
-        .card-header {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-
-        .card-number {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            color: #1E3A8A;
-            padding: 3px 12px;
-            border-radius: 999px;
-            background-color: #DBEAFE;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            color: #0F172A;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .card-desc {
-            font-size: 18px;
-            color: #4B5563;
-            line-height: 1.4;
-            max-width: 80%;
-        }
-
-        .card-icon-bg {
-            position: absolute;
-            right: -6px;
-            bottom: -6px;
-            font-size: 62px;
-            color: #E5E7EB;
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        /* Special layout for the last card to span or center if odd number */
-        .card:last-child {
-            grid-column: 2 / 3; /* Center in the bottom row if 5 items */
-        }
-
-        /* Decorative Background */
-        .bg-shape {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background-color: #F1F5F9;
-            z-index: -1;
-            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
-        }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
     </style>
 </head>
 <body>
 <div class="slide-container">
-<!-- Top Accents -->
-<div class="header-bar"></div>
-<div class="secondary-bar"></div>
+<div class="top-accent"></div>
+<div class="top-accent-secondary"></div>
 <!-- Header -->
-<div class="px-12 pt-10 pb-4">
-<div class="flex items-center gap-3">
-<div class="w-1.5 h-10 bg-brand-primary"></div>
+<div class="flex items-center justify-between px-16 pt-12 pb-4 z-10">
 <div>
-<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Segurança em um Sistema Único</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Como o SisPAT ganha em segurança ao utilizar uma única plataforma (Oracle APEX)</p>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-1 h-8 bg-brand-secondary"></div>
+<p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Manifestações Recebidas por Mês</p>
 </div>
-<div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-database text-xl" aria-hidden="true"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">SISPAT</p>
+<p class="text-gray-500 font-medium ml-4 text-lg">Recebidas, arquivadas e encaminhadas — Jan / Fev / Mar de 2026</p>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#0070C0;"></span>Janeiro</span>
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#0090C0;"></span>Fevereiro</span>
+<span class="flex items-center gap-2 text-sm text-gray-500"><span class="legend-dot" style="background:#103050;"></span>Março</span>
 </div>
 </div>
+<!-- Main Content -->
+<div class="flex-1 grid grid-cols-3 gap-6 px-16 pb-10 z-10">
+<div class="chart-card col-span-1 flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-inbox text-brand-secondary"></i> Recebidas</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">304</strong></p>
+<div class="flex-1 relative"><canvas id="chartRecebidas"></canvas></div>
 </div>
-<!-- Main Content - Cards Grid -->
-<div class="cards-container">
-<!-- Card 1 -->
-<div class="card">
-<div class="card-header">
-<span class="card-number">Tópico 01</span>
-<p class="card-title">Sistema Único e Padronizado</p>
+<div class="chart-card col-span-1 flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-box-archive text-brand-secondary"></i> Arquivadas</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">46</strong></p>
+<div class="flex-1 relative"><canvas id="chartArquivadas"></canvas></div>
 </div>
-<p class="card-desc">
-                    Centralização das informações patrimoniais em um único sistema reduz riscos de divergência entre planilhas, bases paralelas e soluções isoladas, garantindo um <strong>ponto único de verdade</strong> para todos os portos organizados.
-                </p>
-<i class="fas fa-sitemap card-icon-bg"></i>
-</div>
-<!-- Card 2 -->
-<div class="card">
-<div class="card-header">
-<span class="card-number">Tópico 02</span>
-<p class="card-title">Infraestrutura Oracle</p>
-</div>
-<p class="card-desc">
-                    O SisPAT é executado sobre a <strong>plataforma Oracle</strong>, utilizando o <strong>Oracle APEX</strong> diretamente no banco de dados. Isso permite herdar todos os controles de segurança, resiliência e alta disponibilidade da infraestrutura corporativa da ANTAQ.
-                </p>
-<i class="fas fa-tachometer-alt card-icon-bg"></i>
-</div>
-<!-- Card 3 -->
-<div class="card">
-<div class="card-header">
-<span class="card-number">Tópico 03</span>
-<p class="card-title">Segurança da Informação</p>
-</div>
-<p class="card-desc">
-                    Recursos nativos do Oracle APEX para proteção contra ameaças web, autenticação centralizada, <strong>perfis de acesso por tipo de usuário</strong> e uso de padrões corporativos de segurança da informação definidos pela ANTAQ.
-                </p>
-<i class="fas fa-shield-alt card-icon-bg"></i>
-</div>
-<!-- Card 4 -->
-<div class="card">
-<div class="card-header">
-<span class="card-number">Tópico 04</span>
-<p class="card-title">Proteção e Integridade dos Dados</p>
-</div>
-<p class="card-desc">
-                    Armazenamento dos dados diretamente no banco Oracle, com mecanismos de <strong>backup, recuperação</strong> e controle de integridade, reduzindo o risco de perda, corrupção ou uso indevido das informações patrimoniais.
-                </p>
-<i class="fas fa-laptop-code card-icon-bg"></i>
-</div>
-<!-- Card 5 -->
-<div class="card">
-<div class="card-header">
-<span class="card-number">Tópico 05</span>
-<p class="card-title">Monitoramento e Rastreabilidade</p>
-</div>
-<p class="card-desc">
-                    Registro de ações de usuários, logs de acesso e trilhas de auditoria no ambiente Oracle, permitindo <strong>rastrear alterações</strong>, apoiar a governança e responder a demandas de controle interno e externo.
-                </p>
-<i class="fas fa-sync-alt card-icon-bg"></i>
+<div class="chart-card col-span-1 flex flex-col">
+<p class="text-brand-primary font-montserrat font-bold text-xl mb-1 flex items-center gap-2"><i class="fas fa-share-from-square text-brand-secondary"></i> Encaminhadas</p>
+<p class="text-gray-400 text-sm mb-2">Total no trimestre: <strong class="text-brand-primary">12</strong></p>
+<div class="flex-1 relative"><canvas id="chartEncaminhadas"></canvas></div>
 </div>
 </div>
 <!-- Footer -->
-<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">4 / 16</p>
+<div class="px-16 pb-8 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs">Relatório Trimestral 2026 · Ouvidoria da ANTAQ — 1º Trimestre (Jan–Mar)</p>
+<p class="text-gray-300 text-xs font-mono">4 / 11</p>
 </div>
-<!-- Background Decor -->
-<div class="bg-shape"></div>
 </div>
+<script>
+const monthColors = ['#0070C0', '#0090C0', '#103050'];
+const valueLabels = {
+  id: 'valueLabels',
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    ctx.save();
+    ctx.font = '700 16px Montserrat, sans-serif';
+    ctx.fillStyle = '#103050';
+    ctx.textAlign = 'center';
+    chart.data.datasets.forEach((ds, di) => {
+      chart.getDatasetMeta(di).data.forEach((bar, i) => {
+        ctx.fillText(ds.data[i], bar.x, bar.y - 8);
+      });
+    });
+    ctx.restore();
+  }
+};
+function makeBar(id, data) {
+  new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: { labels: ['Jan', 'Fev', 'Mar'], datasets: [{ data, backgroundColor: monthColors, borderRadius: 6, maxBarThickness: 80 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 22 } },
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 14, weight: '600' } } },
+        y: { beginAtZero: true, grid: { color: '#eef2f7' }, ticks: { color: '#9ca3af', font: { size: 12 } } }
+      }
+    },
+    plugins: [valueLabels]
+  });
+}
+makeBar('chartRecebidas', [90, 129, 85]);
+makeBar('chartArquivadas', [17, 16, 13]);
+makeBar('chartEncaminhadas', [3, 3, 6]);
+</script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>
