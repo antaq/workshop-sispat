@@ -4,124 +4,296 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Manifestações por Canal - Relatório Trimestral Ouvidoria ANTAQ</title>
+<title>Solicite seu Acesso Externo</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
         html { font-size: 26px; }
-        body { margin: 0; padding: 0; background-color: #f3f4f6; overflow: hidden; }
-        .slide-container {
-            width: 100vw; height: 100vh; position: relative;
-            display: flex; flex-direction: column;
-            background-color: #ffffff; overflow: hidden;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
             font-family: 'Open Sans', sans-serif;
         }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        .text-brand-primary { color: #103050; }
-        .text-brand-secondary { color: #0070C0; }
-        .bg-brand-secondary { background-color: #0070C0; }
-        .top-accent { height: 8px; background-color: #103050; width: 100%; }
-        .top-accent-secondary { height: 4px; background-color: #0070C0; width: 100%; }
-        /* ===== Interatividade ===== */
-        .chart-card, .canal-card { transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease, background-color .28s ease; }
-        .chart-card:hover, .canal-card:hover { transform: translateY(-7px); box-shadow: 0 22px 42px -12px rgba(16, 48, 80,.30); border-color: #0070C0; }
-        .canal-card:hover { background-color: #D8EEF8; }
-        .canal-card i { transition: transform .3s ease; }
-        .canal-card:hover i { transform: scale(1.18); }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        .canal-card { animation: fadeIn .5s ease both; }
-        .canal-card:nth-child(2){ animation-delay:.1s; }
-        .canal-card:nth-child(3){ animation-delay:.2s; }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-        .chart-card {
-            background-color: #ffffff; border: 2px solid #E2E8F0; border-radius: 16px;
-            box-shadow: 0 8px 20px -8px rgba(16, 48, 80, 0.18); padding: 1.4rem 1.8rem;
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
         }
-        .canal-card { border: 2px solid #C0E0F0; background-color: #EAF3FB; border-radius: 14px; padding: 1.4rem; }
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
+        }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary {
+            background-color: #003366;
+        }
+        .text-brand-secondary {
+            color: #0066CC;
+        }
+        .bg-brand-secondary {
+            background-color: #0066CC;
+        }
+        
+        /* Main Layout */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+            padding: 20px 80px 30px;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        /* Left Column - Contact Info */
+        .contact-column {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .email-card {
+            background-color: #F0F9FF;
+            border: 2px solid #BAE6FD;
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.15);
+            margin-top: 20px;
+        }
+        
+        .email-icon {
+            font-size: 48px;
+            color: #0066CC;
+            margin-bottom: 20px;
+        }
+        
+        .email-address {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+        
+        .email-label {
+            font-size: 14px;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Right Column - Requirements List */
+        .requirements-column {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+            background-color: #F8FAFC;
+            border-radius: 16px;
+            padding: 24px 32px;
+            position: relative;
+            border-left: 8px solid #003366;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .requirements-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #003366;
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .req-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .req-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            transition: transform 0.2s ease;
+        }
+        
+        .req-item:hover {
+            transform: translateX(5px);
+            border-color: #0066CC;
+        }
+        
+        .req-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #E0F2FE;
+            color: #0066CC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 14px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .req-text {
+            font-weight: 600;
+            color: #334155;
+            font-size: 16px;
+        }
+        
+        .req-asterisk {
+            color: #EF4444;
+            margin-left: 4px;
+        }
+
+        /* Decorative Background */
+        .bg-decoration {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 300px;
+            color: #F1F5F9;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .info-box {
+            margin-top: 24px;
+            padding: 16px;
+            background-color: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+            border-radius: 4px;
+            display: flex;
+            gap: 12px;
+        }
     </style>
 </head>
 <body>
 <div class="slide-container">
-<div class="top-accent"></div>
-<div class="top-accent-secondary"></div>
+<!-- Top Accents -->
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
 <!-- Header -->
-<div class="flex items-center justify-between px-16 pt-12 pb-4 z-10">
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<div class="flex items-center gap-3 mb-2">
-<div class="w-1 h-8 bg-brand-secondary"></div>
-<p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Manifestações por Canal</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Solicite seu Acesso Externo</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Procedimento para cadastro de novos usuários no SisPAT</p>
 </div>
-<p class="text-gray-500 font-medium ml-4 text-lg">Distribuição por canal de atendimento no 1º trimestre de 2026</p>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-user-plus text-brand-secondary text-xl"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">CADASTRO</p>
 </div>
-<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-diagram-project text-xl" aria-hidden="true"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">TRIMESTRE</p>
 </div>
 </div>
 <!-- Main Content -->
-<div class="flex-1 grid grid-cols-3 gap-8 px-16 pb-10 z-10">
-<!-- Chart -->
-<div class="chart-card col-span-2 flex flex-col">
-<div class="flex-1 relative"><canvas id="chartCanal"></canvas></div>
+<div class="content-wrapper">
+<!-- Left Column: Contact & Action -->
+<div class="contact-column">
+<p class="text-gray-600 text-lg mb-4 leading-relaxed">
+                    Para obter acesso ao sistema, é necessário enviar uma solicitação formal via e-mail para a equipe de administração do SisPAT.
+                </p>
+<div class="email-card">
+<div class="email-icon">
+<i class="fas fa-envelope-open-text"></i>
 </div>
-<!-- Cards -->
-<div class="flex flex-col gap-4 justify-center">
-<div class="canal-card flex items-center justify-between">
-<div class="flex items-center gap-3"><i class="fas fa-headset text-brand-secondary text-3xl"></i><span class="text-brand-primary font-montserrat font-bold text-xl">Omnichannel</span></div>
-<span class="font-montserrat font-black text-4xl text-brand-primary">382</span>
+<p class="email-label">Envie sua solicitação para:</p>
+<p class="email-address"><a href="mailto:inventario@antaq.gov.br">inventario@antaq.gov.br</a></p>
 </div>
-<div class="canal-card flex items-center justify-between">
-<div class="flex items-center gap-3"><i class="fas fa-comment-dots text-brand-secondary text-3xl"></i><span class="text-brand-primary font-montserrat font-bold text-xl">Fala.BR</span></div>
-<span class="font-montserrat font-black text-4xl text-brand-primary">304</span>
 </div>
-<div class="canal-card flex items-center justify-between">
-<div class="flex items-center gap-3"><i class="fas fa-envelope text-brand-secondary text-3xl"></i><span class="text-brand-primary font-montserrat font-bold text-xl">E-mail</span></div>
-<span class="font-montserrat font-black text-4xl text-brand-primary">70</span>
+<!-- Right Column: Required Information Checklist -->
+<div class="requirements-column">
+<div class="requirements-title">
+<i class="fas fa-clipboard-check text-brand-secondary"></i>
+<span>Informações Obrigatórias</span>
 </div>
+                <div class="req-list">
+                    <div class="req-item">
+                        <div class="req-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <p class="req-text">Nome Completo <span class="req-asterisk">*</span></p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <p class="req-text">CPF <span class="req-asterisk">*</span></p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-icon">
+                            <i class="fas fa-at"></i>
+                        </div>
+                        <p class="req-text">E-mail Institucional <span class="req-asterisk">*</span></p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <p class="req-text">CNPJ (Porto/Organização) <span class="req-asterisk">*</span></p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <p class="req-text">Instrumento de Mandato (Procuração) <span class="req-asterisk">*</span></p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-500 italic mb-1 leading-snug">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Certifique-se de enviar todos os dados corretamente para evitar atrasos na liberação do seu usuário.
+                    </p>
+                    <p class="text-xs text-gray-500 italic mb-1 leading-snug">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>
+                        O CNPJ informado deve ser o mesmo que consta no contrato firmado entre o Porto/Organização e a ANTAQ.
+                    </p>
+                    <p class="text-xs text-gray-500 italic leading-snug">
+                        <i class="fas fa-gavel mr-1"></i>
+                        O instrumento procuratório deve outorgar ao solicitante poderes de representação para atuar em nome da pessoa jurídica perante a ANTAQ.
+                    </p>
+                </div>
+<!-- Background Icon -->
+<i class="fas fa-file-contract bg-decoration"></i>
 </div>
 </div>
 <!-- Footer -->
-<div class="px-16 pb-8 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs">Relatório Trimestral 2026 · Ouvidoria da ANTAQ — 1º Trimestre (Jan–Mar)</p>
-<p class="text-gray-300 text-xs font-mono">7 / 11</p>
+<div class="px-12 pb-6 pt-2 flex justify-between items-center z-10">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
+<p class="text-gray-300 text-xs font-mono">7 / 16</p>
 </div>
 </div>
-<script>
-const labels = ['Fala.BR', 'E-mail', 'Omnichannel'];
-const data = [304, 70, 382];
-const colors = ['#0070C0', '#0070C0', '#103050'];
-const valueLabels = {
-  id: 'valueLabels',
-  afterDatasetsDraw(chart) {
-    const { ctx } = chart;
-    ctx.save();
-    ctx.font = '700 18px Montserrat, sans-serif';
-    ctx.fillStyle = '#103050';
-    ctx.textAlign = 'center';
-    chart.getDatasetMeta(0).data.forEach((bar, i) => {
-      ctx.fillText(chart.data.datasets[0].data[i], bar.x, bar.y - 8);
-    });
-    ctx.restore();
-  }
-};
-new Chart(document.getElementById('chartCanal'), {
-  type: 'bar',
-  data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 6, maxBarThickness: 120 }] },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    layout: { padding: { top: 26 } },
-    plugins: { legend: { display: false }, tooltip: { enabled: false } },
-    scales: {
-      x: { grid: { display: false }, ticks: { color: '#374151', font: { size: 15, weight: '600' } } },
-      y: { beginAtZero: true, grid: { color: '#eef2f7' }, ticks: { color: '#9ca3af', font: { size: 12 } } }
-    }
-  },
-  plugins: [valueLabels]
-});
-</script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

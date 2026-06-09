@@ -4,122 +4,396 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Glossário - Relatório Trimestral Ouvidoria ANTAQ</title>
+<title>Cadastro de Bem - Visão Geral</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
         html { font-size: 26px; }
-        body { margin: 0; padding: 0; background-color: #f3f4f6; overflow: hidden; }
-        .slide-container {
-            width: 100vw; height: 100vh; position: relative;
-            display: flex; flex-direction: column;
-            background-color: #ffffff; overflow: hidden;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            overflow: hidden;
             font-family: 'Open Sans', sans-serif;
         }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        .text-brand-primary { color: #103050; }
-        .text-brand-secondary { color: #0070C0; }
-        .bg-brand-secondary { background-color: #0070C0; }
-        .top-accent { height: 8px; background-color: #103050; width: 100%; }
-        .top-accent-secondary { height: 4px; background-color: #0070C0; width: 100%; }
-        /* ===== Interatividade ===== */
-        .glossary-card { transition: transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease, background-color .28s ease; }
-        .glossary-card:hover { transform: translateY(-7px); border-color:#0070C0; background-color:#D8EEF8; box-shadow: 0 22px 42px -12px rgba(0, 112, 192,.32); }
-        .glossary-icon { transition: transform .3s ease; }
-        .glossary-card:hover .glossary-icon { transform: scale(1.12) rotate(-6deg); }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        .glossary-card { animation: fadeIn .5s ease both; }
-        .glossary-card:nth-child(2){animation-delay:.08s}
-        .glossary-card:nth-child(3){animation-delay:.16s}
-        .glossary-card:nth-child(4){animation-delay:.24s}
-        .glossary-card:nth-child(5){animation-delay:.32s}
-        .glossary-card:nth-child(6){animation-delay:.40s}
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-        .glossary-card {
-            background-color: #EAF3FB; border: 2px solid #C0E0F0; border-radius: 16px;
-            padding: 1.5rem 1.6rem; display: flex; gap: 1.1rem; align-items: flex-start;
-            box-shadow: 0 6px 16px -8px rgba(0, 112, 192, 0.18);
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            overflow: hidden;
         }
-        .glossary-icon {
-            flex-shrink: 0; width: 3.2rem; height: 3.2rem; border-radius: 12px;
-            background: linear-gradient(160deg, #103050 0%, #0070C0 100%);
-            color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        .header-bar {
+            background-color: #003366;
+            height: 12px;
+            width: 100%;
         }
-        .bg-pattern { position: absolute; bottom: -50px; right: -50px; width: 400px; height: 400px; opacity: 0.03; z-index: 0; color: #103050; }
+        .secondary-bar {
+            background-color: #0066CC;
+            height: 6px;
+            width: 100%;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-brand-primary {
+            color: #003366;
+        }
+        .bg-brand-primary { background-color: #003366; }
+        .text-brand-secondary { color: #0066CC; }
+        .bg-brand-secondary { background-color: #0066CC; }
+
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            padding: 16px 56px 28px 56px;
+            flex-direction: row;
+            gap: 24px;
+            min-height: 0;
+        }
+
+        .steps-side {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            transition: flex 0.4s ease;
+        }
+
+        .video-side {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            transition: flex 0.4s ease;
+        }
+
+        /* Expanded state: hide cards, video takes full width */
+        .content-wrapper.video-expanded .steps-side {
+            display: none;
+        }
+        .content-wrapper.video-expanded .video-side {
+            flex: 1;
+        }
+        /* When expanded, center the header content so the Reduzir button
+           stays outside the 15% lateral click-zones used for slide nav. */
+        .content-wrapper.video-expanded .video-header {
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .step-card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 5px solid #0066CC;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            overflow: hidden;
+            min-height: 0;
+            position: relative;
+        }
+
+        .step-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            background-color: #FFFFFF;
+        }
+
+        .step-card:nth-child(1) { border-left-color: #94A3B8; }
+        .step-card:nth-child(2) { border-left-color: #60A5FA; }
+        .step-card:nth-child(3) { border-left-color: #3B82F6; }
+        .step-card:nth-child(4) { border-left-color: #2563EB; }
+        .step-card:nth-child(5) { border-left-color: #1D4ED8; }
+        .step-card:nth-child(6) { border-left-color: #003366; }
+
+        .step-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #1E3A8A;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background-color: #DBEAFE;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .step-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 19px;
+            color: #0F172A;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .step-desc {
+            font-size: 16px;
+            color: #4B5563;
+            line-height: 1.45;
+            max-width: 88%;
+        }
+
+        .step-connector {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            color: #0066CC;
+            font-size: 28px;
+            animation: step-arrow-pulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes step-arrow-pulse {
+            0%   { transform: translate(-8px, -50%); opacity: 0.2; }
+            50%  { transform: translate(8px, -50%);  opacity: 1;   }
+            100% { transform: translate(-8px, -50%); opacity: 0.2; }
+        }
+
+        .step-icon-bg {
+            position: absolute;
+            right: -6px;
+            bottom: -6px;
+            font-size: 48px;
+            color: #E5E7EB;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        .step-connector { display: none; }
+
+        /* Video panel */
+        .video-panel {
+            background-color: #0F172A;
+            border-radius: 14px;
+            border: 1px solid #1E293B;
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            align-self: flex-start;
+            width: 100%;
+            position: relative;
+        }
+        .video-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background-color: #1E293B;
+            border-bottom: 1px solid #334155;
+        }
+        .video-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .video-header-title i { color: #38BDF8; }
+        .video-expand-btn {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: #38BDF8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .video-expand-btn:hover {
+            background-color: rgba(56, 189, 248, 0.25);
+            color: #FFFFFF;
+        }
+        .video-frame {
+            background-color: #000;
+            display: block;
+            line-height: 0;
+        }
+        .video-frame video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .footer-tip {
+            margin-top: 12px;
+            padding: 12px 16px;
+            background-color: #EFF6FF;
+            border-radius: 8px;
+            border: 1px solid #BFDBFE;
+            font-size: 14px;
+            color: #1E40AF;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
 <div class="slide-container">
-<div class="top-accent"></div>
-<div class="top-accent-secondary"></div>
-<!-- Header -->
-<div class="flex items-center justify-between px-16 pt-12 pb-4 z-10">
+<div class="header-bar"></div>
+<div class="secondary-bar"></div>
+<div class="px-10 pt-6 pb-2 relative z-20">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-8 bg-brand-primary"></div>
 <div>
-<div class="flex items-center gap-3 mb-2">
-<div class="w-1 h-8 bg-brand-secondary"></div>
-<p class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Glossário</p>
+<h1 class="text-3xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Cadastro de Bem - Visão Geral</h1>
+<p class="text-gray-500 font-medium text-lg mt-0.5">Ideia de cada etapa do cadastro no sistema</p>
 </div>
-<p class="text-gray-500 font-medium ml-4 text-lg">Tipos de manifestação — definições da Ouvidoria-Geral da União / Fala.BR</p>
-</div>
-<div class="flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-book text-xl" aria-hidden="true"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">DEFINIÇÕES</p>
-</div>
-</div>
-<!-- Main Content -->
-<div class="flex-1 grid grid-cols-3 grid-rows-2 gap-6 px-16 pb-10 z-10">
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-triangle-exclamation"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Reclamação</p>
-<p class="text-gray-600 text-base leading-snug">Demonstração de insatisfação relativa a serviço público.</p>
-</div>
-</div>
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-hand-point-up"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Solicitação</p>
-<p class="text-gray-600 text-base leading-snug">Pedido para adoção de providências ou de serviços.</p>
-</div>
-</div>
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-gavel"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Denúncia</p>
-<p class="text-gray-600 text-base leading-snug">Comunicação de irregularidade ou ato ilícito praticado contra a administração pública.</p>
-</div>
-</div>
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-lightbulb"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Sugestão</p>
-<p class="text-gray-600 text-base leading-snug">Proposta de aprimoramento de serviços ou políticas públicas.</p>
-</div>
-</div>
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-thumbs-up"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Elogio</p>
-<p class="text-gray-600 text-base leading-snug">Manifestação de satisfação ou reconhecimento de um serviço.</p>
-</div>
-</div>
-<div class="glossary-card">
-<div class="glossary-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-<div>
-<p class="text-brand-primary font-montserrat font-bold text-xl mb-1">Simplifique</p>
-<p class="text-gray-600 text-base leading-snug">Solicitação de simplificação de serviço ou processo público (Decreto nº 9.094/2017).</p>
+<div class="ml-auto flex items-center gap-2 opacity-80">
+<i class="fas fa-list-ol text-brand-secondary text-lg"></i>
+<p class="font-montserrat font-bold text-gray-400 text-xs tracking-widest">PROCESSO</p>
 </div>
 </div>
 </div>
-<!-- Footer -->
-<div class="px-16 pb-8 flex justify-between items-center z-10">
-<p class="text-gray-400 text-xs">Relatório Trimestral 2026 · Ouvidoria da ANTAQ — 1º Trimestre (Jan–Mar)</p>
-<p class="text-gray-300 text-xs font-mono">9 / 11</p>
+
+<div class="content-wrapper relative" id="contentWrapper">
+<div class="steps-side">
+<div class="steps-grid z-10">
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 1</span>
+                        <p class="step-title">Descrição</p>
+                    </div>
+                    <p class="step-desc">Nesta aba, são registradas as <strong>informações gerais do bem e da empresa</strong>, como identificação, especificações técnicas e dados que individualizam o ativo no patrimônio.
+                    </p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-align-left step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 2</span>
+                        <p class="step-title">Categorização</p>
+                    </div>
+                    <p class="step-desc">Aqui, o bem é enquadrado na <strong>Nomenclatura Comum do Mercosul (NCM)</strong>. São coletados o Capítulo, a Posição e a Subposição do item.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-layer-group step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 3</span>
+                        <p class="step-title">Mensuração</p>
+                    </div>
+                    <p class="step-desc">Nesta etapa, inserem-se os <strong>dados financeiros e contábeis</strong>: valor original de compra, valor residual, vida útil e demais informações necessárias à contabilização do ativo.</p>
+                    <i class="fas fa-calculator step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 4</span>
+                        <p class="step-title">Classificação</p>
+                    </div>
+                    <p class="step-desc">Define-se a <strong>natureza, a situação de uso, o grupo ao qual o bem pertence e o tipo de vinculação contratual</strong>, entre outras informações pertinentes.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-clipboard-check step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 5</span>
+                        <p class="step-title">Localização</p>
+                    </div>
+                    <p class="step-desc">Indica a <strong>localização exata do bem</strong> (latitude e longitude), permitindo a rastreabilidade física e o apoio à realização de inventários.</p>
+                    <div class="step-connector">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <i class="fas fa-map-marker-alt step-icon-bg"></i>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">Passo 6</span>
+                        <p class="step-title">Anexos</p>
+                    </div>
+                    <p class="step-desc">Espaço destinado ao <strong>registro fotográfico</strong> do bem.</p>
+                    <i class="fas fa-paperclip step-icon-bg"></i>
+                </div>
+
 </div>
-<div class="bg-pattern"><i class="fas fa-book text-9xl"></i></div>
 </div>
+
+<!-- Video side -->
+<div class="video-side">
+<div class="video-panel">
+<div class="video-header">
+<button class="video-expand-btn" id="videoExpandBtn" type="button" onclick="toggleVideoExpand()">
+<i class="fas fa-expand" id="videoExpandIcon"></i>
+<span id="videoExpandLabel">Expandir</span>
+</button>
+<div class="video-header-title">
+<i class="fas fa-circle-play"></i>
+<span>Demonstração — Cadastro de Bem</span>
+</div>
+</div>
+<div class="video-frame">
+<video id="demoVideo" src="Imagens/SisPATvideo.webm" autoplay loop muted playsinline preload="auto"></video>
+</div>
+</div>
+</div>
+</div>
+
+<div class="px-10 pb-4 pt-1 flex justify-between items-center z-20">
+<p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
+<p class="text-gray-300 text-xs font-mono">9 / 16</p>
+</div>
+</div>
+<script>
+function toggleVideoExpand() {
+  const wrapper = document.getElementById('contentWrapper');
+  const icon = document.getElementById('videoExpandIcon');
+  const label = document.getElementById('videoExpandLabel');
+  const expanded = wrapper.classList.toggle('video-expanded');
+  if (expanded) {
+    icon.className = 'fas fa-compress';
+    label.textContent = 'Reduzir';
+  } else {
+    icon.className = 'fas fa-expand';
+    label.textContent = 'Expandir';
+  }
+}
+</script>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Evolução do Controle de Inventário</title>
+<title>Ambientes de Integração</title>
 <link rel="icon" type="image/png" href="https://prd-apex.antaq.gov.br/ords/r/sfc/120/files/static/v119/icons/app-icon-32.png"/>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -92,12 +92,12 @@
         }
         
         .icon-circle-left {
-            background-color: #FFE4E6;
-            color: #BE123C;
+            background-color: #FEF3C7; /* Amber-100 for Test */
+            color: #D97706; /* Amber-600 */
         }
         
         .icon-circle-right {
-            background-color: #DBEAFE;
+            background-color: #DBEAFE; /* Blue-100 for Prod */
             color: #0066CC;
         }
         
@@ -138,15 +138,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
         
-        .arrow-connector {
-            position: absolute;
-            left: 50%;
-            top: 22%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background-color: #CBD5E1;
-            z-index: 10;
+        .code-pill {
+            font-family: 'Courier New', monospace;
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #334155;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -160,12 +159,12 @@
 <div class="flex items-center gap-3">
 <div class="w-1.5 h-10 bg-brand-primary"></div>
 <div>
-<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Evolução do Controle</h1>
-<p class="text-gray-500 font-medium text-lg mt-1">Transformação digital na gestão patrimonial dos portos</p>
+<h1 class="text-4xl font-montserrat font-bold text-brand-primary uppercase tracking-tight">Ambientes de Integração</h1>
+<p class="text-gray-500 font-medium text-lg mt-1">Segregação segura para desenvolvimento e operação</p>
 </div>
 <div class="ml-auto flex items-center gap-2 opacity-80 text-brand-secondary">
-<i class="fas fa-clock-rotate-left text-xl" aria-hidden="true"></i>
-<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">HISTÓRICO</p>
+<i class="fas fa-plug text-xl" aria-hidden="true"></i>
+<p class="font-montserrat font-bold text-gray-400 text-sm tracking-widest">INTEGRAÇÃO</p>
 </div>
 </div>
 </div>
@@ -173,82 +172,82 @@
 <div class="comparison-container">
 <!-- Center VS Badge -->
 <div class="vs-badge">VS</div>
-<!-- Left Side - ANTES -->
+<!-- Left Side - TESTE -->
 <div class="side-panel side-left">
 <div class="flex flex-col items-center mb-8">
 <div class="icon-circle icon-circle-left">
-<i class="fas fa-file-excel text-4xl"></i>
+<i class="fas fa-flask text-4xl"></i>
 </div>
-<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">ANTES</h2>
-<p class="text-gray-500 font-medium mt-1">Planilha Descentralizada</p>
+<h2 class="text-2xl font-montserrat font-bold text-gray-700 uppercase tracking-wide">TESTE</h2>
+<p class="text-gray-500 font-medium mt-1">Sandbox / Homologação</p>
 </div>
 <div class="flex-1">
 <div class="list-item">
-<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<i class="fas fa-key text-yellow-500 list-icon"></i>
 <div>
-<p class="font-bold text-gray-700">Dados Dispersos</p>
-<p class="text-sm text-gray-500 mt-1">Informações espalhadas em múltiplos arquivos e versões diferentes.</p>
+<p class="font-bold text-gray-700">Prefixo da Chave</p>
+<p class="text-sm text-gray-500 mt-1"><span class="code-pill">sispat_test_...</span></p>
 </div>
 </div>
 <div class="list-item">
-<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<i class="fas fa-vial text-yellow-500 list-icon"></i>
 <div>
-<p class="font-bold text-gray-700">Risco de Inconsistência</p>
-<p class="text-sm text-gray-500 mt-1">Erros manuais frequentes e dificuldade de padronização.</p>
+<p class="font-bold text-gray-700">Finalidade</p>
+<p class="text-sm text-gray-500 mt-1">Exclusivo para desenvolvimento, validações de API e testes de carga.</p>
 </div>
 </div>
 <div class="list-item">
-<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<i class="fas fa-user-shield text-yellow-500 list-icon"></i>
 <div>
-<p class="font-bold text-gray-700">Baixa Rastreabilidade</p>
-<p class="text-sm text-gray-500 mt-1">Impossível auditar quem alterou o que e quando.</p>
+<p class="font-bold text-gray-700">Dados Seguros</p>
+<p class="text-sm text-gray-500 mt-1">Nunca utilize dados reais. Use apenas dados fictícios para simulação.</p>
 </div>
 </div>
 <div class="list-item">
-<i class="fas fa-times-circle text-red-500 list-icon"></i>
+<i class="fas fa-redo-alt text-yellow-500 list-icon"></i>
 <div>
-<p class="font-bold text-gray-700">Consolidação Manual</p>
-<p class="text-sm text-gray-500 mt-1">Horas gastas apenas para juntar informações de diferentes fontes.</p>
+<p class="font-bold text-gray-700">Reset Periódico</p>
+<p class="text-sm text-gray-500 mt-1">O ambiente pode ser limpo periodicamente sem aviso prévio.</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Right Side - DEPOIS -->
+<!-- Right Side - PRODUÇÃO -->
 <div class="side-panel side-right">
 <div class="flex flex-col items-center mb-8">
 <div class="icon-circle icon-circle-right">
-<i class="fas fa-network-wired text-4xl"></i>
+<i class="fas fa-rocket text-4xl"></i>
 </div>
-<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">DEPOIS</h2>
-<p class="text-brand-primary font-medium mt-1">Sistema Centralizado e Integrado</p>
+<h2 class="text-2xl font-montserrat font-bold text-brand-secondary uppercase tracking-wide">PRODUÇÃO</h2>
+<p class="text-brand-primary font-medium mt-1">Ambiente Real / Live</p>
 </div>
 <div class="flex-1">
 <div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<i class="fas fa-key text-brand-secondary list-icon"></i>
 <div>
-<p class="font-bold text-brand-primary">Base Única e Confiável</p>
-<p class="text-sm text-gray-600 mt-1">Dados centralizados acessíveis em tempo real por todos os autorizados.</p>
+<p class="font-bold text-brand-primary">Prefixo da Chave</p>
+<p class="text-sm text-gray-600 mt-1"><span class="code-pill">sispat_live_...</span></p>
 </div>
 </div>
 <div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
 <i class="fas fa-check-circle text-green-500 list-icon"></i>
 <div>
-<p class="font-bold text-brand-primary">Integridade dos Dados</p>
-<p class="text-sm text-gray-600 mt-1">Validações automáticas e padronização forçada pelo sistema.</p>
+<p class="font-bold text-brand-primary">Finalidade</p>
+<p class="text-sm text-gray-600 mt-1">Uso exclusivo para operações reais e oficiais do sistema.</p>
 </div>
 </div>
 <div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<i class="fas fa-file-contract text-green-500 list-icon"></i>
 <div>
-<p class="font-bold text-brand-primary">Auditoria Completa</p>
-<p class="text-sm text-gray-600 mt-1">Histórico detalhado de todas as alterações e responsáveis.</p>
+<p class="font-bold text-brand-primary">Auditoria Legal</p>
+<p class="text-sm text-gray-600 mt-1">Todas as ações são registradas e possuem valor legal/administrativo.</p>
 </div>
 </div>
 <div class="list-item" style="background-color: rgba(255, 255, 255, 0.8); border-left: 4px solid #0066CC;">
-<i class="fas fa-check-circle text-green-500 list-icon"></i>
+<i class="fas fa-lock text-green-500 list-icon"></i>
 <div>
-<p class="font-bold text-brand-primary">Gestão em Tempo Real</p>
-<p class="text-sm text-gray-600 mt-1">Dashboards e relatórios gerenciais instantâneos.</p>
+<p class="font-bold text-brand-primary">Alta Criticidade</p>
+<p class="text-sm text-gray-600 mt-1">Ambiente oficial em operação. Alterações são definitivas.</p>
 </div>
 </div>
 </div>
@@ -257,7 +256,7 @@
 <!-- Footer -->
 <div class="px-12 pb-6 pt-2 bg-white flex justify-between items-center border-t border-gray-100">
 <p class="text-gray-400 text-xs font-montserrat">Workshop SisPAT - Sistema de Controle Patrimonial dos Portos Organizados</p>
-<p class="text-gray-300 text-xs font-mono">3 / 16</p>
+<p class="text-gray-300 text-xs font-mono">12 / 16</p>
 </div>
 </div>
 <script>document.addEventListener("keydown",function(e){if(["ArrowRight","ArrowLeft","PageDown","PageUp","Home","End"," ","f","F"].indexOf(e.key)!==-1){e.preventDefault();window.parent.postMessage({type:"slide-nav",key:e.key},"*");}});</script>
